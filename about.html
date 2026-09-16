@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A personal portfolio website for Khanh, a designer and aspiring coder.">
+    <meta name="keywords" content="designer, portfolio, coding, RMIT, digital media">
+    <title>About Me</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <button id="hamburger-menu">
+            <img src="assets/images/back.png" alt="Menu" id="hamburger-icon">
+        </button>
+        <nav>
+            <ul id="nav-menu"> 
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="works.html">WORKS</a></li>
+                <li><a href="contact.html" id="contact-link" class="nav-link">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="grid-container">
+        <section id="first-page" class="page left-section">
+            <div class="who-am-I">
+                <div class="image-wrapper">
+                    <div class="shake-wrapper">
+                        <img class="first-image" src="assets/images/w.png">
+                    </div>
+                </div> 
+                <div class="image-wrapper">
+                    <?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 165.13 243.98">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #223f93;
+        stroke-miterlimit: 10;
+        stroke-width: 4px;
+      }
+    </style>
+  </defs>
+  <path class="cls-1" d="M1.69,176.77c6.16-9.73,16.46-22.99,32.83-32.83,30.92-18.58,50.08-4.86,75.83-19.54,32.14-18.32,49.64-66.65,36.74-100.85-.62-1.64-7.45-20.39-26.19-21.5-20.05-1.18-44.83,19.76-51.99,47.3-12.9,49.64,22.01,76.3,12.51,126.65-6.26,33.16-25.9,57.14-33.23,55.12-6.27-1.73-9.43-22.33,2.35-43,12.58-22.08,43.46-41.18,64.89-29.71,16.01,8.57,22.52,45.28,14.1,75.13-1.73,6.13,5.34,10.91,10.39,7.05,8.55-6.55,17.32-14.06,24.76-15.73"/>
+</svg> </div>
+                <div class="image-wrapper">
+                    <img class="second-image" src="assets/images/flower2.png">
+                </div>
+                <div class="image-wrapper">
+                    <img class="third-image" src="assets/images/a.png">
+                </div>
+                <div class="image-wrapper">
+                    <img class="fourth-image" src="assets/images/m.png">
+                </div>
+                
+                <div class="image-wrapper">
+                    <img class="sixth-image" src="assets/images/designed-I.png">
+                </div>
+                <div class="image-wrapper">
+                    <img class="seventh-image" src="assets/images/cham hoi.png">
+                </div>
+            </div>
+
+            </div>
+        </section>
+
+        <section id="second-page" class="page right-section">
+                
+                <div class="background-wrapper">
+                    <img class="ninth-image" src="assets/images/background.png" alt="Background">
+                    
+                    <div class="placeholder">
+                        <p class="intro">
+                            Nguyen Hoang Dan Khanh<br>
+                            2D/3D Visual Designer<br><br>
+                            Also known as Bunny, Khanh is a 2D/3D visual creative whose practice focuses on mascot design, character-driven imagery, and brand storytelling. Working across illustration, animation, and 3D production, she builds playful visual worlds that transform ideas into distinctive characters and cohesive brand experiences.
+                        </p>
+                    </div>
+        </section>
+    </main>
+    <h3 class="software-title">SOFTWARE</h3>
+    <section id="app" class="app-section">
+        <div class="app-content">
+            <img class="logo ai-logo" src="assets/images/ai_logo.png" alt="Adobe Illustrator Logo">
+            <img class="logo capcut-logo" src="assets/images/capcut.png" alt="CapCut Logo">
+            <img class="logo pr-logo" src="assets/images/pr_logo.png" alt="Adobe Premiere Logo">
+            <img class="logo figma-logo" src="assets/images/figma_logo.png" alt="Figma Logo">
+            <img class="logo ps-logo" src="assets/images/pts.png" alt="Photoshop Logo">
+            <img class="logo vscode-logo" src="assets/images/visual_code.png" alt="Visual Studio Code Logo">
+            <img class="logo audacity-logo" src="assets/images/audacity.png" alt="Audacity Logo">
+        </div>
+    </section>
+    <script>
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+        const hamburgerIcon = document.getElementById('hamburger-icon'); // Icon bên trong nút
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = document.querySelectorAll('#nav-menu a');
+        
+        // Toggle menu
+        hamburgerMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+            hamburgerMenu.classList.toggle('active');
+            document.body.style.overflow = navMenu.classList.contains('show') ? 'hidden' : 'auto';
+        
+            // Đổi hình ảnh
+            if (hamburgerIcon.src.includes('assets/images/back.png')) {
+                hamburgerIcon.src = 'assets/images/unlock.png'; // Đổi thành assets/images/unlock.png khi menu mở
+            } else {
+                hamburgerIcon.src = 'assets/images/back.png'; // Đổi lại thành assets/images/back.png khi menu đóng
+            }
+        
+            console.log('Menu toggled'); // Debug
+        });
+        
+        // Đóng menu khi click bên ngoài
+        document.addEventListener('click', (event) => {
+            if (!hamburgerMenu.contains(event.target) && !navMenu.contains(event.target)) {
+                navMenu.classList.remove('show');
+                hamburgerMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+        
+                // Reset hình ảnh về assets/images/back.png khi menu đóng
+                hamburgerIcon.src = 'assets/images/back.png';
+        
+                console.log('Clicked outside menu'); // Debug
+            }
+        });
+        
+        // Đóng menu khi click vào link
+        navLinks.forEach((link) => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('show');
+                hamburgerMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+        
+                // Reset hình ảnh về assets/images/back.png khi menu đóng
+                hamburgerIcon.src = 'assets/images/back.png';
+        
+                console.log('Link clicked, menu closed'); // Debug
+            });
+        });
+        
+        
+            </script>
+            
+</body>
+
+
+</html>

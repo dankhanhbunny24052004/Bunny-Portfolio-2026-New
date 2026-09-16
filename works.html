@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A personal portfolio website for Khanh, a designer and aspiring coder.">
+    <meta name="keywords" content="designer, portfolio, coding, RMIT, digital media">
+    <title>My works</title>
+    <link rel="stylesheet" href="css/styless.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+        <button id="hamburger-menu">
+            <img src="assets/images/back.png" alt="Menu" id="hamburger-icon">
+        </button>
+        <nav>
+            <ul id="nav-menu"> 
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="works.html">WORKS</a></li>
+                <li><a href="contact.html" id="contact-link" class="nav-link">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="works-section">
+        <div class="work-text">Sound design-2024</div>
+        <div class="work-text">Content Creator-2020</div>
+        <div class="work-text">HTML/CSS-2024</div>
+        <div class="work-text">Illustration-2023</div>
+        
+        <div class="work-item">
+            <img class="ear-image" src="assets/images/ear.png" alt="Sound Design">
+            
+        </div>
+
+        <div class="work-item">
+            <img class="camera-image" src="assets/images/content_creator.png" alt="Content Creator">
+            
+        </div>
+
+        <div class="work-item">
+            <img class="web-image" src="assets/images/web_design.png" alt="HTML/CSS">
+            
+        </div>
+        <div class="work-item">
+            <img class="illustration-image" src="assets/images/illustration.png" alt="HTML/CSS">
+            
+        </div>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const earImage = document.querySelector('.ear-image');
+                const earText = document.querySelector('.work-text:nth-of-type(1)');
+        
+                const cameraImage = document.querySelector('.camera-image');
+                const cameraText = document.querySelector('.work-text:nth-of-type(2)');
+        
+                const webImage = document.querySelector('.web-image');
+                const webText = document.querySelector('.work-text:nth-of-type(3)');
+        
+                const illustrationImage = document.querySelector('.illustration-image');
+                const illustrationText = document.querySelector('.work-text:nth-of-type(4)');
+        
+                earImage.addEventListener('mouseover', () => {
+                    earText.style.opacity = '1';
+                    earText.classList.add('glow');
+                });
+        
+                earImage.addEventListener('mouseout', () => {
+                    earText.style.opacity = '0';
+                    earText.classList.remove('glow');
+                });
+        
+                cameraImage.addEventListener('mouseover', () => {
+                    cameraText.style.opacity = '1';
+                    cameraText.classList.add('glow');
+                });
+        
+                cameraImage.addEventListener('mouseout', () => {
+                    cameraText.style.opacity = '0';
+                    cameraText.classList.remove('glow');
+                });
+        
+                webImage.addEventListener('mouseover', () => {
+                    webText.style.opacity = '1';
+                    webText.classList.add('glow');
+                });
+        
+                webImage.addEventListener('mouseout', () => {
+                    webText.style.opacity = '0';
+                    webText.classList.remove('glow');
+                });
+        
+                illustrationImage.addEventListener('mouseover', () => {
+                    illustrationText.style.opacity = '1';
+                    illustrationText.classList.add('glow');
+                });
+        
+                illustrationImage.addEventListener('mouseout', () => {
+                    illustrationText.style.opacity = '0';
+                    illustrationText.classList.remove('glow');
+                });
+            });
+        </script>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const earImage = document.querySelector('.ear-image');
+                
+                earImage.addEventListener('click', () => {
+                    window.location.href = 'sound_design.html'; // Đường dẫn tới trang mới
+                });
+            });
+            document.addEventListener('DOMContentLoaded', () => {
+    const workItem = document.querySelector('.camera-image');
+
+    workItem.addEventListener('click', () => {
+        window.location.href = 'contentcreator.html';
+    });
+});
+
+        </script>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const workItem = document.querySelector('.web-image');
+        
+                workItem.addEventListener('click', () => {
+                    window.location.href = 'web.html'; // Chuyển hướng sang trang web.html
+                });
+            });
+        </script>
+        
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const workItem = document.querySelector('.illustration-image');
+        
+                workItem.addEventListener('click', () => {
+                    window.location.href = 'illustration.html'; // Chuyển hướng sang trang illustration.html
+                });
+            });
+        </script>
+        
+        
+    </main>
+    <script>
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+        const hamburgerIcon = document.getElementById('hamburger-icon'); // Icon bên trong nút
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = document.querySelectorAll('#nav-menu a');
+        
+        // Toggle menu
+        hamburgerMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+            hamburgerMenu.classList.toggle('active');
+            document.body.style.overflow = navMenu.classList.contains('show') ? 'hidden' : 'auto';
+        
+            // Đổi hình ảnh
+            if (hamburgerIcon.src.includes('assets/images/back.png')) {
+                hamburgerIcon.src = 'assets/images/unlock.png'; // Đổi thành assets/images/unlock.png khi menu mở
+            } else {
+                hamburgerIcon.src = 'assets/images/back.png'; // Đổi lại thành assets/images/back.png khi menu đóng
+            }
+        
+            console.log('Menu toggled'); // Debug
+        });
+        
+        // Đóng menu khi click bên ngoài
+        document.addEventListener('click', (event) => {
+            if (!hamburgerMenu.contains(event.target) && !navMenu.contains(event.target)) {
+                navMenu.classList.remove('show');
+                hamburgerMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+        
+                // Reset hình ảnh về assets/images/back.png khi menu đóng
+                hamburgerIcon.src = 'assets/images/back.png';
+        
+                console.log('Clicked outside menu'); // Debug
+            }
+        });
+        
+        // Đóng menu khi click vào link
+        navLinks.forEach((link) => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('show');
+                hamburgerMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+        
+                // Reset hình ảnh về assets/images/back.png khi menu đóng
+                hamburgerIcon.src = 'assets/images/back.png';
+        
+                console.log('Link clicked, menu closed'); // Debug
+            });
+        });
+        
+       
+            </script>
+</body>
+
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A personal portfolio website for Khanh, a designer and aspiring coder.">
+    <meta name="keywords" content="designer, portfolio, coding, RMIT, digital media">
+    <title>Contact</title>
+    <link rel="stylesheet" href="css/style10.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <button id="hamburger-menu">
+            <img src="assets/images/back.png" alt="Menu" id="hamburger-icon">
+        </button>
+        <nav>
+            <ul id="nav-menu"> 
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="works.html">WORKS</a></li>
+                <li><a href="contact.html" id="contact-link" class="nav-link">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="section">
+        <section class="row-1">
+            <div class="app-row">
+                <div class="app">
+                    <img class="app-image mail-image" src="assets/images/mail-icon.png" alt="gmail Design">
+                </div>
+                <div class="app">
+                    <img class="app-image facebook-image" src="assets/images/facebook-icon.png" alt="facebook-icon Design">
+                </div>
+                <div class="app">
+                    <img class="app-image ig-image" src="assets/images/ig.png" alt="ig Design">
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="contact-row">
+                <div class="contact">
+                    <img class="contact-image" src="assets/images/contact.png" alt="contact Design">
+                </div>
+                <div class="contact">
+                    <img class="phone-image" src="assets/images/phone.png" alt="phone Design">
+                </div>
+            </div>
+        </section>
+    </main>
+    
+            <script>
+document.addEventListener('DOMContentLoaded', () => {
+    // Hover effect for images
+    document.querySelectorAll('.app-image').forEach(image => {
+        image.addEventListener('mouseover', () => {
+            image.style.transform = 'scale(1.1) rotate(-5deg)';
+        });
+
+        image.addEventListener('mouseout', () => {
+            image.style.transform = 'scale(1) rotate(0deg)';
+        });
+    });
+
+    // Click actions
+    document.querySelector('.mail-image').addEventListener('click', () => {
+        window.location.href = 'mailto:dankhanh240504@gmail.com';
+    });
+
+    document.querySelector('.facebook-image').addEventListener('click', () => {
+        window.location.href = 'https://www.facebook.com/profile.php?id=100014294131191';
+    });
+
+    document.querySelector('.ig-image').addEventListener('click', () => {
+        window.location.href = 'https://www.instagram.com/nhdakhanhhhhh';
+    });
+
+    document.querySelector('.phone-image').addEventListener('click', () => {
+        // copy số điện thoại
+        const tempInput = document.createElement('input');
+        tempInput.value = '0325989771';
+        document.body.appendChild(tempInput);
+
+        // Chọn và copy nội dung trong input
+        tempInput.select();
+        document.execCommand('copy');
+
+        // Xóa input tạm sau khi copy xong
+        document.body.removeChild(tempInput);
+
+        // Thông báo đã copy thành công
+        alert('Copied: 0325989771');
+    });
+
+    if (window.matchMedia("(min-width: 768px) and (max-width: 1024px) and (orientation: portrait)").matches) {
+        const contactImage = document.querySelector('.contact-image');
+        if (contactImage) {
+            contactImage.src = 'assets/images/new-contact.png';
+        }
+    }
+});
+
+
+            </script>
+    <script>
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+        const hamburgerIcon = document.getElementById('hamburger-icon'); // Icon bên trong nút
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = document.querySelectorAll('#nav-menu a');
+        
+        // Toggle menu
+        hamburgerMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+            hamburgerMenu.classList.toggle('active');
+            document.body.style.overflow = navMenu.classList.contains('show') ? 'hidden' : 'auto';
+        
+            // Đổi hình ảnh
+            if (hamburgerIcon.src.includes('assets/images/back.png')) {
+                hamburgerIcon.src = 'assets/images/unlock.png'; // Đổi thành assets/images/unlock.png khi menu mở
+            } else {
+                hamburgerIcon.src = 'assets/images/back.png'; // Đổi lại thành assets/images/back.png khi menu đóng
+            }
+        
+            console.log('Menu toggled'); // Debug
+        });
+        
+        // Đóng menu khi click bên ngoài
+        document.addEventListener('click', (event) => {
+            if (!hamburgerMenu.contains(event.target) && !navMenu.contains(event.target)) {
+                navMenu.classList.remove('show');
+                hamburgerMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+        
+                // Reset hình ảnh về assets/images/back.png khi menu đóng
+                hamburgerIcon.src = 'assets/images/back.png';
+        
+                console.log('Clicked outside menu'); // Debug
+            }
+        });
+        
+        // Đóng menu khi click vào link
+        navLinks.forEach((link) => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('show');
+                hamburgerMenu.classList.remove('active');
+                document.body.style.overflow = 'auto';
+        
+
+                hamburgerIcon.src = 'assets/images/back.png';
+        
+                console.log('Link clicked, menu closed'); // Debug
+            });
+        });
+        
+       
+            </script>        
+</body>
+</html>
+

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+    <header>
+        <button id="hamburger-menu">
+            <img src="assets/images/back.png" alt="Menu" id="hamburger-icon">
+        </button>
+        <nav>
+            <ul id="nav-menu"> 
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="works.html">WORKS</a></li>
+                <li><a href="contact.html" id="contact-link" class="nav-link">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="portfolio-section">
+        <h1 class="portfolio-title">
+            <span class="letter"><img src="assets/images/p.png" alt="P"></span>
+            <span class="letter">
+                <div class="eye-container">
+                    <svg id="eye" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 219.3 120.67">
+                        <path class="cls-2"
+                            d="M104.07,2.1C58.96,6.42,21.48,33.38,1.79,70.66c26.42,32.86,68.33,52.22,113.44,47.9s82.59-31.28,102.28-68.56C191.09,17.14,149.18-2.22,104.07,2.1Z" />
+                        <ellipse class="cls-1 pupil" cx="98.62" cy="38.33" rx="25" ry="15" />
+                    </svg>
+                </div>
+            </span>
+            <span class="letter"><img src="assets/images/r.png" alt="R"></span>
+            <span class="letter"><img src="assets/images/t.png" alt="T"></span>
+            <span class="letter"><img src="assets/images/f.png" alt="F"></span>
+            <span class="letter"><img src="assets/images/o_flower.png" alt="Flower"></span>
+            <span class="letter">
+                <svg id="Layer_1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 285.01 354.71">
+                    <defs>
+                        <style>
+                            .cls-1 {
+                                fill: none;
+                                stroke: #fbb03b;
+                                stroke-miterlimit: 10;
+                                stroke-width: 5px;
+                            }
+                        </style>
+                    </defs>
+                    <path class="cls-1"
+                        d="M.2,267.65c22.5-1.78,101.38-10.05,139.5-40.5,60.93-48.67,96.31-146.14,59-195C182.44,10.86,150.44-3.74,126.7,5.15c-45.61,17.08-42.81,114.11-42,142,2.16,74.73,29.7,199.97,87,205,26.72,2.34,33.2-66.18,101-96,4.98-2.19,9.12-3.68,11.5-4.5" />
+                </svg>
+            </span>
+            <span class="letter"><img src="assets/images/i.png" alt="I"></span>
+            <span class="letter"><img src="assets/images/o.png" alt="O"></span>
+        </h1>
+    </main>
+    <div id="software-marquee" class="marquee-container">
+        <div class="marquee">
+            <span>welcome to bunny portfolio&nbsp;welcome to bunny portfolio&nbsp;welcome to bunny portfolio&nbsp;welcome to bunny portfolio&nbsp;welcome to bunny portfolio&nbsp;welcome to bunny portfolio&nbsp;</span>
+        </div>
+    </div>
+    <script src="js/script.js"></script>
+    <script>
+const hamburgerMenu = document.getElementById('hamburger-menu');
+const hamburgerIcon = document.getElementById('hamburger-icon'); // Icon bên trong nút
+const navMenu = document.getElementById('nav-menu');
+const navLinks = document.querySelectorAll('#nav-menu a');
+
+// Toggle menu
+hamburgerMenu.addEventListener('click', () => {
+    navMenu.classList.toggle('show');
+    hamburgerMenu.classList.toggle('active');
+    document.body.style.overflow = navMenu.classList.contains('show') ? 'hidden' : 'auto';
+
+    // Đổi hình ảnh
+    if (hamburgerIcon.src.includes('assets/images/back.png')) {
+        hamburgerIcon.src = 'assets/images/unlock.png'; // Đổi thành assets/images/unlock.png khi menu mở
+    } else {
+        hamburgerIcon.src = 'assets/images/back.png'; // Đổi lại thành assets/images/back.png khi menu đóng
+    }
+
+    console.log('Menu toggled'); // Debug
+});
+
+// Đóng menu khi click bên ngoài
+document.addEventListener('click', (event) => {
+    if (!hamburgerMenu.contains(event.target) && !navMenu.contains(event.target)) {
+        navMenu.classList.remove('show');
+        hamburgerMenu.classList.remove('active');
+        document.body.style.overflow = 'auto';
+
+        // Reset hình ảnh về assets/images/back.png khi menu đóng
+        hamburgerIcon.src = 'assets/images/back.png';
+
+        console.log('Clicked outside menu'); // Debug
+    }
+});
+
+// Đóng menu khi click vào link
+navLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+        navMenu.classList.remove('show');
+        hamburgerMenu.classList.remove('active');
+        document.body.style.overflow = 'auto';
+
+        // Reset hình ảnh về assets/images/back.png khi menu đóng
+        hamburgerIcon.src = 'assets/images/back.png';
+
+        console.log('Link clicked, menu closed'); // Debug
+    });
+});
+
+
+    </script>
+    
+</body>
+
+</html>
