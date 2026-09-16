@@ -1,0 +1,907 @@
+body {
+    font-family: 'Anonymous Pro', sans-serif;
+    background-color: #000;
+    color: white;
+    margin: 0;
+    padding: 0;
+    justify-items: center; 
+    min-height: 100vh; 
+    max-width: 100vw;
+    overflow-x: hidden;
+}
+
+/* Project navigation buttons */
+.works h1,
+.works h2,
+.works h3,
+.works h4 {
+    background-color: #3fe0d0 !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+}
+
+.works h1:hover,
+.works h2:hover,
+.works h3:hover,
+.works h4:hover {
+    box-shadow: 8px 8px 0 #fde843 !important;
+}
+.content {
+    height: auto; 
+    overflow-y: auto;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    cursor: auto;
+}
+
+a:hover, button:hover, .clickable:hover {
+    cursor: pointer;
+}
+
+.page1 {
+    display: grid;
+    grid-template-rows: auto auto auto auto auto auto auto auto;
+    gap: 5rem; 
+    padding:0;
+    justify-items: center;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    max-width: 100vw;
+}
+
+/* Hàng 1: Chứa các chữ cái */
+.letters-row {
+    display: flex;                
+    justify-content: center;     
+    align-items: center;         
+    flex-wrap: nowrap;             
+    width: 100%;                
+    max-width: 100vw;            
+    box-sizing: border-box;  
+    grid-row: 1;
+}
+.a-image {
+    width: 8rem;
+    height: auto;
+    display: inline-block;
+    animation: shake 1s infinite ease-in-out; 
+}
+
+.a1-image {
+    width: 7rem;
+    height: auto;
+    display: inline-block;
+    animation: shake 1s infinite ease-in-out; 
+}
+
+.svg-container {
+    width: 10rem;
+    height: auto;
+    display: inline-block;
+}
+
+#Layer_1 {
+    width: 15rem;
+    height: auto;
+    z-index: 1;
+    transform: translateX(-3.5rem)translateY(1rem);
+}
+#Layer_2 {
+    width: 5rem;
+    height: auto;
+    z-index: 2;
+    transform: translateX(3rem) translateY(-7rem);
+}
+
+
+.b-image {
+    width: 6rem;
+    height: auto;
+    transform: translateY(4rem) translateX(-1rem);
+}
+
+.r-image {
+    width: 4rem;
+    height: auto;
+    transform: translateY(2rem) translateX(0rem);
+    z-index: 2;
+}
+
+
+.c-image {
+    width: 6rem;
+    transform: translateY(2rem);
+}
+
+.t-image {
+    width: 2.5rem;
+}
+.footer {
+    
+    color: white;              
+    text-align: center;        
+    font-size: 1.5rem;         
+    font-weight: 400;       
+    width: 100%;          
+}
+.marquee-container {
+    grid-row: 5 !important;
+    background-color: #223F93;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 10px 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 999;
+    z-index: 10;                  
+    position: relative;         
+}
+.marquee-container {
+    opacity: 1;
+    filter: none;
+}
+
+.marquee {
+    display: inline-block;
+    white-space: nowrap;
+    animation: marquee 10s linear infinite;
+}
+
+.marquee span {
+    font-size: 24px;
+    color: #fff; 
+    font-family: 'Anonymous Pro', monospace;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+.works {
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;           
+    padding: 1rem;                 
+    color: white;                  
+    flex-wrap: wrap;             
+    text-align: center;            
+}
+
+.works h1, .works h2, .works h3, .works h4 {
+    margin: 5rem;                    
+    padding: 1rem 2rem;           
+    font-size: 1.5rem;              
+    background-color: #223F93;     
+    color: white;               
+    border-radius: 1rem;        
+    text-align: center;            
+}
+a {
+    text-decoration: none;       
+    color: inherit;             
+    display: inline-block;      
+}
+
+.works h1:hover,
+.works h2:hover,
+.works h3:hover,
+.works h4:hover {
+    box-shadow: 8px 8px 0px #EA1C24;
+    transition: box-shadow 0.3s ease;
+    border-radius: 1rem;         
+}
+
+#Layer_1 .cls-1 {
+    stroke-dasharray: 1000;     
+    stroke-dashoffset: 1000;    
+    animation: draw 5s forwards ease-out infinite;
+}
+
+#Layer_2 .cls-1 {
+    stroke-dasharray: 1000;    
+    stroke-dashoffset: 1000;  
+    animation: draw 5s forwards ease-out infinite;
+}
+
+
+@keyframes draw {
+    to {
+        stroke-dashoffset: 0;    
+    }
+}
+.play-button-image {
+    cursor: pointer;
+}
+
+
+.logos-row {
+    display: flex;
+    justify-content: center;
+    gap: 2rem; 
+    grid-row: 6;
+}
+
+
+.logo img {
+    width: 8rem; 
+    height: auto;
+    transition: transform 0.3s ease;
+}
+.logo img:hover {
+    transform: scale(1.1); 
+}
+
+@keyframes shake {
+    0% { transform: rotate(0deg); }
+    50% { transform: rotate(5deg); }
+    100% { transform: rotate(0deg); }
+}
+
+.web-slide-container {
+    width: 100%;                   
+    max-width: 80vw;               
+    overflow: hidden;          
+    position: relative;
+    height: 40vh;                
+    display: flex;
+    justify-content: center;      
+    align-items: center;
+    grid-row: 3;
+}
+
+
+
+.web-slide {
+    display: flex;
+    width: max-content;     
+    animation: slideAnimation 15s linear infinite;
+    height: 40vh;
+}
+
+.slide {
+    flex: 0 0 35vw;                
+    margin-right: 2rem;        
+    transition: transform 0.5s ease;
+    overflow: visible;        
+    position: relative;
+}
+
+
+.slide img {
+    width: 100%;                  
+    height: 100%;             
+    object-fit: contain;       
+    display: block;
+    transform-origin: center;      
+}
+
+
+.slide:hover {
+    transform: scale(1.1);        
+    z-index: 10;                   
+    box-shadow: 0 0 20px 5px white; 
+}
+
+
+@keyframes slideAnimation {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%); 
+    }
+}
+
+/* Dừng animation khi hover */
+.web-slide-container:hover .web-slide {
+    animation-play-state: paused;
+}
+.poem-title {
+    text-align: center;
+    font-family: 'Anonymous Pro', sans-serif;
+    font-size: 2rem;
+    color: white;
+    grid-row: 2;
+}
+
+
+.author {
+    font-size: 1.3rem !important;
+    font-style: italic;
+    color: white;
+    font-family:'Anonymous Pro', sans-serif !important; 
+}
+
+.poem-title p {
+    font-family: 'Bernard MT Condensed', sans-serif; 
+    font-size: 3rem;                                 
+    color: white;                                    
+    margin: 0;                                      
+    letter-spacing: 0.1rem;                          
+}
+.poem-explanation {
+    max-width: 70%;                         
+    font-family: 'Anonymous Pro', sans-serif; 
+    font-size: 1.5rem;                      
+    line-height: 2rem;                        
+    color: white;                           
+    margin-bottom: 2rem;                     
+    text-align: justify;
+}
+
+.video {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;                           
+    flex-wrap: wrap;                    
+    width: 100%;                        
+    max-width: 80vw;                    
+    grid-row: 7;
+}
+
+.video {
+    position: relative;
+    width: 100%;                  
+    height: 100vh;                  
+    margin: 2rem auto;            
+}
+
+.background {
+    position: absolute;
+    top: 0;
+    left: 50%;                     
+    width: 80%;                   
+    height: auto;                   
+    transform: translateX(-50%);    
+    object-fit: cover;
+    z-index: 0;
+}
+
+.wheel {
+    position: absolute;
+    bottom: 5%;                
+    left: 1%;                  
+    width: 16vw;               
+    z-index: 2;
+}
+
+.fish {
+    position: absolute;
+    top: 15%;                      
+    right: 5%;                
+    width: 10vw;                    
+    transform: rotateY(180deg);
+    z-index: 2;
+}
+
+
+.bung-no {
+    position: absolute;
+    top: 0%;                  
+    left:0;                    
+    width: 10vw;                  
+    z-index: 2;
+}
+
+
+.ghim {
+    position: absolute;
+    top: -2rem;                      
+    right: 20%;                    
+    width: 4vw;                    
+    z-index: 2;
+}
+.video-overlay {
+    position: absolute;       
+    top: 40%;                
+    left: 50%;               
+    transform: translate(-50%, -50%);
+    width: 70rem;             
+    height: auto;            
+    max-width: 100%;         
+    max-height: 100%;         
+    pointer-events: auto; 
+
+}
+.audio-text {
+    font-family: 'Anonymous Pro', sans-serif;  
+    font-size: 1.5rem;                        
+    color: white;                             
+    text-align: center;                       
+    margin: 0;                                 
+    animation: blink 1s infinite;
+}
+@keyframes blink {
+    0%, 100% {
+        opacity: 1; 
+    }
+    50% {
+        opacity: 0; 
+    }
+}
+.comeback-icon {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    width: 6rem;
+    height: auto;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+    z-index: 200;
+}
+
+
+.comeback-icon:hover {
+    content: url('../assets/images/comeback1.png');
+    transform: scale(1.1);
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait){
+    .video-overlay {
+        position: absolute;       
+        top: 30%;                
+        left: 50%;               
+        transform: translate(-50%, -50%);
+        width:38rem;             
+        height: auto;            
+        max-width: 100%;         
+        max-height: 100%;         
+        pointer-events: auto; 
+    
+    }
+    .wheel {
+        position: absolute;
+        bottom: 30%;                 
+        left: 1%;                   
+        width: 16vw;                
+        z-index: 2;
+    }
+.works {
+    display: flex;
+    flex-direction: column;     
+    align-items: center;           
+    gap: 1rem;                     
+    padding: 2rem 1rem;        
+    text-align: center;         
+}
+
+
+.works h1,
+.works h2,
+.works h3,
+.works h4 {
+    width: 20rem;                
+    padding: 1rem 2rem;            
+    font-size: 1.5rem;            
+    background-color: #223F93;     
+    color: white;                 
+    border-radius: 1rem;         
+    text-align: center;        
+    box-shadow: 8px 8px 0px #EA1C24;
+}
+
+.content-creator {
+    width: 20rem;                  
+    padding: 1rem 2rem;             
+    font-size: 1.5rem;            
+    background-color: #223F93;      
+    color: white;                 
+    border-radius: 1rem;           
+    text-align: center;            
+    box-shadow: 8px 8px 0px #EA1C24;
+}
+.video {
+    position: relative;
+    width: 100%;                   
+    height: 50vh;                
+    margin: 2rem auto;            
+}}
+@media only screen and (min-width: 1024px) and (max-width: 1366px) and (orientation: landscape) {
+    .works {
+        display: flex;
+        flex-direction: column;         
+        align-items: center;            
+        gap: 1rem;                      
+        padding: 2rem 1rem;             
+        text-align: center;            
+    }
+    
+    .works h1,
+    .works h2,
+    .works h3,
+    .works h4 {
+        width: 20rem;                  
+        padding: 1rem 2rem;            
+        font-size: 1.5rem;             
+        background-color: #223F93;     
+        color: white;                   
+        border-radius: 1rem;          
+        text-align: center;            
+        box-shadow: 8px 8px 0px #EA1C24;
+    }
+    .wheel {
+        position: absolute;
+        bottom: 0;                   
+        left: 1%;                     
+        width: 16vw;                  
+        z-index: 2;
+    }
+    /* Định dạng cho phần tử Content Creator */
+    .content-creator {
+        width: 20rem;                 
+        padding: 1rem 2rem;            
+        font-size: 1.5rem;            
+        background-color: #223F93;   
+        color: white;                  
+        border-radius: 1rem;          
+        text-align: center;           
+        box-shadow: 8px 8px 0px #EA1C24;
+    }   
+    .video-overlay {
+        position: absolute;      
+        top: 53%;                 
+        left: 50%;                
+        transform: translate(-50%, -50%);
+        width:50rem;            
+        height: auto;           
+        max-width: 100%;          
+        max-height: 100%;        
+        pointer-events: auto; 
+    
+    }     
+    .video {
+        position: relative;
+        width: 100%;                   
+        height: 50vh;               
+        margin: 2rem auto;       
+    }
+}
+@media only screen and (max-width: 932px) and (orientation: landscape){
+  
+    .works {
+        display: flex;
+        flex-direction: column;       
+        align-items: center;       
+        gap: 1rem;                      
+        padding: 2rem 1rem;          
+        text-align: center;        
+    }
+    
+    /* Định dạng đồng đều cho các heading */
+    .works h1,
+    .works h2,
+    .works h3,
+    .works h4 {
+        width: 20rem;                
+        padding: 1rem 2rem;          
+        font-size: 1.5rem;          
+        background-color: #223F93; 
+        color: white;      
+        border-radius: 1rem;        
+        text-align: center;            
+        box-shadow: 8px 8px 0px #EA1C24;
+    }
+    
+    /* Định dạng cho phần tử Content Creator */
+    .content-creator {
+        width: 20rem;                  
+        padding: 1rem 2rem;      
+        font-size: 1.5rem;           
+        background-color: #223F93;   
+        color: white;                  
+        border-radius: 1rem;      
+        text-align: center;     
+        box-shadow: 8px 8px 0px #EA1C24;
+    }     
+    body, html {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden; 
+        max-width: 100vw;   
+        box-sizing: border-box;
+        overflow-x: hidden;
+    }
+      .footer {
+          color: white;          
+          text-align: center;   
+          font-size: 1rem !important; 
+          font-weight: 400;   
+          width: 100%;        
+          padding: 1rem 0;
+          margin-top: auto;
+      }  
+      .cta-text {
+        font-family: 'Bernard MT Condensed', sans-serif;
+        color: white;
+        text-align: center;
+        margin-top: 1rem;
+        font-size: 1rem;
+    }
+    .text-section {
+        grid-column: 1;
+        text-align: justify;
+        font-size: 1rem;
+        line-height: 2rem;
+        margin: 0 ;
+    
+    }
+    .video-overlay {
+        position: absolute;    
+        top: 45%;              
+        left: 50%;               
+        transform: translate(-50%, -50%);
+        width: 35rem;        
+        height: auto;      
+        max-width: 100%;   
+        max-height: 100%;
+        pointer-events: auto;
+    
+    }
+    .ghim {
+        position: absolute;
+        top: -1rem;                      
+        right: 20%;                   
+        width: 4vw;                 
+        z-index: 2;
+    }}
+    @media only screen and (max-width: 430px) and (orientation: portrait) {
+        /* Reset tổng thể */
+        body, html {
+            margin: 0;
+            padding: 0;
+            max-width: 100vw;
+            overflow-x: hidden; 
+            box-sizing: border-box;
+        }
+    
+        /* Container chính */
+        .content-container {
+            display: flex;
+            flex-direction: column; 
+            align-items: center;
+            width: 100%; 
+            max-width: 100%; 
+            gap: 1rem; 
+            padding: 1rem; 
+            box-sizing: border-box;
+        }
+        
+        .text-section {
+            max-width: 90%; 
+            text-align: justify; 
+            font-size: 1rem;
+            line-height: 1.5rem; 
+            margin: 0 auto; 
+        }
+        
+        .image-section {
+            display: flex;
+            flex-direction: column; 
+            align-items: center; 
+            justify-content: center;
+            width: 100%; 
+            max-width: 100%; 
+            position: relative; 
+        }
+        
+        .works {
+            display: flex;
+            flex-direction: column; 
+            align-items: center;
+            gap: 1rem; 
+            padding: 1rem 0;
+            text-align: center; 
+        }
+
+        .footer {
+            color: white;
+            text-align: center; 
+            font-size: 0.8rem; 
+            font-weight: 400; 
+            width: 100%; 
+            padding: 0.5rem 0; 
+        }
+    
+
+        .logos-row {
+            display: flex;
+            justify-content: center;
+            gap: 1rem; 
+        }
+    
+        .logo img {
+            width: 4rem;
+            height: auto;
+            transition: transform 0.3s ease;
+        }
+    
+        /* Điều chỉnh cho chữ abstract */
+        .letters-row2 {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%; 
+        }
+       
+        .a1-image {
+            width: 4rem;
+            height: auto;
+            display: inline-block;
+            transform: translateX(-1rem) !important;
+            animation: shake 1s infinite ease-in-out;
+        }
+        .a-image {
+            width: 4rem;
+            height: auto;
+            display: inline-block;
+            animation: shake 1s infinite ease-in-out;
+        }
+        
+        .svg-container {
+            width: 8rem;
+            height: auto;
+            display: inline-block;
+        }
+        
+        #Layer_1 {
+            width: 8rem;
+            height: auto;
+            z-index: 1;
+            transform: translateX(-2rem)translateY(1rem);
+        }
+        #Layer_2 {
+            width: 3rem;
+            height: auto;
+            z-index: 2;
+            transform: translateX(-0.5rem) translateY(-3rem);
+        }
+        .b-image {
+            width: 3rem;
+            height: auto;
+            transform: translateY(2rem) translateX(-1rem);
+        }
+        
+        .r-image {
+            width: 2rem;
+            height: auto;
+            transform: translateY(2rem) translateX(-2rem);
+            z-index: 2;
+        }
+        .c-image {
+            width: 2rem;
+            transform: translateY(2rem);
+        }
+        .letter2 img,
+.letter2 svg {
+width: 5rem;               
+height: auto;
+}
+#Layer_3 {
+width: 5rem !important;
+height: auto;
+transform: scale(1.2) rotate(10deg); 
+position: relative;
+left: -1rem;
+}
+        .t-image {
+            width: 1rem;
+        }
+        .footer {
+            color: white;      
+            text-align: center;  
+            font-size: 1rem !important;  
+            font-weight: 400;     
+            width: 100%;         
+            padding: 1rem 0;       
+            margin-top: auto;
+        }
+
+        .works {
+            gap: 0.5rem;                    
+            padding: 1rem 0.5rem;    
+        }
+
+        .works h1,
+        .works h2,
+        .works h3,
+        .works h4 {
+            width: 16rem;              
+            font-size: 1rem;              
+            padding: 0.8rem 1.5rem;         
+            border-radius: 0.8rem;         
+            box-shadow: 5px 5px 0px #EA1C24;
+        }
+        
+        .content-creator {
+            width: 16rem;                   
+            font-size: 1rem;              
+            padding: 0.8rem 1.5rem;         
+            border-radius: 0.8rem;          
+            box-shadow: 5px 5px 0px #EA1C24;
+        }    
+        .page1 {
+            gap: 4rem;
+        }
+        .poem-explanation {
+            max-width: 90%; 
+            text-align: justify; 
+            font-size: 1rem; 
+            line-height: 1.5rem;
+            margin: 0 auto;
+        }
+        .slide {
+            flex: 0 0 80vw;
+        }
+        .web-slide {
+            animation: slideAnimation 3s linear infinite;
+        }
+        .video {
+            height: 30vh;
+        }
+        .video-overlay {
+            position: absolute;       
+            width: 20rem;              
+            height: auto;           
+            max-width: 100%;       
+            max-height: 100%;       
+            pointer-events: auto; 
+        
+        }
+        .ghim {
+            position: absolute;
+            top: -0.5rem;                      
+            right: 20%;                    
+            width: 4vw;                  
+            z-index: 2;
+        }
+        .background {
+            width: 100%;
+        }
+        .wheel {
+            position: absolute;
+            bottom: 10%;                    
+            left: -1.5rem;                      
+            width: 16vw;                 
+            z-index: 2;
+        }
+
+        .fish {
+            position: absolute;
+            top: 15%;                       
+            right: -1rem;                    
+            width: 15vw !important;                  
+            transform: rotateY(180deg);
+            z-index: 2;
+        }
+        
+
+        .bung-no {
+            position: absolute;
+            top: 0%;             
+            left:-2rem;            
+            width: 10vw;        
+            z-index: 2;
+        }
+        .audio-text {
+            font-family: 'Anonymous Pro', sans-serif; 
+            font-size: 1rem;                
+            color: white;                         
+            text-align: center;                      
+            margin: 0;                               
+            animation: blink 1s infinite;
+        } 
+    }

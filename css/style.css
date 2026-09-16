@@ -1,0 +1,873 @@
+@font-face {
+    font-family: 'Bahnschrift Regular';
+    src: url('../assets/source/Bahnschrift Regular.otf') format('opentype');
+}
+
+body {
+    font-family: 'Anonymous Pro', sans-serif;
+    background-color: #000;
+    background-image: url('../assets/images/thumbnail.png?v=20260916-043424');
+    background-position: center calc(50% + 2rem);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: grid;  
+    grid-template-rows: auto auto auto auto; 
+    grid-template-columns: 1fr;  
+    justify-items: center; 
+    min-height: 100vh; 
+    max-width: 100vw;
+    overflow-x: hidden;
+    width: 100%;
+    overflow-y: auto;
+}
+.content {
+    height: 150%;
+    overflow-y: auto;
+}
+html {
+    scroll-behavior: smooth;
+    overflow-y: scroll
+}
+/* Con trỏ mặc định */
+body {
+    cursor: auto;
+}
+
+a:hover, button:hover, .clickable:hover {
+    cursor: pointer;
+}
+
+
+
+.footer {
+    color: white;          
+    text-align: center;   
+    font-size: 1.5rem;     
+    font-weight: 400;       
+    width: 100%;            
+    padding: 1rem 0;       
+    grid-row: 5;
+}
+/* Phần Header và Menu */
+header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    box-sizing: border-box;
+    grid-row: 1;
+    grid-column: 1;
+    padding: 1.25rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; 
+}
+
+header nav ul {
+    display: flex;
+    gap: 2rem;
+    font-size: 1.5rem;
+    justify-content: flex-end;
+    align-items: center;         
+    width: auto;
+    padding: 0;                   
+    margin: 0;                     
+    list-style: none;              
+}
+
+header nav ul li {
+    list-style-type: none;
+}
+
+header nav ul li a {
+    font-family: 'Bahnschrift Regular', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 400; 
+    transition: all 0.3s ease; 
+    padding: 0.5rem 1rem; 
+    border-radius: 0;
+    
+}
+
+header nav ul li a:hover {
+    background-color: #00e0d0; 
+    color: black; 
+}
+
+
+
+/* Phần Portfolio */
+.portfolio-section {
+    text-align: center;
+    max-width: 1000px; 
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    padding: 20px;  
+    margin: 0 auto;  
+    grid-row: 2; 
+    grid-column: 1; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.portfolio-title {
+    font-size: 10rem; 
+    display: flex; 
+    justify-content: center;
+    white-space: nowrap; 
+}
+
+.letter img {
+    height: 200px; 
+    margin: -5px; 
+}
+
+.letter img[src="assets/images/t.png"] {
+    height: 230px;
+    margin-top: 1rem;
+    transform: translateY(30%); 
+    z-index: 3;
+    position: relative;
+    
+}
+
+/* Xích o_flower và Layer 1 qua trái */
+.letter img[src="assets/images/o_flower.png"] {
+   
+    z-index: 2;
+    position: relative;
+}
+/*xoay khi nhấp vào o_flower */
+@keyframes rotateOnClick {
+    0% {
+        transform: rotate(0deg); 
+    }
+    100% {
+        transform: rotate(360deg); 
+    }
+}
+
+/* Ẩn animation khi không nhấp */
+.letter img[src="assets/images/o_flower.png"]:not(.rotate) {
+    transition: transform 0.5s ease; 
+    transform-origin: center;
+}
+
+/* Áp dụng animation xoay khi nhấp */
+.letter img[src="assets/images/o_flower.png"].rotate {
+    animation: rotateOnClick 1s ease forwards; 
+}
+
+#Layer_1 {
+    transform: translateX(-18%) translateY(-25%);
+    z-index: 1;
+    position: relative;
+}
+#Layer_1 {
+    width: 250px;
+    height: auto;
+    margin: -5px;
+    stroke:#fbb03b ;  
+    fill: none;  
+    stroke-width: 5;  
+    
+  
+    stroke-dasharray: 1000;  
+    stroke-dashoffset: 1000;  
+    animation: drawLine 2s forwards infinite; 
+}
+
+/* Animation vẽ dần */
+@keyframes drawLine {
+    0% {
+        stroke-dashoffset: 1000; 
+    }
+    100% {
+        stroke-dashoffset: 0; 
+    }
+}
+
+
+.letter img[src="assets/images/i.png"] {
+    transform: translateX(-40%);
+}
+
+
+@keyframes rotateShake {
+    0% {
+        transform: rotate(0deg); 
+    }
+    25% {
+        transform: rotate(-0.5deg); 
+    }
+    50% {
+        transform: rotate(0.5deg); 
+    }
+    75% {
+        transform: rotate(-0.5deg); 
+    }
+    100% {
+        transform: rotate(0deg); 
+    }
+}
+
+
+.letter img[src="assets/images/o.png"] {
+    animation: rotateShake 1s ease-in-out infinite;
+    transform-origin: center;
+}
+
+
+
+
+@keyframes rotateShake {
+    0% {
+        transform: rotate(0deg); 
+    }
+    25% {
+        transform: rotate(-0.5deg);
+    }
+    50% {
+        transform: rotate(0.5deg); 
+    }
+    75% {
+        transform: rotate(-0.5deg); 
+    }
+    100% {
+        transform: rotate(0deg); 
+    }
+}
+
+/* animation cho các hình ảnh */
+.letter img[src="assets/images/p.png"],
+.letter img[src="assets/images/r.png"],
+.letter img[src="assets/images/f.png"],
+.letter img[src="assets/images/o.png"] {
+    animation: rotateShake 1s ease-in-out infinite; 
+}
+
+#eye, #Layer_1 {
+    width: 250px;  
+    height: auto;
+    margin: -5px; 
+}
+
+
+#eye .cls-2 {
+    fill: none;  
+    stroke: white; 
+    stroke-width: 5; 
+}
+
+#eye .cls-1 {
+    stroke: white;  
+}
+
+#eye .pupil {
+    fill: white;  
+}
+/* Phần Instagram */
+.username {
+    display: inline-block;
+    padding: 0.3rem 0.6rem;
+    background-color: #9b4d96;
+    color: white;
+    border-radius: 1.5rem;
+    font-size: 1.5rem;
+    line-height: 2;
+    justify-self: center; 
+    align-self: center;   
+    grid-row: 3;
+}
+
+.username:hover {
+    transform: scale(1.2); 
+}
+.letter {
+    position: relative; 
+}
+
+.letter {
+    position: relative; 
+}
+
+.letter {
+    position: relative; 
+}
+
+
+.sticker img[src="../assets/images/chan dong.png"] {
+    position: absolute;      
+    top: 15rem;               
+    left: 8rem;               
+    width: 5rem;              
+    height: auto;             
+    z-index: 1000;           
+    animation: blink 1s infinite; 
+}
+@keyframes blink {
+    0% {
+        opacity: 1; 
+    }
+    50% {
+        opacity: 0; 
+    }
+    100% {
+        opacity: 1; 
+    }
+}
+.sticker img[src="../assets/images/bling_1.png"] {
+    position: absolute;      
+    top: 25%;             
+    right: 6%;              
+    width: 5rem;         
+    height: auto;         
+    z-index: 1000;        
+    animation: blink 1s infinite;
+}
+@keyframes blink {
+    0% {
+        opacity: 1; 
+    }
+    50% {
+        opacity: 0; 
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.marquee-container {
+    background-color: #da3693; 
+    white-space: nowrap;
+    padding: 10px 0;
+    width: 100%; 
+    box-sizing: border-box;
+    margin: 0;
+    position: absolute; 
+    bottom: 0; 
+    left: 0; 
+    z-index: 999; 
+    grid-row: 4;
+}
+
+
+.marquee {
+    display: inline-block;
+    white-space: nowrap;
+    animation: marquee 10s linear infinite;
+}
+
+.marquee span {
+    font-size: 24px;
+    color: #fff; 
+    font-family: 'Bahnschrift Regular', sans-serif;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+@keyframes movePupil {
+    0%, 100% {
+        transform: translateX(0); 
+    }
+    50% {
+        transform: translateX(10px); 
+    }
+}
+/* Thêm nút hamburger */
+#hamburger-menu {
+    display: none; 
+    background: none;
+    border: none;
+    font-size: 2.25rem;
+    color: white;
+    cursor: pointer;
+    z-index: 1000; 
+    position: absolute; 
+    top: 1rem;
+    right: 1rem;
+}
+
+/* Cho ul mặc định ẩn */
+#nav-menu {
+    display: flex; 
+    transition: all 0.3s ease;
+}
+/* CSS cho iPad ở chế độ dọc (Portrait) */
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    /* Điều chỉnh kích thước header */
+    header {
+        font-size: 0.9rem; 
+    }
+    .pupil {
+        animation: movePupil 2s ease-in-out infinite; 
+    }
+    header nav ul {
+        gap: 1rem; 
+    }
+
+    .portfolio-title {
+        display: flex;
+        flex-wrap: wrap; 
+        justify-content: center;
+        font-size: 6rem; 
+        line-height: 1.2; 
+    }
+
+    /* Đưa chữ 'PORT' và 'FOLIO' xuống hàng */
+    .portfolio-title .letter:nth-child(-n+4) {
+        display: inline-block;
+        margin-right: 0.5rem;
+    }
+
+    .portfolio-title .letter:nth-child(n+5) {
+        display: inline-block;
+        margin-top: 0.5rem;
+    }
+
+    .letter img {
+        height: 150px; 
+    }
+
+    .eye-container svg {
+        width: 150px; 
+    }
+
+    /* Làm cho username lớn hơn và nổi bật hơn */
+    .username {
+        font-size: 2rem; 
+        padding: 1rem 1.5rem; 
+        border-radius: 3rem;
+    }
+    .pupil {
+        animation: movePupil 2s ease-in-out infinite; 
+    }
+}
+
+/* CSS cho iPad ở chế độ ngang (Landscape) */
+@media only screen and (min-width: 1024px) and (max-width: 1366px) and (orientation: landscape) {
+    .eye-container svg,
+    #Layer_1 {
+        width: 8rem;          
+        height: auto;         
+    }
+
+    .portfolio-title {
+        font-size: 4rem;      
+        line-height: 1;       
+    }
+
+    .letter img {
+        height: 8rem;         
+        margin: 0 0.2rem;     
+    }
+
+    header {
+        font-size: 1.5rem;         
+    }
+
+    .username {
+        font-size: 1.2rem;         
+        margin-top: 1rem;          
+    }
+     .pupil {
+        animation: movePupil 2s ease-in-out infinite; 
+    }
+}
+@media only screen and (max-width: 767px){
+    /* Điều chỉnh kích thước header */
+    header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 100;
+        background-color: black;
+        padding: 1rem;
+    }
+    .pupil {
+        animation: movePupil 2s ease-in-out infinite; 
+    }
+    header nav ul {
+        gap: 1rem; 
+    }
+    .portfolio-title {
+        display: flex;
+        flex-wrap: wrap; 
+        justify-content: center; 
+        align-items: center; 
+        gap: 1rem; 
+        height: 100%; 
+        margin: 0 auto;
+        max-width: 90%; 
+    }
+    body {
+        font-family: 'Anonymous Pro', sans-serif;
+        background-color: #000;
+        color: white;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden; 
+        overflow-y: auto;
+        position: relative;
+    }
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    main {
+        margin-top: 4rem;
+        padding: 1rem;
+        z-index: 1; 
+    }
+    .container {
+        overflow: visible; 
+        position: relative;
+    }
+    
+    
+    .letter {
+        position: relative; 
+        font-size: 2.5rem; 
+    }
+.letter img[src="assets/images/t.png"] {
+        height: 80px !important; 
+        width: auto !important;
+        margin: 0.5rem; 
+    }
+    .letter img {
+        height: 80px; 
+        width: auto;
+    }
+    .eye-container svg {
+        width: 5rem !important; 
+        height: auto !important; 
+    }
+    
+    #eye {
+        width: 5rem !important; 
+        height: auto !important;
+    }
+    
+    .eye-container svg,
+    #Layer_1 {
+        width: 5rem;          
+        height: auto;         
+    }
+    
+    /* Footer nhỏ hơn */
+    .username {
+        font-size: 1rem;
+        padding: 0.3rem 0.6rem;
+        margin-top: 1rem;
+        background-color: #9b4d96;
+        color: white;
+        text-align: center;
+    }
+    
+    
+
+    
+    .username {
+        border-radius: 3rem;
+    }
+    .pupil {
+        animation: movePupil 2s ease-in-out infinite; 
+    }
+    /* Nút hamburger */
+#hamburger-menu {
+    position: fixed;
+    top: 1rem; 
+    right: 1rem;
+    z-index: 10000;
+    background: none;
+    border: none; 
+    cursor: pointer;
+    }
+    
+    #hamburger-menu img {
+    width: 50px; 
+    height: auto;
+    }
+    #hamburger-menu {
+    display: block; 
+    }
+    header nav ul.show {
+    transform: translateX(0); 
+    }
+    
+    #nav-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #9b4d96; 
+    display: flex;
+    gap: 5rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items:flex-end;
+    transform: translateX(100%); 
+    transition: transform 0.3s ease;
+    z-index: 9999; 
+    }
+    
+    #nav-menu {
+    transform: translateY(-100%); 
+    transition: transform 01s ease-in-out; 
+    }
+    #nav-menu.show {
+    transform: translateY(0); 
+    }
+    
+    
+    /* Nút hamburger */
+    #hamburger-menu {
+    position: fixed;
+    top: 1rem; 
+    right: 1rem; 
+    z-index: 10000; 
+    background: none; 
+    border: none; 
+    cursor: pointer;
+    }
+    
+    #hamburger-menu img {
+    width: 50px; 
+    height: auto;
+    }
+    
+        /* Phần header */
+        header {
+            font-size: 1rem;          
+            grid-row: 1;
+            padding: 1rem;           
+            text-align: center;       
+        }
+    
+        header nav ul {
+            gap: 0.5rem;              
+            font-size: 1rem;          
+        }
+    
+  /* Nội dung bên dưới menu */
+  .portfolio-section {
+    position: relative;
+    z-index: 1; 
+  }
+  
+  /* Footer */
+  footer {
+    position: relative;
+    z-index: 1; 
+  }
+  html {
+    scroll-behavior: smooth;
+    overflow-y: scroll
+}
+.marquee-container {
+    background-color: #da3693; 
+    overflow-x: hidden;
+    white-space: nowrap;
+    padding: 10px 0;
+    width: 100%;
+    box-sizing: border-box;
+    position: fixed; 
+    bottom: 0;
+    left: 0;
+    z-index: 1; 
+}
+
+.marquee {
+    display: inline-block;
+    white-space: nowrap;
+    animation: marquee 10s linear infinite;
+}
+
+.marquee span {
+    font-size: 24px;
+    color: #fff;
+    font-family: 'Bahnschrift Regular', sans-serif;
+}
+.pupil {
+    animation: movePupil 2s ease-in-out infinite; 
+}
+}
+@media only screen and (max-width: 932px) and (orientation: landscape) {
+  
+  body {
+    display: grid; 
+    grid-template-rows: auto auto auto auto;
+    grid-template-columns: 1fr; 
+    height: 100vh; 
+    overflow-y: auto; 
+    overflow-x: hidden; 
+    margin: 0;
+    padding: 0;
+}
+
+  header {
+      grid-row: 1;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 1rem;
+      position: relative;
+      z-index: 1000;
+  }
+
+  #hamburger-menu {
+    display: block; 
+}
+header nav ul.show {
+    transform: translateX(0); 
+}
+
+#nav-menu {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: #9b4d96; 
+display: flex;
+gap: 2rem;
+flex-direction: column;
+justify-content: center;
+align-items:flex-end;
+transform: translateX(100%); 
+transition: transform 0.3s ease;
+z-index: 9999; 
+font-size: 1.5rem;
+}
+
+#nav-menu {
+transform: translateY(-100%); 
+transition: transform 01s ease-in-out; 
+}
+
+#nav-menu.show {
+transform: translateY(0); 
+}
+
+
+/* Nút hamburger */
+#hamburger-menu {
+position: fixed;
+top: 1rem; 
+right: 1rem; 
+z-index: 10000; 
+background: none; 
+border: none; 
+cursor: pointer;
+}
+
+#hamburger-menu img {
+width: 50px; 
+height: auto;
+}
+
+
+
+  .eye-container svg,
+  #Layer_1 {
+      width: 5rem !important;         
+      height: auto;        
+  }
+  /* Phần Portfolio */
+  .portfolio-section {
+      grid-row: 2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+  }
+
+  .portfolio-title {
+      font-size: 2rem; 
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      line-height: 1.2;
+      gap: 0.5rem;
+  }
+
+  .letter img {
+      height: 5rem; 
+      margin: 0.1rem;
+  }
+
+  /* Username */
+  .username {
+      grid-row: 3; 
+      font-size: 0.8rem; 
+      text-align: center;
+      margin-top: 0.5rem;
+      padding: 0.3rem 0.6rem;
+      border-radius: 1rem; 
+      background-color: #9b4d96;
+      color: white;
+  }
+
+  
+  .marquee-container {
+      grid-row: 4; 
+      position: fixed; 
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background-color: #da3693;
+      padding: 0.5rem 0;
+      text-align: center;
+      z-index: 999;
+  }
+
+  .marquee span {
+      font-size: 0.8rem; 
+      color: white;
+      font-family: 'Bahnschrift Regular', sans-serif;
+  }
+  .pupil {
+    animation: movePupil 2s ease-in-out infinite; 
+}
+.letter img[src="assets/images/t.png"] {
+    height: 50px !important; 
+    width: auto !important;
+    margin: 0.5rem; 
+}
+}
+
+/* Keep the desktop Home page within one viewport. */
+@media only screen and (min-width: 1025px) {
+    html,
+    body {
+        height: 100%;
+        overflow: hidden;
+    }
+
+    body {
+        min-height: 0;
+        height: 100vh;
+        grid-template-rows: auto 1fr auto;
+    }
+}
+

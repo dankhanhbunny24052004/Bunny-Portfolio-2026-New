@@ -1,0 +1,707 @@
+@font-face {
+    font-family: 'Bahnschrift Regular';
+    src: url('../assets/source/Bahnschrift Regular.otf') format('opentype');
+}
+
+body {
+    font-family: 'Anonymous Pro', sans-serif;
+    background-color: #000;
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: grid; 
+    grid-template-rows: auto auto auto auto;
+    grid-template-columns: 1fr;  
+    justify-items: center; 
+    min-height: 100vh; 
+    max-width: 100vw;
+    overflow-x: hidden;
+    width: 100%;
+    box-sizing: border-box; 
+}
+.content {
+    height: 150%; 
+    overflow-y: auto;
+}
+html {
+    scroll-behavior: smooth;
+    overflow-y: scroll
+}
+
+body {
+    cursor: auto;
+}
+
+a:hover, button:hover, .clickable:hover {
+    cursor: pointer;
+}
+
+
+
+.footer {
+    color: white;          
+    text-align: center;    
+    font-size: 1.5rem;      
+    font-weight: 400;       
+    width: 100%;           
+    padding: 1rem 0;      
+    grid-row: 5;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    box-sizing: border-box;
+    grid-row: 1;
+    grid-column: 1;
+    padding: 1.25rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center; }
+
+header nav ul {
+    display: flex;
+    gap: 2rem;
+    font-size: 1.5rem;
+    justify-content: flex-end;
+    align-items: center;    
+    width: auto;
+    padding: 0;            
+    margin: 0;               
+    list-style: none;       
+}
+
+header nav ul li {
+    list-style-type: none;
+}
+
+header nav ul li a {
+    font-family: 'Bahnschrift Regular', sans-serif;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    text-decoration: none;
+    font-size: 1.5rem;
+    font-weight: 400;
+    transition: all 0.3s ease; 
+    padding: 0.5rem 1rem;
+    border-radius: 0;
+    
+}
+
+header nav ul li a:hover {
+    background-color: #00e0d0; 
+    color: black;
+}
+
+header {
+    grid-row: 1;
+}
+
+.section {
+    display: grid;
+    grid-template-rows: 1fr 1fr;    
+    gap: 2rem;
+    grid-row: 2 / 4;                  
+}
+
+.app-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5rem;
+    grid-row: 1;
+}
+
+.contact-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    grid-row: 2;
+}
+
+
+.footer {
+    
+    color: white;              
+    text-align: center;         
+    font-size: 1.5rem;           
+    font-weight: 400;        
+    width: 100%;             
+    grid-row: 4;
+    align-self: end;
+}
+
+.app img {
+    width: 11rem;
+    height: auto;
+    position: relative;
+    transition: transform 0.3s ease;
+    display: block;                 
+    margin: 0 auto;                  
+    transform-origin: center;
+    top: 10rem !important;
+}
+.app-image:hover {
+    transform:scale(1.1), rotate(-5deg);
+}
+
+.ig-image {
+    width: 8rem;
+}
+
+.mail-image {
+    width: 14rem !important;
+}
+
+
+.phone-image {
+    width: 20rem;                   
+    height: auto;                  
+    transform: translateX(-2rem) translateY(1rem); 
+    animation: shake 2s ease-in-out infinite;      
+}
+.app-image {
+    transform: none; 
+}
+
+
+@keyframes shake {
+    0% { transform: translateX(-2rem) translateY(1rem) rotate(0deg); }
+    25% { transform: translateX(-2.5rem) translateY(1rem) rotate(-5deg); }
+    50% { transform: translateX(-2rem) translateY(1rem) rotate(0deg); }
+    75% { transform: translateX(-1.5rem) translateY(1rem) rotate(5deg); }
+    100% { transform: translateX(-2rem) translateY(1rem) rotate(0deg); }
+}
+
+
+.contact-image {width: 70rem;
+height: auto;}
+#hamburger-menu {
+    display: none; 
+}
+@media only screen and (min-width: 768px) and (max-width: 1024px) and (orientation: portrait) {
+    header {
+        font-size: 0.9rem; 
+    }
+    #hamburger-menu {
+        display: none; 
+    }
+    header nav ul {
+        gap: 1rem;
+    }
+    .contact-image {
+        content: url('../assets/images/new-contact.png');
+    }
+    .contact-image {
+        position: relative;
+        content: url('../assets/images/new-contact.png');
+        width: 20rem;
+        max-width: 20rem;
+        top: 0;
+        left: 50%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+    body {
+        font-family: 'Anonymous Pro', sans-serif;
+        background-color: #000;
+        color: white;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        grid-template-rows: auto auto auto auto; 
+        min-height: 100vh;
+        max-width: 100vw;
+        overflow: hidden;
+    }
+    
+    
+    main {
+        grid-row: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; 
+        align-items: center;    
+        width: 100%;
+    }
+    
+    .footer {
+        grid-row: 4;
+        text-align: center;
+        padding: 1rem 0;
+        width: 100%;
+    }
+    .ig-image {
+        width: 10rem !important;
+        height: auto;
+    }
+    .app {
+        height: 10rem; 
+    }
+    
+    .mail-image {
+        width: 14rem !important;
+        height: auto;
+        position: relative;
+        top: 20rem;         
+        transform: rotate(-15deg);
+        display: block;    
+        margin: 0 auto;   
+    }
+    
+    
+    
+.app img {position: relative;
+        width: 11rem;
+        height: auto;}
+        .phone-image {position: relative;
+            width: 15rem !important;        
+            height: auto;                
+            transform: rotate(180deg);     
+            left: -8rem;
+            top: -8rem;
+            animation: shake 2s ease-in-out infinite; 
+        }
+        
+        /* Keyframes cho hiệu ứng lắc lư */
+        @keyframes shake {
+            0%, 100% {
+                transform: rotate(180deg) rotate(0deg);  
+            }
+            50% {
+                transform: rotate(180deg) rotate(5deg); 
+            }
+        }
+        
+}
+
+@media only screen and (min-width: 1024px) and (max-width: 1366px) and (orientation: landscape){
+    header {
+        font-size: 1.5rem;   
+        grid-row: 1;
+    }
+    #hamburger-menu {
+        display: none; 
+    }
+    .phone-image {
+        width: 15rem;                 
+        height: auto;  
+        transform: translateX(-2rem) translateY(1rem); 
+        animation: shake 2s ease-in-out infinite;      
+    }
+    .contact-image {width: 60rem;
+        height: auto;}
+    .ig-image {
+            width: 8rem !important;
+            height: auto;
+        }
+        
+    .mail-image {
+            width: 14rem !important;
+            height: auto;
+        }
+    .app img {
+            width: 11rem;
+            height: auto;}
+}
+@media only screen and (max-width: 932px) and (orientation: landscape) {
+  
+/* Body */
+body {
+    display: grid;
+    grid-template-rows: auto 1fr auto; 
+    grid-template-columns: 1fr;
+    height: 100vh; 
+    margin: 0;
+    padding: 0;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+header {
+    grid-row: 1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    font-size: 1rem; 
+    background-color: #000;
+}
+    header {
+        font-size: 1.5rem;
+        grid-row: 1;
+    }
+    
+    /* Main Section */
+    main.section {
+        grid-row: 2;
+        display: grid;
+        grid-template-rows: repeat(2, 1fr); 
+        grid-template-columns: 1fr;
+        gap: 1rem; 
+        padding: 1rem; 
+    }
+    .app-row {
+        display: flex;
+        justify-content: space-around; 
+        align-items: center;
+        gap: 1rem; 
+        width: 100%; 
+        padding: 1rem;
+        box-sizing: border-box; 
+        position: relative; 
+        top: -6rem;
+    }
+    .app {
+        margin: 0;
+        padding: 0;
+    }    
+    .app img {
+        width: 10%; 
+        height: auto; 
+        max-width: 8rem;
+        display: block; 
+        margin: 0 auto; 
+        position: relative;
+        z-index: 1; 
+        top: 3rem;
+    }
+    
+    .app {
+        flex: 1; 
+        text-align: center; 
+        position: relative;
+    }
+
+    .contact-row {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        gap: 1rem; 
+    }
+
+   
+    .app img {
+        width: 5rem;
+        height: auto;
+    }
+
+    .mail-image {
+        width: 100%;
+    }
+
+    .facebook-image {
+        width: 100%;
+    }
+
+
+    /* Ảnh liên hệ */
+    .contact img {
+        width: 100%;
+        height: auto;
+    }
+
+    .phone-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .contact-image {
+        height: auto;
+    }
+
+    #hamburger-menu {
+      display: block; 
+  }
+  header nav ul.show {
+      transform: translateX(0); 
+  }
+
+  body {
+    font-family: 'Anonymous Pro', sans-serif;
+    background-color: #000;
+    color: white;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    max-width: 100vw;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+
+  header {
+      grid-row: 1;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      padding: 1rem;
+      position: relative;
+      z-index: 1000;
+  }
+
+  #hamburger-menu {
+    display: block;
+}
+header nav ul.show {
+    transform: translateX(0); 
+}
+/* Menu mặc định bị ẩn */
+#nav-menu {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: #9b4d96; 
+display: flex;
+gap: 2rem;
+flex-direction: column;
+justify-content: center;
+align-items:flex-end;
+transform: translateX(100%); 
+transition: transform 0.3s ease;
+z-index: 9999;
+font-size: 1.5rem;
+}
+
+#nav-menu {
+transform: translateY(-100%); 
+transition: transform 01s ease-in-out; 
+}
+
+#nav-menu.show {
+transform: translateY(0); 
+}
+
+
+
+#hamburger-menu {
+position: fixed; 
+top: 1rem; 
+right: 1rem; 
+z-index: 10000; 
+background: none; 
+border: none;
+cursor: pointer;
+}
+
+#hamburger-menu img {
+width: 50px; 
+height: auto;
+}
+  .footer {
+    
+    color: white;          
+    text-align: center;         
+    font-size: 1rem;      
+    font-weight: 400;       
+    width: 100%;          
+    align-self: end;}
+  #hamburger-menu img {
+  width: 50px; 
+  height: auto;
+  
+  }}
+
+  @media only screen and (max-width: 767px) and (orientation: portrait){
+    header {
+        font-size: 0.9rem; 
+    }
+
+    header nav ul {
+        gap: 1rem;
+    }
+    .contact-image {
+        content: url('../assets/images/new-contact.png');
+    }
+    .contact-image {
+        position: relative;
+        content: url('../assets/images/new-contact.png');
+        width: 15rem;
+        max-width: 20rem;
+        top: -2rem;
+        left: 35%;
+        height: auto;
+        display: block;
+        margin: 0 auto;
+    }
+    body {
+        font-family: 'Anonymous Pro', sans-serif;
+        background-color: #000;
+        color: white;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        grid-template-rows: auto auto auto auto;
+        min-height: 100vh;
+        max-width: 100vw;
+        overflow: hidden;
+    }
+    
+    
+    main {
+        grid-row: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; 
+        align-items: center;     
+        width: 100%;
+    }
+    
+    .footer {
+        grid-row: 4;
+        text-align: center;
+        padding: 1rem 0;
+        width: 100%;
+    }
+    .ig-image {
+        width: 6rem !important;
+        height: auto;
+    }
+    .app {
+        height: 10rem; 
+    }
+    .app-row {
+        gap: 1rem;
+    }
+    .mail-image {
+        width: 8rem !important;
+        height: auto;
+        position: relative;
+        top: 20rem;         
+        transform: rotate(-15deg);
+        display: block;      
+        margin: 0 auto;      
+    }
+    
+    
+    
+.app img {position: relative;
+        width: 6rem;
+        height: auto;}
+        .phone-image {position: relative;
+            width: 10rem !important;      
+            height: auto;                 
+            transform: rotate(180deg);
+            left: -8rem;
+            top: -8rem;
+            animation: shake 2s ease-in-out infinite; 
+        }
+
+        @keyframes shake {
+            0%, 100% {
+                transform: rotate(180deg) rotate(0deg);  
+            }
+            50% {
+                transform: rotate(180deg) rotate(5deg); 
+            }
+        }
+        .footer {
+            align-self: end;      
+            width: 100%;        
+            padding: 1rem 0;  
+            background-color: #000;
+            text-align: center;  
+            font-size: 1rem;
+        }
+        
+        /* Cấu trúc lưới tổng thể */
+        body {
+            font-family: 'Anonymous Pro', sans-serif;
+            background-color: #000;
+            color: white;
+            margin: 0;
+            padding: 0;
+            display: grid;
+            grid-template-rows: auto 1fr auto; 
+            min-height: 100vh;
+            max-width: 100vw;
+            overflow: hidden; 
+        }
+    
+        /* Header */
+        header {
+            grid-row: 1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+            font-size: 1rem;
+            background-color: #000;
+            z-index: 1000;
+        }
+    
+         /* Nút hamburger */
+        #hamburger-menu {
+        position: fixed; 
+        top: 1rem; 
+        right: 1rem; 
+        z-index: 10000; 
+        background: none; 
+        border: none; 
+        cursor: pointer;
+        }
+        
+        #hamburger-menu img {
+        width: 50px; 
+        height: auto;
+        }
+        #hamburger-menu {
+        display: block; 
+        }
+        header nav ul.show {
+        transform: translateX(0);
+        }
+        /* Menu mặc định bị ẩn */
+        #nav-menu {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #9b4d96; 
+        display: flex;
+        gap: 5rem;
+        flex-direction: column;
+        justify-content: center;
+        align-items:flex-end;
+        transform: translateX(100%); 
+        transition: transform 0.3s ease;
+        z-index: 9999;
+        }
+        
+        #nav-menu {
+        transform: translateY(-100%); 
+        transition: transform 01s ease-in-out; 
+        }
+        #nav-menu.show {
+        transform: translateY(0);
+        }
+        
+        
+        /* Nút hamburger */
+        #hamburger-menu {
+        position: fixed;
+        top: 1rem; 
+        right: 1rem;
+        z-index: 10000; 
+        background: none;
+        border: none; 
+        cursor: pointer;
+        }
+        
+        #hamburger-menu img {
+        width: 50px;
+        height: auto;
+        }
+           
+}

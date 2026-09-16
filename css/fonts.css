@@ -1,0 +1,12 @@
+@font-face {
+    font-family: 'Bahnschrift Regular';
+    src: url('../assets/source/Bahnschrift Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+html,
+body,
+body * {
+    font-family: 'Bahnschrift Regular', sans-serif !important;
+}
