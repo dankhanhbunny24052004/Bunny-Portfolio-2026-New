@@ -89,6 +89,11 @@ main.works-section {
     height: auto;
 }
 
+.work-project-2d img,
+.work-project-web img {
+    width: clamp(11rem, 18vw, 19rem);
+}
+
 .work-project-description {
     margin: 1rem 0 0;
     color: #000000;
@@ -113,6 +118,49 @@ main.works-section {
 .work-project-web {
     top: 18%;
     right: 10%;
+}
+
+.works-nav-arrow {
+    position: fixed;
+    bottom: calc(5% + 2rem);
+    z-index: 2;
+    display: block;
+    width: clamp(3rem, 5vw, 5.5rem);
+}
+
+.works-nav-arrow img {
+    display: block;
+    width: 100%;
+    height: auto;
+    animation: works-narrow-attention 6s ease-in-out infinite;
+}
+
+.works-nav-arrow-left {
+    left: 4%;
+    transform: scaleX(-1);
+}
+
+.works-nav-arrow-right {
+    right: 4%;
+}
+
+.works-nav-arrow-left:hover img,
+.works-nav-arrow-left:focus-visible img {
+    animation: works-narrow-wiggle 0.65s ease-in-out infinite;
+    transform-origin: center;
+}
+
+@keyframes works-narrow-attention {
+    0%, 74%, 100% { transform: translateY(0); }
+    80% { transform: translateY(-6px); }
+    86% { transform: translateY(0); }
+    91% { transform: translateY(-3px); }
+}
+
+@keyframes works-narrow-wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-4deg) translateY(-2px); }
+    75% { transform: rotate(4deg) translateY(-2px); }
 }
 
 @media only screen and (max-width: 767px) {
