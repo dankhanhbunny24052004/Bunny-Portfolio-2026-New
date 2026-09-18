@@ -67,6 +67,68 @@
         const hamburgerIcon = document.getElementById('hamburger-icon'); // Icon bên trong nút
         const navMenu = document.getElementById('nav-menu');
         const navLinks = document.querySelectorAll('#nav-menu a');
+        const threeDProject = document.querySelector('.work-project-3d .work-project-link');
+        const blenderPreview = new Audio('assets/media/audio/blender.mp3');
+        const blenderPreviewLength = 3000;
+        const blenderFadeLength = 300;
+        const blenderPreviewVolume = 0.14;
+        let blenderFadeFrame;
+        let blenderStopTimer;
+
+        blenderPreview.preload = 'auto';
+
+        const clearBlenderPreviewTimers = () => {
+            window.cancelAnimationFrame(blenderFadeFrame);
+            window.clearTimeout(blenderStopTimer);
+        };
+
+        const fadeBlenderPreview = (targetVolume, duration, onComplete) => {
+            window.cancelAnimationFrame(blenderFadeFrame);
+            const startVolume = blenderPreview.volume;
+            const startedAt = performance.now();
+
+            const updateVolume = (now) => {
+                const progress = Math.min((now - startedAt) / duration, 1);
+                blenderPreview.volume = startVolume + (targetVolume - startVolume) * progress;
+
+                if (progress < 1) {
+                    blenderFadeFrame = window.requestAnimationFrame(updateVolume);
+                } else if (onComplete) {
+                    onComplete();
+                }
+            };
+
+            blenderFadeFrame = window.requestAnimationFrame(updateVolume);
+        };
+
+        const stopBlenderPreview = () => {
+            window.clearTimeout(blenderStopTimer);
+            if (blenderPreview.paused) return;
+
+            fadeBlenderPreview(0, blenderFadeLength, () => {
+                blenderPreview.pause();
+                blenderPreview.currentTime = 0;
+            });
+        };
+
+        const playBlenderPreview = () => {
+            clearBlenderPreviewTimers();
+            blenderPreview.pause();
+            blenderPreview.currentTime = 0;
+            blenderPreview.volume = 0;
+
+            blenderPreview.play().then(() => {
+                fadeBlenderPreview(blenderPreviewVolume, blenderFadeLength);
+                blenderStopTimer = window.setTimeout(stopBlenderPreview, blenderPreviewLength - blenderFadeLength);
+            }).catch(() => {
+                // Browsers may require a user gesture before allowing hover audio.
+            });
+        };
+
+        threeDProject.addEventListener('pointerenter', playBlenderPreview);
+        threeDProject.addEventListener('pointerleave', stopBlenderPreview);
+        threeDProject.addEventListener('focus', playBlenderPreview);
+        threeDProject.addEventListener('blur', stopBlenderPreview);
         
         // Toggle menu
         hamburgerMenu.addEventListener('click', () => {
