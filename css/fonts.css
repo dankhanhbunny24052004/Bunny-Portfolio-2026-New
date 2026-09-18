@@ -37,12 +37,12 @@ header nav ul li a {
 
 .site-logo {
     position: absolute;
-    top: calc(50% + 0.45rem);
+    top: 1rem;
     left: 1rem;
     z-index: 100;
     display: block;
     line-height: 0;
-    transform: translateY(-50%);
+    transform: none;
 }
 
 .site-logo img {
