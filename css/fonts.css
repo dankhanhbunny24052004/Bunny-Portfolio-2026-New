@@ -27,7 +27,7 @@ header nav * {
 /* Keep navigation compact without changing its links or type size. */
 header {
     min-height: 0 !important;
-    padding: 0.8rem 0.75rem 0.25rem !important;
+    padding: 1.15rem 1rem 0.4rem !important;
 }
 
 header nav ul li a {
@@ -37,8 +37,8 @@ header nav ul li a {
 
 .site-logo {
     position: absolute;
-    top: calc(50% + 0.35rem);
-    left: 0.75rem;
+    top: calc(50% + 0.45rem);
+    left: 1rem;
     z-index: 100;
     display: block;
     line-height: 0;
