@@ -89,6 +89,11 @@ main.works-section {
     height: auto;
 }
 
+.work-project-link {
+    display: block;
+    line-height: 0;
+}
+
 .work-project-2d img,
 .work-project-web img {
     width: clamp(11rem, 18vw, 19rem);
