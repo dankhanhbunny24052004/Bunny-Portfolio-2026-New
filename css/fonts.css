@@ -18,6 +18,30 @@ body * {
     font-family: 'Bahnschrift Regular', sans-serif !important;
 }
 
+/* Shared fade between internal portfolio pages. */
+body {
+    transition: opacity 0.28s ease;
+}
+
+html.page-transition-enter body {
+    animation: page-transition-enter 0.3s ease both !important;
+}
+
+html.page-transition-leaving body {
+    opacity: 0 !important;
+    pointer-events: none;
+}
+
+@keyframes page-transition-enter {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    body { transition: none; }
+    html.page-transition-enter body { animation: none !important; }
+}
+
 /* Navigation uses the pixel typeface consistently across every page. */
 header nav,
 header nav * {

@@ -9,6 +9,7 @@
     <title>About Me</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/fonts.css">
+    <script src="js/page-transition.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@700&display=swap" rel="stylesheet">
 </head>
 
@@ -169,13 +170,13 @@
                 event.preventDefault();
                 return;
             }
-            window.location.href = 'works.html';
+            window.navigateWithPageFade('works.html');
         };
 
         worksArrow.addEventListener('click', goToWorksIfReady);
         aboutBackground.addEventListener('click', () => {
             if (aboutArtwork.classList.contains('is-tools-ready')) {
-                window.location.href = 'works.html';
+                window.navigateWithPageFade('works.html');
             }
         });
         
