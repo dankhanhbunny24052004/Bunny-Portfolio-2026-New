@@ -71,7 +71,7 @@
         const blenderPreview = new Audio('assets/media/audio/blender.mp3');
         const blenderPreviewLength = 3000;
         const blenderFadeLength = 300;
-        const blenderPreviewVolume = 0.22;
+        const blenderPreviewVolume = 0.5;
         let blenderFadeFrame;
         let blenderStopTimer;
 
@@ -129,6 +129,10 @@
         threeDProject.addEventListener('pointerleave', stopBlenderPreview);
         threeDProject.addEventListener('focus', playBlenderPreview);
         threeDProject.addEventListener('blur', stopBlenderPreview);
+
+        document.querySelectorAll('.work-project').forEach((project) => {
+            project.addEventListener('click', () => project.classList.add('is-selected'));
+        });
         
         // Toggle menu
         hamburgerMenu.addEventListener('click', () => {

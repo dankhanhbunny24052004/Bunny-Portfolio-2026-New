@@ -87,6 +87,7 @@ main.works-section {
     display: block;
     width: clamp(9rem, 14vw, 15rem);
     height: auto;
+    animation: works-project-idle 3.5s ease-in-out infinite;
 }
 
 .work-project-link {
@@ -106,6 +107,10 @@ main.works-section {
 .work-project img:hover {
     animation: works-project-hover 0.55s ease-in-out;
     transform-origin: center;
+}
+
+.work-project.is-selected img {
+    animation: none;
 }
 
 .work-project-description {
@@ -182,6 +187,13 @@ main.works-section {
     25% { transform: scale(1.045) rotate(-2deg); }
     55% { transform: scale(1.045) rotate(2deg); }
     78% { transform: scale(1.02) rotate(-1deg); }
+}
+
+@keyframes works-project-idle {
+    0%, 74%, 100% { transform: translateY(0) rotate(0deg); }
+    80% { transform: translateY(-6px) rotate(-0.75deg); }
+    86% { transform: translateY(0) rotate(0.5deg); }
+    92% { transform: translateY(-3px) rotate(-0.3deg); }
 }
 
 @media only screen and (max-width: 767px) {
