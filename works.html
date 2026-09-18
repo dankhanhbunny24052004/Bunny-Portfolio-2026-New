@@ -69,6 +69,7 @@
         const navLinks = document.querySelectorAll('#nav-menu a');
         const threeDProject = document.querySelector('.work-project-3d .work-project-link');
         const twoDProject = document.querySelector('.work-project-2d');
+        const webProject = document.querySelector('.work-project-web');
         const createHoverPreview = (source, volume) => {
             const audio = new Audio(source);
             const previewLength = 3000;
@@ -126,7 +127,8 @@
         };
 
         const blenderPreview = createHoverPreview('assets/media/audio/blender.mp3', 0.5);
-        const mouseClickPreview = createHoverPreview('assets/media/audio/mouse clicking.mp3', 0.7);
+        const mouseClickPreview = createHoverPreview('assets/media/audio/mouse clicking.mp3', 1);
+        const typingPreview = createHoverPreview('assets/media/audio/typing.mp3', 0.5);
 
         threeDProject.addEventListener('pointerenter', blenderPreview.play);
         threeDProject.addEventListener('pointerleave', blenderPreview.stop);
@@ -134,6 +136,8 @@
         threeDProject.addEventListener('blur', blenderPreview.stop);
         twoDProject.addEventListener('pointerenter', mouseClickPreview.play);
         twoDProject.addEventListener('pointerleave', mouseClickPreview.stop);
+        webProject.addEventListener('pointerenter', typingPreview.play);
+        webProject.addEventListener('pointerleave', typingPreview.stop);
 
         document.querySelectorAll('.work-project').forEach((project) => {
             project.addEventListener('click', () => project.classList.add('is-selected'));
