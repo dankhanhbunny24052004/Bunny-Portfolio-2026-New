@@ -13,7 +13,18 @@
 </head>
 
 <body>
+    <div class="works-dot-overlay" aria-hidden="true">
+        <span class="works-dot-row" style="--row-delay: 7"></span>
+        <span class="works-dot-row" style="--row-delay: 6"></span>
+        <span class="works-dot-row" style="--row-delay: 5"></span>
+        <span class="works-dot-row" style="--row-delay: 4"></span>
+        <span class="works-dot-row" style="--row-delay: 3"></span>
+        <span class="works-dot-row" style="--row-delay: 2"></span>
+        <span class="works-dot-row" style="--row-delay: 1"></span>
+        <span class="works-dot-row" style="--row-delay: 0"></span>
+    </div>
     <header>
+        <a class="site-logo" href="index.html" aria-label="Go to Home page"><img src="assets/images/logo.png" alt=""></a>
         <button id="hamburger-menu">
             <img src="assets/images/back.png" alt="Menu" id="hamburger-icon">
         </button>
@@ -26,123 +37,21 @@
             </ul>
         </nav>
     </header>
-    <main class="works-section">
-        <div class="work-text">Sound design-2024</div>
-        <div class="work-text">Content Creator-2020</div>
-        <div class="work-text">HTML/CSS-2024</div>
-        <div class="work-text">Illustration-2023</div>
-        
-        <div class="work-item">
-            <img class="ear-image" src="assets/images/ear.png" alt="Sound Design">
-            
-        </div>
+    <main class="works-section" aria-label="Works">
+        <section class="work-project work-project-3d" aria-label="3D projects, 2025">
+            <p class="work-project-description">(1) 3D projects<br>-2025</p>
+            <img src="assets/images/3D.png" alt="3D projects">
+        </section>
 
-        <div class="work-item">
-            <img class="camera-image" src="assets/images/content_creator.png" alt="Content Creator">
-            
-        </div>
+        <section class="work-project work-project-2d" aria-label="2D projects, 2025">
+            <p class="work-project-description">(2) 2D projects<br>-2025</p>
+            <img src="assets/images/2D.png" alt="2D projects">
+        </section>
 
-        <div class="work-item">
-            <img class="web-image" src="assets/images/web_design.png" alt="HTML/CSS">
-            
-        </div>
-        <div class="work-item">
-            <img class="illustration-image" src="assets/images/illustration.png" alt="HTML/CSS">
-            
-        </div>
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                const earImage = document.querySelector('.ear-image');
-                const earText = document.querySelector('.work-text:nth-of-type(1)');
-        
-                const cameraImage = document.querySelector('.camera-image');
-                const cameraText = document.querySelector('.work-text:nth-of-type(2)');
-        
-                const webImage = document.querySelector('.web-image');
-                const webText = document.querySelector('.work-text:nth-of-type(3)');
-        
-                const illustrationImage = document.querySelector('.illustration-image');
-                const illustrationText = document.querySelector('.work-text:nth-of-type(4)');
-        
-                earImage.addEventListener('mouseover', () => {
-                    earText.style.opacity = '1';
-                    earText.classList.add('glow');
-                });
-        
-                earImage.addEventListener('mouseout', () => {
-                    earText.style.opacity = '0';
-                    earText.classList.remove('glow');
-                });
-        
-                cameraImage.addEventListener('mouseover', () => {
-                    cameraText.style.opacity = '1';
-                    cameraText.classList.add('glow');
-                });
-        
-                cameraImage.addEventListener('mouseout', () => {
-                    cameraText.style.opacity = '0';
-                    cameraText.classList.remove('glow');
-                });
-        
-                webImage.addEventListener('mouseover', () => {
-                    webText.style.opacity = '1';
-                    webText.classList.add('glow');
-                });
-        
-                webImage.addEventListener('mouseout', () => {
-                    webText.style.opacity = '0';
-                    webText.classList.remove('glow');
-                });
-        
-                illustrationImage.addEventListener('mouseover', () => {
-                    illustrationText.style.opacity = '1';
-                    illustrationText.classList.add('glow');
-                });
-        
-                illustrationImage.addEventListener('mouseout', () => {
-                    illustrationText.style.opacity = '0';
-                    illustrationText.classList.remove('glow');
-                });
-            });
-        </script>
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                const earImage = document.querySelector('.ear-image');
-                
-                earImage.addEventListener('click', () => {
-                    window.location.href = 'sound_design.html'; // Đường dẫn tới trang mới
-                });
-            });
-            document.addEventListener('DOMContentLoaded', () => {
-    const workItem = document.querySelector('.camera-image');
-
-    workItem.addEventListener('click', () => {
-        window.location.href = 'contentcreator.html';
-    });
-});
-
-        </script>
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                const workItem = document.querySelector('.web-image');
-        
-                workItem.addEventListener('click', () => {
-                    window.location.href = 'web.html'; // Chuyển hướng sang trang web.html
-                });
-            });
-        </script>
-        
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                const workItem = document.querySelector('.illustration-image');
-        
-                workItem.addEventListener('click', () => {
-                    window.location.href = 'illustration.html'; // Chuyển hướng sang trang illustration.html
-                });
-            });
-        </script>
-        
-        
+        <section class="work-project work-project-web" aria-label="Web Development, 2025">
+            <p class="work-project-description">(3) Web Development<br>-2025</p>
+            <img src="assets/images/coding.png" alt="Web Development">
+        </section>
     </main>
     <script>
         const hamburgerMenu = document.getElementById('hamburger-menu');

@@ -1105,8 +1105,437 @@ top: 3rem;}
 .languages {
     font-size: 1rem !important;
     line-height: 1;
-}
     }
+    }
+
+/* Simplified About layout. */
+body {
+    background: linear-gradient(to top, #da3894 0%, #f3cfda 75%, #ffffff 100%);
+    color: #000000;
+    height: 100vh;
+    height: 100dvh;
+    min-height: 0;
+    grid-template-rows: auto 1fr;
+    overflow: hidden;
+    animation: about-page-fade-in 0.6s ease both;
+}
+
+@keyframes about-page-fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+header {
+    z-index: 1;
+}
+
+header nav ul li a {
+    color: #000000;
+}
+
+.about-arrow-layout {
+    position: relative;
+    grid-row: 2;
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.about-artwork {
+    position: absolute;
+    top: 46%;
+    left: 50%;
+    width: clamp(20rem, 48vw, 48rem);
+    transform: translate(-50%, -50%);
+}
+
+.about-background-art {
+    position: relative;
+    z-index: 2;
+    display: block;
+    width: 100%;
+    height: auto;
+    animation: about-background-enter 0.8s 0.15s ease-out both;
+}
+
+.about-me-art,
+.about-khanh-art {
+    position: absolute;
+    display: block;
+    height: auto;
+}
+
+.about-me-art {
+    top: 47%;
+    left: 15%;
+    z-index: 3;
+    width: 34%;
+    max-height: 82vh;
+    transform: translateY(-50%);
+    transform-origin: top right;
+    cursor: pointer;
+    animation: about-me-enter 0.8s 0.3s ease-out both,
+        about-me-nudge 3.5s 1.25s ease-in-out infinite;
+}
+
+.about-khanh-art {
+    top: 35%;
+    left: 24%;
+    z-index: 2;
+    width: 52%;
+    transform-origin: bottom left;
+    cursor: pointer;
+    animation: about-khanh-enter 0.8s 0.45s ease-out both,
+        about-khanh-bounce 3.5s 1.25s ease-in-out infinite;
+}
+
+@keyframes about-background-enter {
+    from { transform: translateY(-110vh); }
+    to { transform: translateY(0); }
+}
+
+@keyframes about-me-enter {
+    from { transform: translate(-120vw, -50%); }
+    to { transform: translateY(-50%); }
+}
+
+@keyframes about-khanh-enter {
+    from { transform: translateX(120vw); }
+    to { transform: translateX(0); }
+}
+
+/* Both picture cues begin together once the entrance motion has completed. */
+@keyframes about-me-nudge {
+    0%, 16%, 100% { transform: translateY(-50%) rotate(0deg); }
+    4% { transform: translateY(-50%) rotate(-1.8deg); }
+    8% { transform: translateY(-50%) rotate(1.1deg); }
+    12% { transform: translateY(-50%) rotate(-0.5deg); }
+}
+
+@keyframes about-khanh-bounce {
+    0%, 20%, 100% {
+        transform: translate(0, 0) rotate(0deg);
+        transform-origin: bottom left;
+    }
+    4% {
+        transform: translate(-2px, -9px) rotate(-1.2deg);
+        transform-origin: bottom left;
+    }
+    9% {
+        transform: translate(0, 0) rotate(0deg);
+        transform-origin: bottom left;
+    }
+    14% {
+        transform: translate(2px, -8px) rotate(1.1deg);
+        transform-origin: bottom right;
+    }
+    20% {
+        transform: translate(0, 0) rotate(0deg);
+        transform-origin: bottom right;
+    }
+}
+
+.about-description {
+    position: absolute;
+    top: 54%;
+    left: 50%;
+    z-index: 4;
+    width: min(74%, 36rem);
+    margin: 0;
+    color: #000000;
+    font-family: 'Bahnschrift Regular', sans-serif !important;
+    font-size: clamp(18px, 1.25vw, 22px);
+    font-weight: 400;
+    line-height: 1.45;
+    text-align: justify;
+    opacity: 0;
+    pointer-events: none;
+    transform: translate(-50%, -44%);
+}
+
+.about-tool-burst {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.about-tool {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    width: clamp(4rem, 6vw, 7rem);
+    height: auto;
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.15);
+    will-change: transform, opacity;
+}
+
+/* Clicking either picture clears the artwork and reveals the About description. */
+.about-artwork.is-explored .about-me-art {
+    animation: about-me-exit 0.7s ease-in forwards;
+}
+
+.about-artwork.is-explored .about-khanh-art {
+    animation: about-khanh-exit 0.7s ease-in forwards;
+}
+
+.about-artwork.is-explored .about-description {
+    animation: about-description-enter 0.6s 0.42s ease-out forwards;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+/* Second About interaction: close the folder, then burst the tool icons upward. */
+.about-artwork.is-tools-open .about-description {
+    animation: about-description-exit 0.32s ease-in forwards;
+    pointer-events: none;
+}
+
+.about-artwork.is-tools-open .about-background-art {
+    transform-origin: center bottom;
+    animation: about-background-shrink 0.65s ease-in-out forwards;
+}
+
+.about-artwork.is-tools-ready .about-background-art {
+    cursor: pointer;
+    transform: scale(0.58);
+    animation: about-background-prompt 3.5s ease-in-out infinite;
+}
+
+.about-artwork.is-tools-open .about-tool {
+    animation: about-tool-burst 1.15s var(--tool-delay, 0ms) cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+@keyframes about-me-exit {
+    to {
+        opacity: 0;
+        transform: translate(-60vw, -50%) rotate(-3deg);
+    }
+}
+
+@keyframes about-khanh-exit {
+    to {
+        opacity: 0;
+        transform: translate(60vw, 0) rotate(3deg);
+    }
+}
+
+@keyframes about-description-enter {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+@keyframes about-description-exit {
+    to {
+        opacity: 0;
+        transform: translate(-50%, -54%);
+    }
+}
+
+@keyframes about-background-shrink {
+    to { transform: scale(0.58); }
+}
+
+@keyframes about-tool-burst {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) translate(0, 0) rotate(0deg) scale(0.15);
+    }
+    18% { opacity: 1; }
+    76% {
+        opacity: 1;
+        transform: translate(-50%, -50%) translate(var(--tool-x), var(--tool-y)) rotate(var(--tool-rotation)) scale(1.03);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) translate(var(--tool-x), var(--tool-y)) rotate(var(--tool-rotation)) scale(1);
+    }
+}
+
+.about-explore-hint {
+    position: fixed;
+    left: 50%;
+    bottom: 1.25rem;
+    z-index: 6;
+    margin: 0;
+    color: #000000;
+    /* Matched directly to Home's “click [narrow.png] to explore” copy. */
+    font-family: 'Geist Pixel', sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 400;
+    line-height: 1.2;
+    white-space: nowrap;
+    transform: translateX(-50%);
+}
+
+.about-explore-hint::after {
+    content: attr(data-text);
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg, transparent 34%, rgba(255, 255, 255, 0.95) 50%, transparent 66%);
+    background-repeat: no-repeat;
+    background-size: 180% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Geist Pixel', sans-serif !important;
+    font-size: 16px !important;
+    font-weight: 400;
+    animation: about-explore-hint-light-sweep 4.5s linear infinite;
+}
+
+@keyframes about-explore-hint-light-sweep {
+    from { background-position: 150% 0; }
+    to { background-position: -150% 0; }
+}
+
+.about-nav-arrow {
+    position: fixed;
+    bottom: calc(5% + 2rem);
+    z-index: 2;
+    display: block;
+    width: clamp(3rem, 5vw, 5.5rem);
+}
+
+.about-nav-arrow img {
+    display: block;
+    width: 100%;
+    height: auto;
+    animation: about-narrow-attention 6s ease-in-out infinite;
+}
+
+.about-step-indicator {
+    position: absolute;
+    left: 0;
+    bottom: calc(100% + 0.4rem);
+    color: #000000;
+    font-family: 'Geist Pixel', sans-serif !important;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 1;
+    pointer-events: none;
+    transform: none;
+}
+
+.about-nav-arrow:hover img,
+.about-nav-arrow:focus-visible img {
+    animation: about-narrow-wiggle 0.65s ease-in-out infinite;
+    transform-origin: center;
+}
+
+.about-nav-arrow-left {
+    left: 4%;
+    transform: scaleX(-1);
+}
+
+.about-nav-arrow-right {
+    right: 4%;
+    visibility: visible;
+    opacity: 1;
+    pointer-events: none;
+    transform: none;
+}
+
+.about-nav-arrow-right img {
+    visibility: hidden;
+    opacity: 0;
+    transform: translateY(0.75rem);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s step-end;
+}
+
+.about-nav-arrow-right.is-available img {
+    visibility: visible;
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+    transition: opacity 0.3s ease, transform 0.3s ease, visibility 0s;
+}
+
+.about-nav-arrow-right.is-available {
+    pointer-events: auto;
+}
+
+@keyframes about-background-prompt {
+    0%, 74%, 100% {
+        translate: 0 0;
+        rotate: 0deg;
+    }
+
+    80% {
+        translate: 0 -6px;
+        rotate: -0.75deg;
+    }
+
+    86% {
+        translate: 0 0;
+        rotate: 0.5deg;
+    }
+
+    92% {
+        translate: 0 -3px;
+        rotate: -0.3deg;
+    }
+}
+
+@keyframes about-narrow-attention {
+    0%, 74%, 100% { transform: translateY(0); }
+    80% { transform: translateY(-6px); }
+    86% { transform: translateY(0); }
+    91% { transform: translateY(-3px); }
+}
+
+@keyframes about-narrow-wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-4deg) translateY(-2px); }
+    75% { transform: rotate(4deg) translateY(-2px); }
+}
+
+@media only screen and (max-width: 767px) {
+    .about-artwork {
+        width: 72vw;
+    }
+
+    .about-me-art {
+        top: 47%;
+        left: 12%;
+        width: 38%;
+        max-height: 76vh;
+    }
+
+    .about-khanh-art {
+        top: 36%;
+        left: 24%;
+        width: 54%;
+    }
+
+    .about-description {
+        width: 82vw;
+        font-size: 18px;
+    }
+
+    .about-tool {
+        width: clamp(2.3rem, 9.5vw, 4rem);
+    }
+
+    .about-nav-arrow {
+        bottom: calc(10% + 2rem);
+        width: 16vw;
+    }
+}
+
+html {
+    height: 100%;
+    overflow: hidden;
+}
     
       
     

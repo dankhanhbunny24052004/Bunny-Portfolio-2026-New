@@ -5,8 +5,48 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'Geist Pixel';
+    src: url('../assets/source/GeistPixel-Regular-VariableFont_ELSH.ttf') format('truetype');
+    font-weight: 100 900;
+    font-style: normal;
+}
+
 html,
 body,
 body * {
     font-family: 'Bahnschrift Regular', sans-serif !important;
+}
+
+/* Navigation uses the pixel typeface consistently across every page. */
+header nav,
+header nav * {
+    font-family: 'Geist Pixel', sans-serif !important;
+}
+
+/* Keep navigation compact without changing its links or type size. */
+header {
+    min-height: 0 !important;
+    padding: 0.8rem 0.75rem 0.25rem !important;
+}
+
+header nav ul li a {
+    line-height: 1.1 !important;
+    padding: 0.25rem 0.65rem !important;
+}
+
+.site-logo {
+    position: absolute;
+    top: calc(50% + 0.35rem);
+    left: 0.75rem;
+    z-index: 100;
+    display: block;
+    line-height: 0;
+    transform: translateY(-50%);
+}
+
+.site-logo img {
+    display: block;
+    width: clamp(2.2rem, 2.8vw, 2.7rem);
+    height: auto;
 }

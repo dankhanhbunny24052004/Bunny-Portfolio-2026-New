@@ -11,8 +11,42 @@
 </head>
 
 <body>
+    <div class="home-dot-overlay" aria-hidden="true">
+        <span class="home-dot-row" style="--row-delay: 7"></span>
+        <span class="home-dot-row" style="--row-delay: 6"></span>
+        <span class="home-dot-row" style="--row-delay: 5"></span>
+        <span class="home-dot-row" style="--row-delay: 4"></span>
+        <span class="home-dot-row" style="--row-delay: 3"></span>
+        <span class="home-dot-row" style="--row-delay: 2"></span>
+        <span class="home-dot-row" style="--row-delay: 1"></span>
+        <span class="home-dot-row" style="--row-delay: 0"></span>
+    </div>
+    <div class="home-posters" aria-hidden="true">
+        <img class="home-poster home-poster-3" src="assets/images/POSTER 3.png" alt="">
+        <img class="home-poster home-poster-1" src="assets/images/POSTER 1.png" alt="">
+        <img class="home-poster home-poster-2" src="assets/images/POSTER 2.png" alt="">
+    </div>
+    <div class="home-decoration-layer">
+        <div class="home-thumbnail-text-wrap" aria-hidden="true">
+            <img src="assets/images/thumbnail text.png" alt="">
+            <div class="home-thumbnail-label-mask">
+                <div class="home-skill-label home-skill-coding" data-label="Web Development">Web Development</div>
+                <div class="home-skill-label home-skill-2d" data-label="2D Visual Design">2D Visual Design</div>
+                <div class="home-skill-label home-skill-3d" data-label="3D Visual Design">3D Visual Design</div>
+            </div>
+        </div>
+        <a class="home-narrow-link" href="about.html" aria-label="Go to About page">
+            <img class="home-narrow" src="assets/images/narrow.png" alt="">
+        </a>
+        <p class="home-explore-hint">
+            <span class="home-explore-text" data-text="click">click</span>
+            <img class="home-explore-narrow-static" src="assets/images/narrow.png" alt="">
+            <span class="home-explore-text" data-text="to explore">to explore</span>
+        </p>
+    </div>
 
     <header>
+        <a class="site-logo" href="index.html" aria-label="Go to Home page"><img src="assets/images/logo.png" alt=""></a>
         <button id="hamburger-menu">
             <img src="assets/images/back.png" alt="Menu" id="hamburger-icon">
         </button>
@@ -64,11 +98,71 @@
     </main>
     <div id="software-marquee" class="marquee-container">
         <div class="marquee">
-            <span>welcome to bunny portfolio&nbsp;welcome to bunny portfolio&nbsp;welcome to bunny portfolio&nbsp;welcome to bunny portfolio&nbsp;welcome to bunny portfolio&nbsp;welcome to bunny portfolio&nbsp;</span>
+            <span>welcome to bunny portfolio&nbsp;welcome to bunny portfolio&nbsp;welcome to bunny portfolio&nbsp;welcome to bunny portfolio&nbsp;welcome to bunny portfolio&nbsp;welcome to bunny portfolio&nbsp;© 2026 [Bunny]. All rights reserved.&nbsp;</span>
         </div>
     </div>
     <script src="js/script.js"></script>
     <script>
+const posters = document.querySelectorAll('.home-poster');
+let posterStackOrder = posters.length;
+
+posters.forEach((poster) => {
+    let activePointerId = null;
+    let startX = 0;
+    let startY = 0;
+    let startLeft = 0;
+    let startTop = 0;
+
+    poster.addEventListener('pointerdown', (event) => {
+        if (event.button !== 0) return;
+
+        const container = poster.parentElement;
+        const posterRect = poster.getBoundingClientRect();
+        const containerRect = container.getBoundingClientRect();
+
+        activePointerId = event.pointerId;
+        startX = event.clientX;
+        startY = event.clientY;
+        startLeft = posterRect.left - containerRect.left;
+        startTop = posterRect.top - containerRect.top;
+
+        poster.style.left = `${startLeft}px`;
+        poster.style.top = `${startTop}px`;
+        poster.style.right = 'auto';
+        poster.style.bottom = 'auto';
+        poster.style.zIndex = String(++posterStackOrder);
+        poster.classList.add('is-dragging');
+        poster.setPointerCapture(activePointerId);
+        event.preventDefault();
+    });
+
+    poster.addEventListener('pointermove', (event) => {
+        if (event.pointerId !== activePointerId) return;
+
+        const containerRect = poster.parentElement.getBoundingClientRect();
+        const maxLeft = Math.max(0, containerRect.width - poster.offsetWidth);
+        const maxTop = Math.max(0, containerRect.height - poster.offsetHeight);
+        const nextLeft = Math.min(maxLeft, Math.max(0, startLeft + event.clientX - startX));
+        const nextTop = Math.min(maxTop, Math.max(0, startTop + event.clientY - startY));
+
+        poster.style.left = `${nextLeft}px`;
+        poster.style.top = `${nextTop}px`;
+    });
+
+    const stopDragging = (event) => {
+        if (event.pointerId !== activePointerId) return;
+
+        poster.classList.remove('is-dragging');
+        if (poster.hasPointerCapture(event.pointerId)) {
+            poster.releasePointerCapture(event.pointerId);
+        }
+        activePointerId = null;
+    };
+
+    poster.addEventListener('pointerup', stopDragging);
+    poster.addEventListener('pointercancel', stopDragging);
+});
+
 const hamburgerMenu = document.getElementById('hamburger-menu');
 const hamburgerIcon = document.getElementById('hamburger-icon'); // Icon bên trong nút
 const navMenu = document.getElementById('nav-menu');
