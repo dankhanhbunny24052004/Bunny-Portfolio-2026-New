@@ -108,6 +108,12 @@
         const aboutBackground = document.querySelector('.about-background-art');
         const aboutStepIndicator = document.querySelector('.about-step-indicator');
         const worksArrow = document.querySelector('.about-nav-arrow-right');
+        const hasCompletedAboutTour = sessionStorage.getItem('about-tour-complete') === 'true';
+
+        if (hasCompletedAboutTour) {
+            aboutArtwork.classList.add('is-navigation-ready');
+            worksArrow.classList.add('is-available');
+        }
         document.querySelectorAll('.about-explore-picture').forEach((picture) => {
             picture.addEventListener('click', () => {
                 aboutArtwork.classList.add('is-explored');
@@ -146,6 +152,7 @@
             window.setTimeout(() => {
                 aboutArtwork.classList.add('is-tools-ready', 'is-navigation-ready');
                 worksArrow.classList.add('is-available');
+                sessionStorage.setItem('about-tour-complete', 'true');
             }, 1450);
         };
 

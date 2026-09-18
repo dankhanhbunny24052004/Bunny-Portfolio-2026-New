@@ -94,6 +94,15 @@ main.works-section {
     width: clamp(11rem, 18vw, 19rem);
 }
 
+.work-project-2d img {
+    width: clamp(13rem, 20vw, 23rem);
+}
+
+.work-project img:hover {
+    animation: works-project-hover 0.55s ease-in-out;
+    transform-origin: center;
+}
+
 .work-project-description {
     margin: 1rem 0 0;
     color: #000000;
@@ -110,7 +119,7 @@ main.works-section {
 }
 
 .work-project-2d {
-    top: 55%;
+    top: 59%;
     left: 50%;
     transform: translateX(-50%);
 }
@@ -163,6 +172,13 @@ main.works-section {
     75% { transform: rotate(4deg) translateY(-2px); }
 }
 
+@keyframes works-project-hover {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(1.045) rotate(-2deg); }
+    55% { transform: scale(1.045) rotate(2deg); }
+    78% { transform: scale(1.02) rotate(-1deg); }
+}
+
 @media only screen and (max-width: 767px) {
     main.works-section {
         min-height: 42rem;
@@ -179,7 +195,7 @@ main.works-section {
     }
 
     .work-project-3d { left: 5%; }
-    .work-project-2d { top: 49%; }
+    .work-project-2d { top: 55%; }
     .work-project-web { right: 5%; }
 }
 

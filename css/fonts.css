@@ -47,6 +47,6 @@ header nav ul li a {
 
 .site-logo img {
     display: block;
-    width: clamp(2.2rem, 2.8vw, 2.7rem);
+    width: clamp(3rem, 3.8vw, 3.75rem);
     height: auto;
 }
