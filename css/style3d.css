@@ -123,13 +123,14 @@ header nav a:hover {
     position: absolute;
     z-index: 3;
     /* Transparent hit area placed over the original next-track icon in ipod.svg. */
-    left: 69.5%;
-    top: 66%;
-    width: 8%;
-    height: 8%;
+    left: 68%;
+    top: 68%;
+    width: 12%;
+    height: 12%;
     padding: 0;
     border: 0;
     background: transparent;
+    pointer-events: auto;
     cursor: pointer;
 }
 
