@@ -95,12 +95,25 @@ header nav a:hover {
     object-position: center;
 }
 
-.ipod-thumbnail.is-swiping-out {
+.ipod-thumbnail.is-spec-two {
+    /* Keep the toy-store artwork a little further right inside the screen frame. */
+    object-position: 38% center;
+}
+
+.ipod-thumbnail.is-swiping-out-left {
     animation: thumbnail-swipe-out 0.28s cubic-bezier(0.4, 0, 1, 1) forwards;
 }
 
-.ipod-thumbnail.is-swiping-in {
+.ipod-thumbnail.is-swiping-in-right {
     animation: thumbnail-swipe-in 0.34s cubic-bezier(0, 0, 0.2, 1) forwards;
+}
+
+.ipod-thumbnail.is-swiping-out-right {
+    animation: thumbnail-swipe-out-right 0.28s cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
+.ipod-thumbnail.is-swiping-in-left {
+    animation: thumbnail-swipe-in-left 0.34s cubic-bezier(0, 0, 0.2, 1) forwards;
 }
 
 @keyframes thumbnail-swipe-out {
@@ -119,7 +132,24 @@ header nav a:hover {
     }
 }
 
-.ipod-next {
+@keyframes thumbnail-swipe-out-right {
+    to {
+        transform: translateX(110%);
+    }
+}
+
+@keyframes thumbnail-swipe-in-left {
+    from {
+        transform: translateX(-110%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
+}
+
+.ipod-next,
+.ipod-previous {
     position: absolute;
     z-index: 3;
     /* Transparent hit area placed over the original next-track icon in ipod.svg. */
@@ -132,6 +162,13 @@ header nav a:hover {
     background: transparent;
     pointer-events: auto;
     cursor: pointer;
+}
+
+.ipod-previous {
+    left: 52%;
+    top: 68%;
+    width: 12%;
+    height: 12%;
 }
 
 .ipod-next:focus-visible {
@@ -204,8 +241,10 @@ header nav a:hover {
         animation: none;
     }
 
-    .ipod-thumbnail.is-swiping-out,
-    .ipod-thumbnail.is-swiping-in {
+    .ipod-thumbnail.is-swiping-out-left,
+    .ipod-thumbnail.is-swiping-in-right,
+    .ipod-thumbnail.is-swiping-out-right,
+    .ipod-thumbnail.is-swiping-in-left {
         animation: none;
     }
 }

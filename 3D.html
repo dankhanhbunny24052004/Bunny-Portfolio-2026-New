@@ -34,6 +34,7 @@
                     alt="Thumbnail for Uncle Minh project">
             </div>
             <img class="ipod-intro" src="assets/images/ipod.svg" alt="Illustrated iPod">
+            <button id="ipod-previous" class="ipod-previous" type="button" aria-label="Show previous project thumbnail"></button>
             <button id="ipod-next" class="ipod-next" type="button" aria-label="Show next project thumbnail"></button>
         </div>
     </main>
@@ -69,29 +70,41 @@
         // Add future project thumbnail paths here. The next button will cycle through them automatically.
         const projectThumbnails = [
             'assets/images/thumbnail dms 3 a1.png',
-            'assets/images/spec 2.png'
+            'assets/images/spec 2.png',
+            'assets/images/dms3.png'
         ];
         const ipodThumbnail = document.getElementById('ipod-thumbnail');
+        const ipodPrevious = document.getElementById('ipod-previous');
         const ipodNext = document.getElementById('ipod-next');
         let activeThumbnail = 0;
         let isChangingThumbnail = false;
 
-        ipodNext.addEventListener('click', () => {
+        const updateThumbnailPosition = () => {
+            ipodThumbnail.classList.toggle('is-spec-two', projectThumbnails[activeThumbnail] === 'assets/images/spec 2.png');
+        };
+
+        const changeThumbnail = (direction) => {
             if (projectThumbnails.length < 2 || isChangingThumbnail) return;
 
             isChangingThumbnail = true;
-            activeThumbnail = (activeThumbnail + 1) % projectThumbnails.length;
-            ipodThumbnail.classList.add('is-swiping-out');
+            activeThumbnail = (activeThumbnail + direction + projectThumbnails.length) % projectThumbnails.length;
+            const leavingClass = direction > 0 ? 'is-swiping-out-left' : 'is-swiping-out-right';
+            const enteringClass = direction > 0 ? 'is-swiping-in-right' : 'is-swiping-in-left';
+            ipodThumbnail.classList.add(leavingClass);
             window.setTimeout(() => {
                 ipodThumbnail.src = projectThumbnails[activeThumbnail];
-                ipodThumbnail.classList.remove('is-swiping-out');
-                ipodThumbnail.classList.add('is-swiping-in');
+                ipodThumbnail.classList.remove(leavingClass);
+                updateThumbnailPosition();
+                ipodThumbnail.classList.add(enteringClass);
                 window.setTimeout(() => {
-                    ipodThumbnail.classList.remove('is-swiping-in');
+                    ipodThumbnail.classList.remove(enteringClass);
                     isChangingThumbnail = false;
                 }, 340);
             }, 280);
-        });
+        };
+
+        ipodNext.addEventListener('click', () => changeThumbnail(1));
+        ipodPrevious.addEventListener('click', () => changeThumbnail(-1));
     </script>
 </body>
 
