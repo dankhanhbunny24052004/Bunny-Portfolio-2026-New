@@ -28,7 +28,16 @@
     </header>
 
     <main class="three-d-stage" aria-label="3D projects">
-        <img class="ipod-intro" src="assets/images/ipod.svg" alt="Illustrated iPod">
+        <div class="ipod-scene">
+            <img id="ipod-thumbnail" class="ipod-thumbnail" src="assets/images/thumbnail dms 3 a1.png"
+                alt="Thumbnail for Uncle Minh project">
+            <img class="ipod-intro" src="assets/images/ipod.svg" alt="Illustrated iPod">
+            <button id="ipod-next" class="ipod-next" type="button" aria-label="Show next project thumbnail">
+                <svg viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+                    <path d="M4 8 27 32 4 56V8Zm24 0 23 24-23 24V8Zm28 0h5v48h-5z" />
+                </svg>
+            </button>
+        </div>
     </main>
 
     <script>
@@ -58,6 +67,23 @@
         });
 
         navLinks.forEach((link) => link.addEventListener('click', closeMenu));
+
+        // Add future project thumbnail paths here. The next button will cycle through them automatically.
+        const projectThumbnails = ['assets/images/thumbnail dms 3 a1.png'];
+        const ipodThumbnail = document.getElementById('ipod-thumbnail');
+        const ipodNext = document.getElementById('ipod-next');
+        let activeThumbnail = 0;
+
+        ipodNext.addEventListener('click', () => {
+            if (projectThumbnails.length < 2) return;
+
+            activeThumbnail = (activeThumbnail + 1) % projectThumbnails.length;
+            ipodThumbnail.classList.add('is-changing');
+            window.setTimeout(() => {
+                ipodThumbnail.src = projectThumbnails[activeThumbnail];
+                ipodThumbnail.classList.remove('is-changing');
+            }, 160);
+        });
     </script>
 </body>
 
