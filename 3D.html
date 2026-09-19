@@ -74,6 +74,7 @@
             'assets/images/spec 2.png'
         ];
         const ipodThumbnail = document.getElementById('ipod-thumbnail');
+        const ipodScreenFrame = document.querySelector('.ipod-screen-frame');
         const ipodPrevious = document.getElementById('ipod-previous');
         const ipodNext = document.getElementById('ipod-next');
         let activeThumbnail = 0;
@@ -81,7 +82,9 @@
 
         const updateThumbnailPosition = () => {
             ipodThumbnail.classList.toggle('is-spec-two', projectThumbnails[activeThumbnail] === 'assets/images/spec 2.png');
-            ipodThumbnail.classList.toggle('is-dms-three', projectThumbnails[activeThumbnail] === 'assets/images/dms3.png');
+            const isDmsThree = projectThumbnails[activeThumbnail] === 'assets/images/dms3.png';
+            ipodThumbnail.classList.toggle('is-dms-three', isDmsThree);
+            ipodScreenFrame.classList.toggle('is-dms-three', isDmsThree);
         };
 
         const changeThumbnail = (direction) => {
