@@ -70,8 +70,8 @@
         // Add future project thumbnail paths here. The next button will cycle through them automatically.
         const projectThumbnails = [
             'assets/images/thumbnail dms 3 a1.png',
-            'assets/images/spec 2.png',
-            'assets/images/dms3.png'
+            'assets/images/dms3.png',
+            'assets/images/spec 2.png'
         ];
         const ipodThumbnail = document.getElementById('ipod-thumbnail');
         const ipodPrevious = document.getElementById('ipod-previous');
@@ -81,6 +81,7 @@
 
         const updateThumbnailPosition = () => {
             ipodThumbnail.classList.toggle('is-spec-two', projectThumbnails[activeThumbnail] === 'assets/images/spec 2.png');
+            ipodThumbnail.classList.toggle('is-dms-three', projectThumbnails[activeThumbnail] === 'assets/images/dms3.png');
         };
 
         const changeThumbnail = (direction) => {

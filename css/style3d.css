@@ -96,8 +96,14 @@ header nav a:hover {
 }
 
 .ipod-thumbnail.is-spec-two {
-    /* Keep the toy-store artwork a little further right inside the screen frame. */
-    object-position: 38% center;
+    /* Nudge the toy-store artwork slightly left inside the screen frame. */
+    object-position: 58% center;
+}
+
+.ipod-thumbnail.is-dms-three {
+    /* This frame is intentionally shown in full instead of being cropped to the iPod screen ratio. */
+    object-fit: contain;
+    background: #000000;
 }
 
 .ipod-thumbnail.is-swiping-out-left {
