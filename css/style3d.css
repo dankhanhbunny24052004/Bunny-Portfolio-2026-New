@@ -58,7 +58,8 @@ header nav a:hover {
 
 .ipod-intro {
     position: absolute;
-    left: 50%;
+    /* The SVG includes a wide cable on the right, so offset its canvas to centre the blue player itself. */
+    left: 43%;
     bottom: 0;
     z-index: 1;
     display: block;
@@ -123,6 +124,7 @@ header nav a:hover {
     .ipod-intro {
         width: min(82vw, 32rem);
         min-width: 15rem;
+        left: 46%;
     }
 }
 
