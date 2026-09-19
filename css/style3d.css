@@ -96,31 +96,20 @@ header nav a:hover {
 .ipod-next {
     position: absolute;
     z-index: 3;
-    left: 87%;
-    top: 50%;
-    display: grid;
-    width: clamp(3.25rem, 4vw, 4.5rem);
-    aspect-ratio: 1;
-    place-items: center;
+    /* Transparent hit area placed over the original next-track icon in ipod.svg. */
+    left: 69.5%;
+    top: 66%;
+    width: 8%;
+    height: 8%;
+    padding: 0;
     border: 0;
-    border-radius: 0.2rem;
-    background: #ffffff;
-    color: #000000;
+    background: transparent;
     cursor: pointer;
-    transition: transform 0.18s ease, background-color 0.18s ease;
 }
 
-.ipod-next svg {
-    display: block;
-    width: 68%;
-    height: 68%;
-    fill: currentColor;
-}
-
-.ipod-next:hover,
 .ipod-next:focus-visible {
-    background: #f4f4f4;
-    transform: scale(1.08);
+    outline: 0.15rem solid #ffffff;
+    outline-offset: 0.12rem;
 }
 
 @keyframes ipod-rise {
@@ -180,9 +169,6 @@ header nav a:hover {
         left: 46%;
     }
 
-    .ipod-next {
-        left: 84%;
-    }
 }
 
 @media (prefers-reduced-motion: reduce) {
