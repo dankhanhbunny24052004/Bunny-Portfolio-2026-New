@@ -77,20 +77,46 @@ header nav a:hover {
     height: 100%;
 }
 
-.ipod-thumbnail {
+.ipod-screen-frame {
     position: absolute;
     z-index: 1;
     left: 47.5%;
     top: 28.5%;
     width: 38%;
     height: 27.4%;
-    object-fit: cover;
-    object-position: center;
-    transition: opacity 0.16s ease;
+    overflow: hidden;
 }
 
-.ipod-thumbnail.is-changing {
-    opacity: 0;
+.ipod-thumbnail {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.ipod-thumbnail.is-swiping-out {
+    animation: thumbnail-swipe-out 0.28s cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
+.ipod-thumbnail.is-swiping-in {
+    animation: thumbnail-swipe-in 0.34s cubic-bezier(0, 0, 0.2, 1) forwards;
+}
+
+@keyframes thumbnail-swipe-out {
+    to {
+        transform: translateX(-110%);
+    }
+}
+
+@keyframes thumbnail-swipe-in {
+    from {
+        transform: translateX(110%);
+    }
+
+    to {
+        transform: translateX(0);
+    }
 }
 
 .ipod-next {
@@ -174,6 +200,11 @@ header nav a:hover {
 @media (prefers-reduced-motion: reduce) {
     .ipod-scene {
         transform: translate(-50%, 6.3%);
+        animation: none;
+    }
+
+    .ipod-thumbnail.is-swiping-out,
+    .ipod-thumbnail.is-swiping-in {
         animation: none;
     }
 }

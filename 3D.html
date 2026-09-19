@@ -29,8 +29,10 @@
 
     <main class="three-d-stage" aria-label="3D projects">
         <div class="ipod-scene">
-            <img id="ipod-thumbnail" class="ipod-thumbnail" src="assets/images/thumbnail dms 3 a1.png"
-                alt="Thumbnail for Uncle Minh project">
+            <div class="ipod-screen-frame">
+                <img id="ipod-thumbnail" class="ipod-thumbnail" src="assets/images/thumbnail dms 3 a1.png"
+                    alt="Thumbnail for Uncle Minh project">
+            </div>
             <img class="ipod-intro" src="assets/images/ipod.svg" alt="Illustrated iPod">
             <button id="ipod-next" class="ipod-next" type="button" aria-label="Show next project thumbnail"></button>
         </div>
@@ -65,20 +67,30 @@
         navLinks.forEach((link) => link.addEventListener('click', closeMenu));
 
         // Add future project thumbnail paths here. The next button will cycle through them automatically.
-        const projectThumbnails = ['assets/images/thumbnail dms 3 a1.png'];
+        const projectThumbnails = [
+            'assets/images/thumbnail dms 3 a1.png',
+            'assets/images/spec 2.png'
+        ];
         const ipodThumbnail = document.getElementById('ipod-thumbnail');
         const ipodNext = document.getElementById('ipod-next');
         let activeThumbnail = 0;
+        let isChangingThumbnail = false;
 
         ipodNext.addEventListener('click', () => {
-            if (projectThumbnails.length < 2) return;
+            if (projectThumbnails.length < 2 || isChangingThumbnail) return;
 
+            isChangingThumbnail = true;
             activeThumbnail = (activeThumbnail + 1) % projectThumbnails.length;
-            ipodThumbnail.classList.add('is-changing');
+            ipodThumbnail.classList.add('is-swiping-out');
             window.setTimeout(() => {
                 ipodThumbnail.src = projectThumbnails[activeThumbnail];
-                ipodThumbnail.classList.remove('is-changing');
-            }, 160);
+                ipodThumbnail.classList.remove('is-swiping-out');
+                ipodThumbnail.classList.add('is-swiping-in');
+                window.setTimeout(() => {
+                    ipodThumbnail.classList.remove('is-swiping-in');
+                    isChangingThumbnail = false;
+                }, 340);
+            }, 280);
         });
     </script>
 </body>
