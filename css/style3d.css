@@ -118,7 +118,7 @@ header nav a:hover {
     }
 
     to {
-        transform: translate(-50%, 0);
+        transform: translate(-50%, 6.3%);
     }
 }
 
@@ -173,7 +173,7 @@ header nav a:hover {
 
 @media (prefers-reduced-motion: reduce) {
     .ipod-scene {
-        transform: translate(-50%, 0);
+        transform: translate(-50%, 6.3%);
         animation: none;
     }
 }
