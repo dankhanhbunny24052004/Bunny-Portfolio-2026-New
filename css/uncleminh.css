@@ -25,6 +25,10 @@ body.uncle-page.vj-page {
     background: linear-gradient(to top, #da3894 0%, #f3cfda 75%, #ffffff 100%);
 }
 
+body.uncle-page.blindbox-page {
+    background: linear-gradient(to top, #da3894 0%, #f3cfda 75%, #ffffff 100%);
+}
+
 body.uncle-page.spec-page {
     background: linear-gradient(to top, #00e0d0 0%, #87ece2 33.4946%, #ffffff 100%);
 }
@@ -196,6 +200,24 @@ body.uncle-page.spec-page {
     object-fit: contain;
 }
 
+.saigonese-live-link {
+    margin: 0.8rem 0 0;
+    font-size: 13px;
+    line-height: 1.25;
+    text-align: center;
+}
+
+.saigonese-live-link a {
+    color: inherit;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.2em;
+}
+
+.saigonese-live-link a:hover,
+.saigonese-live-link a:focus-visible {
+    color: #007f7a;
+}
+
 .archive-media.spec-main-video {
     aspect-ratio: 16 / 9;
     object-fit: contain;
@@ -209,6 +231,105 @@ body.uncle-page.spec-page {
 .archive-media.spec-one-main-video {
     aspect-ratio: 269 / 144;
     object-fit: contain;
+}
+
+.blindbox-character-sheet {
+    height: auto;
+    aspect-ratio: auto;
+    margin-top: 1.2rem;
+    object-fit: contain;
+}
+
+.blindbox-character-note {
+    margin: 0.7rem 0 0;
+    font-size: 13px;
+    line-height: 1.25;
+}
+
+.blindbox-storyboard-strip {
+    display: flex;
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    cursor: grab;
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-select: none;
+}
+
+.blindbox-storyboard-strip::-webkit-scrollbar {
+    display: none;
+}
+
+.blindbox-storyboard-strip.is-dragging {
+    cursor: grabbing;
+    scroll-behavior: auto;
+}
+
+.blindbox-storyboard-slide {
+    display: flex;
+    flex: 0 0 100%;
+    align-items: center;
+    justify-content: center;
+    min-width: 100%;
+    scroll-snap-align: center;
+    scroll-snap-stop: always;
+}
+
+.blindbox-storyboard-slide img {
+    display: block;
+    width: min(72%, 34rem);
+    height: auto;
+    object-fit: contain;
+    pointer-events: none;
+}
+
+.blindbox-storyboard-pagination {
+    display: flex;
+    justify-content: center;
+    gap: 0.55rem;
+    margin-top: 1rem;
+}
+
+.blindbox-storyboard-pagination button {
+    width: 0.55rem;
+    height: 0.55rem;
+    padding: 0;
+    border: 1px solid #111111;
+    border-radius: 50%;
+    background: transparent;
+    cursor: pointer;
+    transition: background-color 160ms ease, transform 160ms ease;
+}
+
+.blindbox-storyboard-pagination button:hover,
+.blindbox-storyboard-pagination button:focus-visible {
+    transform: scale(1.2);
+}
+
+.blindbox-storyboard-pagination button.is-active {
+    background: #111111;
+}
+
+.blindbox-image-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.blindbox-image-grid img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
 }
 
 .archive-entry-meta {
@@ -341,6 +462,26 @@ body.uncle-page.spec-page {
     height: 100%;
     border: 0;
     object-fit: cover;
+}
+
+.eco-mockup {
+    min-width: 0;
+    margin: 0;
+}
+
+.eco-mockup figcaption {
+    margin-top: 0.45rem;
+    font-size: 13px;
+    line-height: 1.25;
+}
+
+.eco-main-mockup.is-changing {
+    animation: eco-main-mockup-fade 360ms ease-out;
+}
+
+@keyframes eco-main-mockup-fade {
+    from { opacity: 0.35; }
+    to { opacity: 1; }
 }
 
 .vj-scene-grid {

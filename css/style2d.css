@@ -1,0 +1,53 @@
+.two-d-stage .ipod-scene {
+    left: 43%;
+}
+
+.two-d-screen-frame {
+    background: #ffffff;
+}
+
+.two-d-thumbnail {
+    object-fit: contain;
+    object-position: center;
+    padding: 0;
+    transform: translateY(10%) scale(1.11);
+}
+
+.two-d-thumbnail.is-ecolink {
+    transform: translateY(4%) scale(1.05);
+}
+
+.two-d-project-details .project-details-video {
+    width: min(34vw, 28rem);
+}
+
+.two-d-project-details .project-details-description {
+    max-width: 30rem;
+}
+
+.ecolink-mockup {
+    object-fit: cover;
+}
+
+.ecolink-mockup.is-changing {
+    animation: ecolink-mockup-fade 360ms ease-out;
+}
+
+@keyframes ecolink-mockup-fade {
+    from { opacity: 0.35; }
+    to { opacity: 1; }
+}
+
+.two-d-stage .project-demo-arrow--blindbox,
+.two-d-stage .project-demo-arrow--ecolink {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+@media (max-width: 767px) {
+    .two-d-stage .ipod-scene {
+        left: 35%;
+    }
+}

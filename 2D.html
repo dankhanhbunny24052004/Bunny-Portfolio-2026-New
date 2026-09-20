@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="2D projects by Khanh.">
+    <title>2D Projects</title>
+    <link rel="stylesheet" href="css/style3d.css">
+    <link rel="stylesheet" href="css/style2d.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <script src="js/page-transition.js" defer></script>
+</head>
+<body>
+    <header>
+        <a class="site-logo" href="index.html" aria-label="Go to Home page"><img src="assets/images/logo.png" alt=""></a>
+        <button id="hamburger-menu" type="button" aria-label="Toggle navigation" aria-expanded="false"><img src="assets/images/back.png" alt=""></button>
+        <nav>
+            <ul id="nav-menu">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="works.html">WORKS</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="three-d-stage two-d-stage has-project-details" aria-label="2D projects">
+        <div class="ipod-scene">
+            <p class="project-explore-hint">
+                <span class="project-explore-text" data-text="click">click</span>
+                <svg class="project-explore-control" viewBox="817 903 49 25" aria-hidden="true" focusable="false">
+                    <polygon points="837.8 915.5 817.7 903.9 817.7 927.1 837.8 915.5" />
+                    <polygon points="857.9 915.3 837.8 903.6 837.8 926.9 857.9 915.3" />
+                    <rect x="857.9" y="904.1" width="7.9" height="22.8" />
+                </svg>
+                <span class="project-explore-text" data-text="to explore my projects.">to explore my projects.</span>
+            </p>
+            <div class="ipod-screen-frame two-d-screen-frame">
+                <img id="ipod-thumbnail" class="ipod-thumbnail two-d-thumbnail" src="assets/images/blindbox.png" alt="PECKY project thumbnail">
+            </div>
+            <img class="ipod-intro" src="assets/images/ipod.svg" alt="Illustrated iPod">
+            <button id="ipod-previous" class="ipod-previous" type="button" aria-label="Show previous project thumbnail"></button>
+            <button id="ipod-next" class="ipod-next" type="button" aria-label="Show next project thumbnail"></button>
+        </div>
+        <aside id="pecky-details" class="project-details two-d-project-details is-visible" aria-label="PECKY project details">
+            <a class="project-details-link" href="blindbox.html" aria-label="Open PECKY project">
+                <video class="project-details-video" data-start="7" autoplay muted playsinline preload="metadata" poster="assets/images/blindbox.png">
+                    <source src="assets/media/video/blindbox.mp4" type="video/mp4">
+                </video>
+            </a>
+            <h1>PECKY</h1>
+            <p class="project-details-category">2D Graphical Animation · 2025</p>
+            <p class="project-details-description">A 2D animation exploring blind-box obsession through Pecky’s escalating pursuit of a rare collectible, reflecting the excitement, frustration, and addictive cycle behind surprise-based consumption.</p>
+        </aside>
+        <aside id="ecolink-details" class="project-details two-d-project-details" aria-label="Ecolink project mockups" aria-hidden="true">
+            <a class="project-details-link" href="eco.html" aria-label="Open ECO-LINK CITY project">
+                <img id="ecolink-mockup" class="project-details-video ecolink-mockup" src="assets/images/GD1-MOCKUP1.png" alt="Ecolink mockup 1">
+            </a>
+            <h1>ECO-LINK CITY</h1>
+            <p class="project-details-category">Public Transport Campaign &amp; Visual Design · 2026</p>
+            <p class="project-details-description">A visual campaign designed to make public transport more visible and accessible, introducing metro, buses, public bicycles, and water buses through clear and engaging imagery.</p>
+        </aside>
+        <a id="pecky-arrow" class="project-demo-arrow project-demo-arrow--blindbox" href="blindbox.html" aria-label="Open PECKY project">
+            <img src="assets/images/narrow blue.png" alt="">
+        </a>
+        <a id="ecolink-arrow" class="project-demo-arrow project-demo-arrow--ecolink" href="eco.html" aria-label="Open ECO-LINK CITY project" hidden>
+            <img src="assets/images/narrow blue.png" alt="">
+        </a>
+    </main>
+
+    <script>
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+        const hamburgerIcon = hamburgerMenu.querySelector('img');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = navMenu.querySelectorAll('a');
+        const closeMenu = () => {
+            navMenu.classList.remove('show');
+            hamburgerMenu.classList.remove('active');
+            hamburgerMenu.setAttribute('aria-expanded', 'false');
+            hamburgerIcon.src = 'assets/images/back.png';
+            document.body.style.overflow = '';
+        };
+        hamburgerMenu.addEventListener('click', () => {
+            const isOpen = navMenu.classList.toggle('show');
+            hamburgerMenu.classList.toggle('active', isOpen);
+            hamburgerMenu.setAttribute('aria-expanded', String(isOpen));
+            hamburgerIcon.src = isOpen ? 'assets/images/unlock.png' : 'assets/images/back.png';
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        });
+        document.addEventListener('click', (event) => {
+            if (!hamburgerMenu.contains(event.target) && !navMenu.contains(event.target)) closeMenu();
+        });
+        navLinks.forEach((link) => link.addEventListener('click', closeMenu));
+
+        document.querySelectorAll('video[data-start]').forEach((video) => {
+            const startTime = Number(video.dataset.start);
+            const playFromStart = () => {
+                video.currentTime = startTime;
+                video.play().catch(() => {});
+            };
+            if (video.readyState >= HTMLMediaElement.HAVE_METADATA) {
+                playFromStart();
+            } else {
+                video.addEventListener('loadedmetadata', playFromStart, { once: true });
+            }
+            video.addEventListener('ended', playFromStart);
+        });
+
+        const projectThumbnails = [
+            { src: 'assets/images/blindbox.png', alt: 'PECKY project thumbnail', project: 'pecky' },
+            { src: 'assets/images/ecolink.png', alt: 'Ecolink project thumbnail', project: 'ecolink' }
+        ];
+        const ipodThumbnail = document.getElementById('ipod-thumbnail');
+        const twoDStage = document.querySelector('.two-d-stage');
+        const ipodPrevious = document.getElementById('ipod-previous');
+        const ipodNext = document.getElementById('ipod-next');
+        const peckyDetails = document.getElementById('pecky-details');
+        const peckyVideo = peckyDetails.querySelector('video');
+        const ecolinkDetails = document.getElementById('ecolink-details');
+        const ecolinkMockup = document.getElementById('ecolink-mockup');
+        const peckyArrow = document.getElementById('pecky-arrow');
+        const ecolinkArrow = document.getElementById('ecolink-arrow');
+        const ecolinkMockups = Array.from({ length: 8 }, (_, index) => `assets/images/GD1-MOCKUP${index + 1}.png`);
+        let activeThumbnail = 0;
+        let isChangingThumbnail = false;
+        let ecolinkMockupIndex = 0;
+        let ecolinkMockupTimer;
+
+        const showNextEcolinkMockup = () => {
+            ecolinkMockup.src = ecolinkMockups[ecolinkMockupIndex];
+            ecolinkMockup.alt = `Ecolink mockup ${ecolinkMockupIndex + 1}`;
+            ecolinkMockup.classList.remove('is-changing');
+            requestAnimationFrame(() => ecolinkMockup.classList.add('is-changing'));
+            ecolinkMockupIndex = (ecolinkMockupIndex + 1) % ecolinkMockups.length;
+        };
+
+        const startEcolinkMockups = () => {
+            if (ecolinkMockupTimer) return;
+            showNextEcolinkMockup();
+            ecolinkMockupTimer = window.setInterval(showNextEcolinkMockup, 1100);
+        };
+
+        const stopEcolinkMockups = () => {
+            window.clearInterval(ecolinkMockupTimer);
+            ecolinkMockupTimer = undefined;
+        };
+
+        ecolinkMockups.forEach((source) => {
+            const image = new Image();
+            image.src = source;
+        });
+
+        const updateThumbnail = () => {
+            const activeProject = projectThumbnails[activeThumbnail];
+            const showPeckyDetails = activeProject.project === 'pecky';
+            const showEcolinkDetails = activeProject.project === 'ecolink';
+            ipodThumbnail.alt = activeProject.alt;
+            ipodThumbnail.classList.toggle('is-ecolink', activeProject.src.endsWith('ecolink.png'));
+            twoDStage.classList.add('has-project-details');
+            peckyDetails.classList.toggle('is-visible', showPeckyDetails);
+            peckyDetails.setAttribute('aria-hidden', String(!showPeckyDetails));
+            ecolinkDetails.classList.toggle('is-visible', showEcolinkDetails);
+            ecolinkDetails.setAttribute('aria-hidden', String(!showEcolinkDetails));
+            peckyArrow.hidden = !showPeckyDetails;
+            ecolinkArrow.hidden = !showEcolinkDetails;
+            if (showPeckyDetails) {
+                stopEcolinkMockups();
+                peckyVideo.play().catch(() => {});
+            } else {
+                peckyVideo.pause();
+                startEcolinkMockups();
+            }
+        };
+
+        const changeThumbnail = (direction) => {
+            if (isChangingThumbnail) return;
+            isChangingThumbnail = true;
+            activeThumbnail = (activeThumbnail + direction + projectThumbnails.length) % projectThumbnails.length;
+            const leavingClass = direction > 0 ? 'is-swiping-out-left' : 'is-swiping-out-right';
+            const enteringClass = direction > 0 ? 'is-swiping-in-right' : 'is-swiping-in-left';
+            ipodThumbnail.classList.add(leavingClass);
+            window.setTimeout(() => {
+                ipodThumbnail.src = projectThumbnails[activeThumbnail].src;
+                ipodThumbnail.classList.remove(leavingClass);
+                updateThumbnail();
+                ipodThumbnail.classList.add(enteringClass);
+                window.setTimeout(() => {
+                    ipodThumbnail.classList.remove(enteringClass);
+                    isChangingThumbnail = false;
+                }, 340);
+            }, 280);
+        };
+
+        ipodNext.addEventListener('click', () => changeThumbnail(1));
+        ipodPrevious.addEventListener('click', () => changeThumbnail(-1));
+        updateThumbnail();
+    </script>
+</body>
+</html>

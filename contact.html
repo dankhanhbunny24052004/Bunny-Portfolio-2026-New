@@ -10,6 +10,16 @@
     <script src="js/page-transition.js" defer></script>
 </head>
 <body class="contact-page">
+    <div class="contact-dot-overlay" aria-hidden="true">
+        <span class="contact-dot-row" style="--row-delay: 7"></span>
+        <span class="contact-dot-row" style="--row-delay: 6"></span>
+        <span class="contact-dot-row" style="--row-delay: 5"></span>
+        <span class="contact-dot-row" style="--row-delay: 4"></span>
+        <span class="contact-dot-row" style="--row-delay: 3"></span>
+        <span class="contact-dot-row" style="--row-delay: 2"></span>
+        <span class="contact-dot-row" style="--row-delay: 1"></span>
+        <span class="contact-dot-row" style="--row-delay: 0"></span>
+    </div>
     <header>
         <a class="site-logo" href="index.html" aria-label="Go to Home page"><img src="assets/images/logo.png" alt=""></a>
         <button id="hamburger-menu" type="button" aria-label="Open navigation"><img src="assets/images/back.png" alt="" id="hamburger-icon"></button>
@@ -23,8 +33,24 @@
         </nav>
     </header>
     <main class="contact-stage" aria-label="Contact">
-        <div class="contact-drop"><img class="contact-art" src="assets/images/contact.svg" alt="Illustrated hanging telephone"></div>
+        <section class="contact-info-band" aria-label="Contact information">
+            <img class="contact-info-background" src="assets/images/background xanh.svg" alt="">
+            <div class="contact-info-content">
+                <p class="contact-info-title">2D/3D Visual Design</p>
+                <p>dankhanh240504@gmail.com<br>(+84) 3325989771<br>IG: nhdakhanhhhhh</p>
+            </div>
+        </section>
+        <div class="contact-drop">
+            <img class="contact-burst" src="assets/images/yellow contact.svg" alt="">
+            <img class="contact-art" src="assets/images/contact.svg" alt="Illustrated hanging telephone">
+        </div>
     </main>
+    <div class="contact-marquee" aria-label="Contact">
+        <div class="contact-marquee-track">
+            <span>CONTACT · CONTACT · CONTACT · CONTACT · CONTACT · CONTACT · </span>
+            <span aria-hidden="true">CONTACT · CONTACT · CONTACT · CONTACT · CONTACT · CONTACT · </span>
+        </div>
+    </div>
     <script>
         const hamburgerMenu = document.getElementById('hamburger-menu');
         const hamburgerIcon = document.getElementById('hamburger-icon');

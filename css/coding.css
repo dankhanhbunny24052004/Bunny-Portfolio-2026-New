@@ -54,16 +54,21 @@
 
 @media (max-width: 767px) {
     .coding-project-details {
-        right: 1rem;
-        left: auto;
-        width: min(68vw, 25rem);
+        right: auto;
+        left: 50%;
+        width: min(60vw, 19rem);
+        transform: translate(-50%, 0.75rem);
+    }
+
+    .coding-project-details.is-visible {
+        transform: translate(-50%, 0);
     }
 
     .coding-project-details .project-details-video {
-        width: min(45vw, 15rem);
+        width: 100%;
     }
 
     .coding-project-details h1 {
-        width: 86vw;
+        width: 100%;
     }
 }

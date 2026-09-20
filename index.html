@@ -48,8 +48,8 @@
 
     <header>
         <a class="site-logo" href="index.html" aria-label="Go to Home page"><img src="assets/images/logo.png" alt=""></a>
-        <button id="hamburger-menu">
-            <img src="assets/images/back.png" alt="Menu" id="hamburger-icon">
+        <button id="hamburger-menu" type="button" aria-label="Toggle navigation" aria-expanded="false">
+            <img src="assets/images/logo.png" alt="" id="hamburger-icon">
         </button>
         <nav>
             <ul id="nav-menu"> 
@@ -165,51 +165,35 @@ posters.forEach((poster) => {
 });
 
 const hamburgerMenu = document.getElementById('hamburger-menu');
-const hamburgerIcon = document.getElementById('hamburger-icon'); // Icon bên trong nút
 const navMenu = document.getElementById('nav-menu');
 const navLinks = document.querySelectorAll('#nav-menu a');
 
+const closeMenu = () => {
+    navMenu.classList.remove('show');
+    hamburgerMenu.classList.remove('active');
+    hamburgerMenu.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = 'auto';
+};
+
 // Toggle menu
 hamburgerMenu.addEventListener('click', () => {
-    navMenu.classList.toggle('show');
-    hamburgerMenu.classList.toggle('active');
-    document.body.style.overflow = navMenu.classList.contains('show') ? 'hidden' : 'auto';
-
-    // Đổi hình ảnh
-    if (hamburgerIcon.src.includes('assets/images/back.png')) {
-        hamburgerIcon.src = 'assets/images/unlock.png'; // Đổi thành assets/images/unlock.png khi menu mở
-    } else {
-        hamburgerIcon.src = 'assets/images/back.png'; // Đổi lại thành assets/images/back.png khi menu đóng
-    }
-
-    console.log('Menu toggled'); // Debug
+    const isOpen = navMenu.classList.toggle('show');
+    hamburgerMenu.classList.toggle('active', isOpen);
+    hamburgerMenu.setAttribute('aria-expanded', String(isOpen));
+    document.body.style.overflow = isOpen ? 'hidden' : 'auto';
 });
 
 // Đóng menu khi click bên ngoài
 document.addEventListener('click', (event) => {
     if (!hamburgerMenu.contains(event.target) && !navMenu.contains(event.target)) {
-        navMenu.classList.remove('show');
-        hamburgerMenu.classList.remove('active');
-        document.body.style.overflow = 'auto';
-
-        // Reset hình ảnh về assets/images/back.png khi menu đóng
-        hamburgerIcon.src = 'assets/images/back.png';
-
-        console.log('Clicked outside menu'); // Debug
+        closeMenu();
     }
 });
 
 // Đóng menu khi click vào link
 navLinks.forEach((link) => {
     link.addEventListener('click', () => {
-        navMenu.classList.remove('show');
-        hamburgerMenu.classList.remove('active');
-        document.body.style.overflow = 'auto';
-
-        // Reset hình ảnh về assets/images/back.png khi menu đóng
-        hamburgerIcon.src = 'assets/images/back.png';
-
-        console.log('Link clicked, menu closed'); // Debug
+        closeMenu();
     });
 });
 

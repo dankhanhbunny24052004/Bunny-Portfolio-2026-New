@@ -900,5 +900,77 @@ height: auto;
 }
 }
 
-    
+
+/* Final mobile layout overrides: this file contains older responsive rules above. */
+@media only screen and (max-width: 767px) {
+    .works-dot-overlay {
+        grid-template-rows: repeat(8, 1fr);
+    }
+
+    .works-dot-row {
+        background-image: radial-gradient(circle, #fbe646 0 clamp(0.55rem, 3.5vw, 1.25rem), transparent calc(clamp(0.55rem, 3.5vw, 1.25rem) + 0.02rem));
+        background-size: clamp(3.5rem, 26vw, 6rem) 100%;
+    }
+
+    main.works-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        height: auto;
+        min-height: 100dvh;
+        padding: 6.5rem 1.25rem 8rem;
+        gap: 3.25rem;
+        overflow: visible;
+        box-sizing: border-box;
+    }
+
+    .work-project,
+    .work-project-3d,
+    .work-project-2d,
+    .work-project-web {
+        position: relative;
+        inset: auto;
+        left: 0 !important;
+        right: 0 !important;
+        top: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.65rem;
+        width: min(100%, 19rem);
+        margin-inline: auto;
+        transform: translateX(-10vw) !important;
+    }
+
+    .work-project-description {
+        order: 0;
+        margin: 0;
+        font-size: clamp(0.85rem, 4vw, 1.05rem);
+        line-height: 1.12;
+        text-align: center;
+        white-space: normal;
+    }
+
+    .work-project-link {
+        order: 1;
+        margin-inline: 0;
+    }
+
+    .work-project img,
+    .work-project-2d img,
+    .work-project-web img {
+        width: min(58vw, 13rem);
+    }
+
+    .work-project-2d img {
+        width: min(66vw, 15rem);
+    }
+
+    .works-nav-arrow {
+        bottom: calc(10% + 2rem);
+        width: 16vw;
+    }
+}
+
     

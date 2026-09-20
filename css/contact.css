@@ -1,26 +1,69 @@
 * { box-sizing: border-box; }
+@font-face { font-family: 'Beauty Rachela'; src: url('../assets/source/beauty_rachela/BeautyRachela-Regular.otf') format('opentype'); font-style: normal; font-weight: 400; }
 html, body { min-height: 100%; margin: 0; }
-body.contact-page { min-height: 100vh; overflow: hidden; background: #646464; color: #000; }
+body.contact-page { min-height: 100vh; overflow: hidden; background: linear-gradient(to top, #da3894 0%, #f3cfda 75%, #ffffff 100%); color: #000; }
+.contact-dot-overlay { position: fixed; inset: 0; z-index: 0; display: grid; grid-template-rows: repeat(8, 1fr); overflow: hidden; pointer-events: none; }
+.contact-dot-row { display: block; background-image: radial-gradient(circle, #fbe646 0 20pt, transparent 20.2pt); background-position: center; background-repeat: repeat-x; background-size: 8rem 100%; opacity: .18; animation: contact-dot-row-pulse 3.6s ease-in-out infinite; animation-delay: calc(var(--row-delay) * .18s); }
+@keyframes contact-dot-row-pulse { 0%, 100% { opacity: .12; } 45% { opacity: .9; } }
 .contact-page header { position: relative; z-index: 3; display: flex; align-items: center; justify-content: space-between; min-height: 6.1rem; padding: .75rem 1.5rem; }
 .site-logo { display: inline-flex; width: 4.25rem; }
 .site-logo img { display: block; width: 100%; height: auto; }
 #hamburger-menu { display: none; }
+.contact-page header nav { display: block; margin-left: auto; }
 #nav-menu { display: flex; gap: clamp(1.5rem, 3vw, 4rem); margin: 0; padding: 0; list-style: none; }
-#nav-menu a { color: inherit; font-size: clamp(1rem, 1.4vw, 1.5rem); text-decoration: none; }
-.contact-stage { position: absolute; inset: 0; overflow: hidden; }
-.contact-drop { position: absolute; top: 0; left: 50%; width: clamp(7rem, 13vw, 12rem); transform: translate(-50%, -120%); animation: contact-drop 1.25s cubic-bezier(.25, .85, .35, 1) forwards; }
-.contact-art { display: block; width: 100%; height: auto; transform-origin: top center; animation: contact-sway 3.8s 1.25s ease-in-out infinite; }
+#nav-menu a { display: inline-flex; align-items: center; justify-content: center; padding: .5rem 1rem; color: inherit; font-size: clamp(1rem, 1.4vw, 1.5rem); text-decoration: none; transition: all .3s ease; }
+#nav-menu a:hover { background-color: #00e0d0; color: #000; }
+.contact-stage { position: absolute; inset: 0; z-index: 1; overflow: hidden; }
+.contact-info-band { position: absolute; z-index: 0; top: 50%; left: 0; width: 100%; transform: translateY(-50%); }
+.contact-info-background { display: block; width: 100%; height: auto; clip-path: inset(0 0 0 100%); animation: contact-band-reveal 1.05s .3s cubic-bezier(.2, .7, .25, 1) forwards; }
+.contact-info-content { position: absolute; z-index: 1; top: 50%; left: 7%; color: #000; font-family: 'Geist Pixel', sans-serif; font-size: clamp(.95rem, 1.15vw, 1.2rem); line-height: 1.15; opacity: 0; transform: translate(-.8rem, -50%); animation: contact-info-enter .5s 1.45s ease-out forwards; }
+.contact-info-content p { margin: 0; }
+.contact-info-title { margin-bottom: 1rem !important; font-family: 'Beauty Rachela', cursive !important; font-size: clamp(1.5rem, 2.4vw, 2.6rem); line-height: 1; }
+.contact-drop { position: absolute; top: 0; left: 76%; width: clamp(7rem, 13vw, 12rem); transform: translate(-50%, -120%); animation: contact-drop 1.25s cubic-bezier(.25, .85, .35, 1) forwards; }
+.contact-art { position: relative; z-index: 1; display: block; width: 100%; height: auto; transform-origin: top center; animation: contact-sway 3.8s 1.25s ease-in-out infinite; }
+.contact-burst { position: absolute; z-index: 2; right: 115%; bottom: 5%; width: clamp(18rem, 37vw, 42rem); height: auto; opacity: 0; transform: scale(0); transform-origin: right bottom; animation: contact-burst .85s 1.35s cubic-bezier(.2, .8, .25, 1) forwards, contact-burst-nudge 4.2s 2.35s ease-in-out infinite; }
+.contact-marquee { position: fixed; right: 0; bottom: 0; left: 0; z-index: 4; overflow: hidden; padding: 0.45rem 0; background: #da3693; color: #ffffff; white-space: nowrap; }
+.contact-marquee-track { display: flex; width: max-content; animation: contact-marquee-scroll 12s linear infinite; }
+.contact-marquee-track span { flex: 0 0 auto; font-family: 'Geist Pixel', sans-serif !important; font-size: 1.25rem; font-weight: 400; }
 @keyframes contact-drop { 0% { transform: translate(-50%, -120%); } 76% { transform: translate(-50%, 0); } 86% { transform: translate(-50%, -2.4%); } 93% { transform: translate(-50%, 1.2%); } 100% { transform: translate(-50%, 0); } }
 @keyframes contact-sway { 0%, 100% { transform: rotate(0deg); } 25% { transform: rotate(5deg); } 55% { transform: rotate(-4deg); } 80% { transform: rotate(2.5deg); } }
+@keyframes contact-burst { from { opacity: 0; transform: scale(0); } to { opacity: 1; transform: scale(1); } }
+@keyframes contact-burst-nudge { 0%, 72%, 100% { transform: scale(1) translate(0, 0); } 78% { transform: scale(1.018) translate(-5px, 3px) rotate(-.8deg); } 84% { transform: scale(1) translate(4px, -2px) rotate(.6deg); } 90% { transform: scale(1.01) translate(-2px, 1px) rotate(-.35deg); } }
+@keyframes contact-band-reveal { from { clip-path: inset(0 0 0 100%); } to { clip-path: inset(0); } }
+@keyframes contact-info-enter { to { opacity: 1; transform: translate(0, -50%); } }
+@keyframes contact-info-enter-centered { to { opacity: 1; transform: translate(-50%, -50%); } }
+@keyframes contact-marquee-scroll { to { transform: translateX(-50%); } }
 @media (max-width: 700px) {
     .contact-page header { min-height: 4.5rem; padding: .65rem 1rem; }
     .site-logo { width: 3rem; }
     #hamburger-menu { display: inline-flex; z-index: 5; border: 0; padding: 0; background: transparent; }
     #hamburger-menu img { width: 2rem; }
-    #nav-menu { position: fixed; inset: 0; z-index: 4; display: none; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; background: rgba(100, 100, 100, .96); }
+    #nav-menu { position: fixed; inset: 0; z-index: 4; display: none; flex-direction: column; align-items: center; justify-content: center; gap: 2rem; background: rgba(218, 56, 148, .96); }
     #nav-menu.show { display: flex; }
     #nav-menu a { font-size: 1.5rem; }
     .menu-open { overflow: hidden; }
-    .contact-drop { width: clamp(6rem, 37vw, 10rem); }
+    .contact-info-band { top: 44%; left: 50%; width: 115%; transform: translate(-50%, -50%); }
+    .contact-info-content { left: 50%; width: 100%; font-size: clamp(.85rem, 3vw, 1.1rem); line-height: 1.2; text-align: center; transform: translate(-50%, -50%); animation: contact-info-enter-centered .5s 1.45s ease-out forwards; }
+    .contact-info-title { margin-bottom: .55rem !important; font-size: clamp(1.25rem, 4.8vw, 1.8rem); }
+    /* Scale the phone down for the mobile frame while keeping its drop animation. */
+    .contact-drop { width: clamp(5.5rem, 32vw, 8.5rem); }
+
+    /* Move the "Contact me!" burst 10% of the screen width to the right. */
+    .contact-burst {
+        right: 55%;
+        bottom: 55%;
+        width: clamp(13rem, 35vw, 17rem);
+    }
+
+    /* Match the compact mobile dot scale used on the Home page. */
+    .contact-dot-row {
+        --contact-dot-radius: clamp(.55rem, 3.5vw, 1.25rem);
+        background-image: radial-gradient(circle, #fbe646 0 var(--contact-dot-radius), transparent calc(var(--contact-dot-radius) + .08rem));
+        background-size: clamp(4.2rem, 25vw, 7rem) 100%;
+    }
+
+    .contact-marquee { padding: 0.35rem 0; }
+    .contact-marquee-track span { font-size: 0.8rem; }
 }
-@media (prefers-reduced-motion: reduce) { .contact-drop { transform: translate(-50%, 0); animation: none; } .contact-art { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .contact-drop { transform: translate(-50%, 0); animation: none; } .contact-art { animation: none; } .contact-burst { opacity: 1; transform: scale(1); animation: none; } .contact-dot-row { opacity: .5; animation: none; } .contact-info-background { clip-path: inset(0); animation: none; } .contact-info-content { opacity: 1; transform: translate(0, -50%); animation: none; } .contact-marquee-track { animation: none; } }
+@media (max-width: 700px) and (prefers-reduced-motion: reduce) { .contact-info-content { transform: translate(-50%, -50%); } }

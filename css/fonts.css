@@ -52,6 +52,65 @@ header nav ul li a {
     padding: 0.25rem 0.65rem !important;
 }
 
+/* One consistent mobile menu: the logo is the only menu trigger. */
+@media (max-width: 767px) {
+    header .site-logo {
+        display: none !important;
+    }
+
+    #hamburger-menu {
+        position: fixed !important;
+        top: 0.75rem !important;
+        right: 0.75rem !important;
+        z-index: 10001 !important;
+        display: grid !important;
+        width: 3.1rem !important;
+        height: 3.1rem !important;
+        padding: 0.2rem !important;
+        border: 0 !important;
+        border-radius: 50% !important;
+        background: url('../assets/images/logo.png') center / contain no-repeat !important;
+        cursor: pointer !important;
+        transition: transform 0.25s ease !important;
+    }
+
+    #hamburger-menu img {
+        visibility: hidden !important;
+    }
+
+    #hamburger-menu.active {
+        transform: rotate(12deg) scale(1.08);
+    }
+
+    #nav-menu {
+        position: fixed !important;
+        inset: 0 !important;
+        z-index: 10000 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        justify-content: center !important;
+        gap: 1.7rem !important;
+        margin: 0 !important;
+        padding: 5rem 1.5rem 1.5rem !important;
+        background: linear-gradient(to top, rgba(218, 56, 148, .98), rgba(243, 207, 218, .98) 75%, rgba(255, 255, 255, .98)) !important;
+        list-style: none !important;
+        transform: translateY(-105%) !important;
+        transition: transform .35s ease !important;
+    }
+
+    #nav-menu.show {
+        transform: translateY(0) !important;
+    }
+
+    #nav-menu a {
+        padding: .45rem .85rem !important;
+        color: #000 !important;
+        font-size: clamp(1.5rem, 8vw, 2.15rem) !important;
+        text-decoration: none !important;
+    }
+}
+
 .site-logo {
     position: absolute;
     top: 1rem;

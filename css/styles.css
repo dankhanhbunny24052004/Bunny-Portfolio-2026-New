@@ -1518,8 +1518,9 @@ header nav ul li a {
     }
 
     .about-description {
-        width: 82vw;
-        font-size: 18px;
+        width: 68vw;
+        font-size: clamp(8px, 2.45vw, 10px);
+        line-height: 1.25;
     }
 
     .about-tool {
