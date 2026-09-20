@@ -1,11 +1,4 @@
 @font-face {
-    font-family: 'Bahnschrift Regular';
-    src: url('../assets/source/Bahnschrift Regular.otf') format('opentype');
-    font-weight: 400;
-    font-style: normal;
-}
-
-@font-face {
     font-family: 'Geist Pixel';
     src: url('../assets/source/GeistPixel-Regular-VariableFont_ELSH.ttf') format('truetype');
     font-weight: 100 900;
@@ -15,7 +8,7 @@
 html,
 body,
 body * {
-    font-family: 'Bahnschrift Regular', sans-serif !important;
+    font-family: 'Geist Pixel', sans-serif !important;
 }
 
 /* Shared fade between internal portfolio pages. */

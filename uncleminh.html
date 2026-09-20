@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Undercover vendor — a 3D character design project by Bunny.">
+    <title>Undercover vendor — Bunny</title>
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/uncleminh.css">
+    <script src="js/page-transition.js" defer></script>
+</head>
+
+<body class="uncle-page">
+    <header class="site-header">
+        <a class="site-logo" href="index.html" aria-label="Go to Home page"><img src="assets/images/logo.png" alt=""></a>
+        <button id="hamburger-menu" type="button" aria-label="Toggle navigation" aria-expanded="false">
+            <img src="assets/images/back.png" alt="">
+        </button>
+        <nav>
+            <ul id="nav-menu">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="works.html">WORKS</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="project-archive">
+        <aside class="archive-sidebar" aria-label="Project notes">
+            <section class="archive-sidebar-section" aria-label="Undercover vendor overview">
+                <p class="archive-sidebar-heading">1. Undercover vendor</p>
+                <p><em>3D Character Design</em>, 2025<br>Individual project</p>
+                <p>An antihero character project exploring an undercover police officer disguised as a street fishball vendor.</p>
+                <p class="archive-sidebar-heading">Overview:</p>
+                <p><strong>Uncle Minh</strong> is a 3D character design project centered on an anti-hero disguised as a street fish-ball vendor. The project explores the contrast between an ordinary neighborhood figure and the hidden identity of an undercover police officer, turning a familiar piece of Vietnamese street culture into a playful character narrative.</p>
+            </section>
+        </aside>
+
+        <section class="archive-content" aria-label="Undercover vendor project archive">
+            <header class="archive-heading">(MODELING, TEXTURING, ANIMATION) / UNDERCOVER VENDOR</header>
+
+            <article class="archive-entry">
+                <video class="archive-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="assets/media/video/uncle minh.mp4" type="video/mp4">
+                </video>
+                <div class="archive-entry-meta">
+                    <p class="archive-index archive-entry-heading">CONCEPT:</p>
+                    <div class="archive-entry-copy">
+                        <p>Inspired by local fish-ball stalls and online jokes about street vendors secretly being undercover cops, Uncle Minh reimagines an ordinary neighborhood figure as a covert protector hiding in plain sight.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="archive-entry">
+                <video class="archive-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="assets/media/video/process ong minh web.mp4" type="video/mp4">
+                </video>
+                <div class="archive-entry-meta archive-entry-meta-breakdown">
+                    <p class="archive-index archive-entry-heading">BREAKDOWN 3D CHARACTER DESIGN</p>
+                </div>
+                <div class="breakdown-placeholder-grid" aria-label="3D character design image placeholders">
+                    <div class="breakdown-placeholder-row breakdown-placeholder-row-squares">
+                        <img class="breakdown-placeholder breakdown-placeholder-square breakdown-image" src="assets/images/test 1.png" alt="3D character design breakdown 1">
+                        <img class="breakdown-placeholder breakdown-placeholder-square breakdown-image" src="assets/images/test 2.png" alt="3D character design breakdown 2">
+                        <img class="breakdown-placeholder breakdown-placeholder-square breakdown-image" src="assets/images/test 3.png" alt="3D character design breakdown 3">
+                    </div>
+                    <div class="breakdown-placeholder-row breakdown-placeholder-row-wide">
+                        <img class="breakdown-placeholder breakdown-placeholder-wide breakdown-image" src="assets/images/test 4.png" alt="3D character design breakdown 4">
+                        <img class="breakdown-placeholder breakdown-placeholder-wide breakdown-image" src="assets/images/test 5.png" alt="3D character design breakdown 5">
+                    </div>
+                    <div class="breakdown-placeholder-row breakdown-placeholder-row-wide">
+                        <img class="breakdown-placeholder breakdown-placeholder-wide breakdown-image" src="assets/images/test 6.png" alt="3D character design breakdown 6">
+                        <img class="breakdown-placeholder breakdown-placeholder-wide breakdown-image" src="assets/images/test 7.png" alt="3D character design breakdown 7">
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <aside class="archive-sidebar archive-sidebar-right">
+            <section class="archive-sidebar-section">
+                <p class="archive-sidebar-heading">PROJECT INFO</p>
+                <p><span class="archive-sidebar-heading">Role</span><br>3D Character Design</p>
+                <p><span class="archive-sidebar-heading">Year</span><br>2025</p>
+            </section>
+
+            <section class="archive-sidebar-section archive-placeholder" aria-label="Credits placeholder">
+                <!-- Add credits here. -->
+            </section>
+        </aside>
+    </main>
+    <a class="uncle-back-arrow" href="3D.html?project=uncle-minh" aria-label="Return to 3D projects">
+        <img src="assets/images/narrow.png" alt="">
+    </a>
+
+    <script>
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+        const hamburgerIcon = hamburgerMenu.querySelector('img');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = navMenu.querySelectorAll('a');
+
+        const closeMenu = () => {
+            navMenu.classList.remove('show');
+            hamburgerMenu.classList.remove('active');
+            hamburgerMenu.setAttribute('aria-expanded', 'false');
+            hamburgerIcon.src = 'assets/images/back.png';
+            document.body.style.overflow = '';
+        };
+
+        hamburgerMenu.addEventListener('click', () => {
+            const isOpen = navMenu.classList.toggle('show');
+            hamburgerMenu.classList.toggle('active', isOpen);
+            hamburgerMenu.setAttribute('aria-expanded', String(isOpen));
+            hamburgerIcon.src = isOpen ? 'assets/images/unlock.png' : 'assets/images/back.png';
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        });
+
+        navLinks.forEach((link) => link.addEventListener('click', closeMenu));
+    </script>
+</body>
+
+</html>

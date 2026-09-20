@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Web development projects by Bunny.">
+    <title>Web Development Projects</title>
+    <link rel="stylesheet" href="css/style3d.css">
+    <link rel="stylesheet" href="css/coding.css">
+    <link rel="stylesheet" href="css/fonts.css">
+    <script src="js/page-transition.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <a class="site-logo" href="index.html" aria-label="Go to Home page"><img src="assets/images/logo.png" alt=""></a>
+        <button id="hamburger-menu" type="button" aria-label="Toggle navigation" aria-expanded="false">
+            <img src="assets/images/back.png" alt="">
+        </button>
+        <nav>
+            <ul id="nav-menu">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="works.html">WORKS</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="three-d-stage has-project-details coding-stage" aria-label="Web Development projects">
+        <div class="ipod-scene">
+            <p class="project-explore-hint">
+                <span class="project-explore-text" data-text="click">click</span>
+                <svg class="project-explore-control" viewBox="817 903 49 25" aria-hidden="true" focusable="false">
+                    <polygon points="837.8 915.5 817.7 903.9 817.7 927.1 837.8 915.5" />
+                    <polygon points="857.9 915.3 837.8 903.6 837.8 926.9 857.9 915.3" />
+                    <rect x="857.9" y="904.1" width="7.9" height="22.8" />
+                </svg>
+                <span class="project-explore-text" data-text="to explore my projects.">to explore my projects.</span>
+            </p>
+            <div class="ipod-screen-frame coding-screen-frame">
+                <img id="coding-thumbnail" class="ipod-thumbnail coding-thumbnail is-saigonese" src="assets/images/saigonese.png" alt="Saigonese project thumbnail">
+            </div>
+            <img class="ipod-intro" src="assets/images/ipod.svg" alt="Illustrated iPod">
+            <button id="ipod-previous" class="ipod-previous" type="button" aria-label="Show previous coding project"></button>
+            <button id="ipod-next" class="ipod-next" type="button" aria-label="Show next coding project"></button>
+        </div>
+
+        <aside id="saigonese-details" class="project-details is-visible coding-project-details" aria-label="Saigonese project details" aria-hidden="false">
+            <a class="project-details-link" href="saigonese.html" aria-label="Open Saigonese project">
+                <video class="project-details-video" autoplay muted loop playsinline preload="metadata" poster="assets/images/saigonese.png">
+                    <source src="assets/media/video/saigonese.mp4" type="video/mp4">
+                </video>
+            </a>
+            <h1>Let’s be a “sành ăn” Saigonese</h1>
+            <p class="project-details-category">Interactive Coding Project · 2026</p>
+            <p class="project-details-description">A playful food-discovery website helping users explore Saigon’s cuisine through random recommendations, from popular local dishes to hidden neighborhood spots.</p>
+        </aside>
+
+        <aside id="after-all-details" class="project-details coding-project-details" aria-label="After All project details" aria-hidden="true">
+            <a class="project-details-link" href="spec1.html" aria-label="Open After all project">
+                <video class="project-details-video" muted loop playsinline preload="metadata" poster="assets/images/spec 1 thumbnail.png">
+                    <source src="assets/media/video/spec 1 browser.mp4" type="video/mp4">
+                </video>
+            </a>
+            <h1>After all</h1>
+            <p class="project-details-category">Interactive Campaign · 2025</p>
+            <p class="project-details-description">An interactive online ritual that reimagines joss paper burning in a digital form, preserving tradition while reducing smoke and environmental impact.</p>
+        </aside>
+
+        <aside id="nau-details" class="project-details coding-project-details" aria-label="NÂU project details" aria-hidden="true">
+            <a class="project-details-link" href="dms4.html" aria-label="Open Nâu project">
+                <video class="project-details-video" muted loop playsinline preload="metadata" poster="assets/images/dms4 thumbnail.png">
+                    <source src="assets/media/video/nau clip browser.mp4" type="video/mp4">
+                </video>
+            </a>
+            <h1>“Nâu” — A smart grocery website</h1>
+            <p class="project-details-category">AI Assisted web Platform · 2026</p>
+            <p class="project-details-description">A smart grocery website designed to help users plan meals, find the ingredients they need, and make better use of leftover food at home.</p>
+        </aside>
+        <a class="project-demo-arrow coding-project-arrow coding-project-arrow--saigonese" href="saigonese.html" aria-label="Open Saigonese project">
+            <img src="assets/images/narrow blue.png" alt="">
+        </a>
+        <a class="project-demo-arrow coding-project-arrow coding-project-arrow--nau" href="dms4.html" aria-label="Open Nâu project">
+            <img src="assets/images/narrow blue.png" alt="">
+        </a>
+        <a class="project-demo-arrow coding-project-arrow coding-project-arrow--after-all" href="spec1.html" aria-label="Open After all project">
+            <img src="assets/images/narrow blue.png" alt="">
+        </a>
+    </main>
+
+    <script>
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+        const hamburgerIcon = hamburgerMenu.querySelector('img');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = navMenu.querySelectorAll('a');
+
+        const closeMenu = () => {
+            navMenu.classList.remove('show');
+            hamburgerMenu.classList.remove('active');
+            hamburgerMenu.setAttribute('aria-expanded', 'false');
+            hamburgerIcon.src = 'assets/images/back.png';
+            document.body.style.overflow = '';
+        };
+
+        hamburgerMenu.addEventListener('click', () => {
+            const isOpen = navMenu.classList.toggle('show');
+            hamburgerMenu.classList.toggle('active', isOpen);
+            hamburgerMenu.setAttribute('aria-expanded', String(isOpen));
+            hamburgerIcon.src = isOpen ? 'assets/images/unlock.png' : 'assets/images/back.png';
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!hamburgerMenu.contains(event.target) && !navMenu.contains(event.target)) closeMenu();
+        });
+
+        navLinks.forEach((link) => link.addEventListener('click', closeMenu));
+
+        document.querySelectorAll('.project-details-video').forEach((video) => {
+            video.muted = true;
+            video.defaultMuted = true;
+            video.volume = 0;
+            video.addEventListener('volumechange', () => {
+                if (!video.muted || video.volume !== 0) {
+                    video.muted = true;
+                    video.volume = 0;
+                }
+            });
+        });
+
+        const codingThumbnail = document.getElementById('coding-thumbnail');
+        const codingStage = document.querySelector('.coding-stage');
+        const ipodPrevious = document.getElementById('ipod-previous');
+        const ipodNext = document.getElementById('ipod-next');
+        const saigoneseDetails = document.getElementById('saigonese-details');
+        const afterAllDetails = document.getElementById('after-all-details');
+        const nauDetails = document.getElementById('nau-details');
+        const saigoneseVideo = saigoneseDetails.querySelector('video');
+        const afterAllVideo = afterAllDetails.querySelector('video');
+        const nauVideo = nauDetails.querySelector('video');
+        const codingProjects = [
+            {
+                thumbnail: 'assets/images/saigonese.png',
+                alt: 'Saigonese project thumbnail',
+                details: saigoneseDetails,
+                video: saigoneseVideo,
+                saigonese: true
+            },
+            {
+                thumbnail: 'assets/images/dms4 thumbnail.png',
+                alt: 'NÂU project thumbnail',
+                details: nauDetails,
+                video: nauVideo,
+                saigonese: false,
+                afterAll: false,
+                nau: true
+            },
+            {
+                thumbnail: 'assets/images/spec 1 thumbnail.png',
+                alt: 'After All project thumbnail',
+                details: afterAllDetails,
+                video: afterAllVideo,
+                saigonese: false,
+                afterAll: true,
+                nau: false
+            }
+        ];
+        const codingProjectIndexByReturnKey = {
+            saigonese: 0,
+            nau: 1,
+            'after-all': 2
+        };
+        const requestedReturnProject = new URLSearchParams(window.location.search).get('project');
+        let activeCodingProject = codingProjectIndexByReturnKey[requestedReturnProject] ?? 0;
+
+        const updateCodingProject = () => {
+            const project = codingProjects[activeCodingProject];
+            codingThumbnail.src = project.thumbnail;
+            codingThumbnail.alt = project.alt;
+            codingThumbnail.classList.toggle('is-saigonese', project.saigonese);
+            codingThumbnail.classList.toggle('is-after-all', project.afterAll);
+            codingThumbnail.classList.toggle('is-nau', project.nau);
+            codingStage.classList.toggle('has-saigonese-details', project.saigonese);
+            codingStage.classList.toggle('has-nau-details', project.nau);
+            codingStage.classList.toggle('has-after-all-details', project.afterAll);
+
+            codingProjects.forEach((item) => {
+                const isActive = item === project;
+                item.details.classList.toggle('is-visible', isActive);
+                item.details.setAttribute('aria-hidden', String(!isActive));
+                if (isActive) {
+                    item.video.play().catch(() => {});
+                } else {
+                    item.video.pause();
+                }
+            });
+        };
+
+        const changeCodingProject = (direction) => {
+            activeCodingProject = (activeCodingProject + direction + codingProjects.length) % codingProjects.length;
+            updateCodingProject();
+        };
+
+        ipodNext.addEventListener('click', () => changeCodingProject(1));
+        ipodPrevious.addEventListener('click', () => changeCodingProject(-1));
+        updateCodingProject();
+    </script>
+</body>
+
+</html>

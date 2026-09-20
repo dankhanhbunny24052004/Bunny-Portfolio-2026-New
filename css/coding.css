@@ -1,0 +1,69 @@
+.coding-thumbnail {
+    object-fit: cover;
+    background: #ffffff;
+    transform: none;
+}
+
+.coding-thumbnail.is-saigonese {
+    object-fit: contain;
+    transform: translateY(8%) scale(1.06);
+}
+
+.coding-thumbnail.is-after-all {
+    object-fit: contain;
+    background: #000000;
+    transform: translateY(10%) scale(1.08);
+}
+
+.coding-thumbnail.is-nau {
+    transform: translate(-1%, 6%);
+}
+
+.coding-stage.has-saigonese-details .coding-project-arrow--saigonese,
+.coding-stage.has-nau-details .coding-project-arrow--nau,
+.coding-stage.has-after-all-details .coding-project-arrow--after-all {
+    opacity: 1;
+    visibility: visible;
+}
+
+.coding-stage.has-saigonese-details .coding-project-arrow--saigonese,
+.coding-stage.has-nau-details .coding-project-arrow--nau,
+.coding-stage.has-after-all-details .coding-project-arrow--after-all {
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.coding-project-details .project-details-video {
+    width: min(34vw, 28rem);
+    object-fit: cover;
+}
+
+.coding-project-details {
+    left: 53%;
+    width: min(43vw, 42rem);
+}
+
+.coding-project-details h1,
+.coding-project-details .project-details-category {
+    white-space: normal;
+}
+
+.coding-project-details h1 {
+    width: min(48vw, 50rem);
+}
+
+@media (max-width: 767px) {
+    .coding-project-details {
+        right: 1rem;
+        left: auto;
+        width: min(68vw, 25rem);
+    }
+
+    .coding-project-details .project-details-video {
+        width: min(45vw, 15rem);
+    }
+
+    .coding-project-details h1 {
+        width: 86vw;
+    }
+}

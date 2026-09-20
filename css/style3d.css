@@ -34,13 +34,20 @@ header nav ul {
 header nav a {
     display: inline-flex;
     align-items: center;
+    justify-content: center;
     color: #000000;
     font-size: 1.5rem;
+    font-weight: 400;
     text-decoration: none;
+    text-align: center;
+    padding: 0.5rem 1rem;
+    border-radius: 0;
+    transition: all 0.3s ease;
 }
 
 header nav a:hover {
-    color: #7ac044;
+    background-color: #00e0d0;
+    color: #000000;
 }
 
 #hamburger-menu {
@@ -66,6 +73,11 @@ header nav a:hover {
     aspect-ratio: 1135.2 / 1297;
     transform: translate(-50%, 110%);
     animation: ipod-rise 0.85s 0.3s cubic-bezier(0.22, 0.8, 0.3, 1) forwards;
+    transition: left 0.32s ease;
+}
+
+.three-d-stage.has-project-details .ipod-scene {
+    left: 28%;
 }
 
 .ipod-intro {
@@ -88,13 +100,8 @@ header nav a:hover {
     isolation: isolate;
 }
 
-.ipod-screen-frame.is-dms-three::before {
-    position: absolute;
-    z-index: 0;
-    inset: -0.4rem;
-    content: '';
-    background: url('../assets/images/dms3.png') center / cover no-repeat;
-    filter: blur(0.35rem) brightness(0.62);
+.ipod-screen-frame.is-dms-three {
+    background: #000000;
 }
 
 .ipod-thumbnail {
@@ -113,10 +120,10 @@ header nav a:hover {
 }
 
 .ipod-thumbnail.is-dms-three {
-    /* Show the full poster, with its own blurred artwork filling the remaining screen space. */
+    /* Fine-tune only this landscape thumbnail inside the iPod screen. */
     object-fit: contain;
-    object-position: center 56%;
-    transform: translateY(2%) scale(0.96);
+    object-position: center;
+    transform: translate(3%, 8%) scale(1.08);
 }
 
 .ipod-thumbnail.is-swiping-out-left {
@@ -195,6 +202,157 @@ header nav a:hover {
     outline-offset: 0.12rem;
 }
 
+.project-details {
+    position: absolute;
+    z-index: 4;
+    top: 28.5%;
+    left: 58.5%;
+    width: min(34vw, 28rem);
+    color: #000000;
+    font-family: 'Geist Pixel', sans-serif !important;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(0.75rem);
+    transition: opacity 0.28s ease, transform 0.28s ease, visibility 0s linear 0.28s;
+}
+
+.project-details.is-visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateY(0);
+    transition-delay: 0s;
+}
+
+.project-details-video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    background: #000000;
+    object-fit: cover;
+}
+
+.project-details-link {
+    display: block;
+    line-height: 0;
+    cursor: pointer;
+}
+
+.project-details h1,
+.project-details p {
+    margin: 0;
+    font-family: 'Geist Pixel', sans-serif !important;
+    font-weight: 400;
+}
+
+.project-details h1 {
+    margin-top: 1.7rem;
+    font-size: 72px;
+    line-height: 0.95;
+    white-space: nowrap;
+}
+
+.project-details-category {
+    margin-top: 2rem !important;
+    font-size: 36px;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.project-details-description {
+    margin-top: 1rem !important;
+    font-size: 21px;
+    line-height: 1.05;
+}
+
+.project-demo-arrow {
+    position: fixed;
+    right: 4%;
+    bottom: calc(5% + 2rem);
+    z-index: 4;
+    display: block;
+    width: clamp(3rem, 5vw, 5.5rem);
+    height: auto;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    animation: project-demo-arrow-attention 6s ease-in-out infinite;
+    transition: opacity 0.28s ease;
+}
+
+.three-d-stage.has-uncle-minh-details .project-demo-arrow--uncle-minh,
+.three-d-stage.has-dms-three-details .project-demo-arrow--vj,
+.three-d-stage.has-spec-two-details .project-demo-arrow--spec-two {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.project-demo-arrow img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.project-explore-hint {
+    position: absolute;
+    top: 18%;
+    left: 66%;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    margin: 0;
+    color: #000000;
+    font-family: 'Geist Pixel', sans-serif !important;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.2;
+    white-space: nowrap;
+    transform: translateX(-50%);
+}
+
+.project-explore-control {
+    display: block;
+    width: 2.25rem;
+    height: auto;
+    fill: currentColor;
+}
+
+.project-explore-text {
+    position: relative;
+    display: inline-block;
+}
+
+.project-explore-text::after {
+    position: absolute;
+    inset: 0;
+    content: attr(data-text);
+    background: linear-gradient(110deg, transparent 34%, rgba(255, 255, 255, 0.95) 50%, transparent 66%);
+    background-repeat: no-repeat;
+    background-size: 180% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: project-explore-hint-light-sweep 4.5s linear infinite;
+}
+
+@keyframes project-explore-hint-light-sweep {
+    from { background-position: 150% 0; }
+    to { background-position: -150% 0; }
+}
+
+@keyframes project-demo-arrow-attention {
+    0%, 74%, 100% { transform: translateY(0); }
+    80% { transform: translateY(-6px); }
+    86% { transform: translateY(0); }
+    91% { transform: translateY(-3px); }
+}
+
 @keyframes ipod-rise {
     from {
         transform: translate(-50%, 110%);
@@ -252,6 +410,32 @@ header nav a:hover {
         left: 46%;
     }
 
+    .three-d-stage.has-project-details .ipod-scene {
+        left: 24%;
+    }
+
+    .project-details {
+        top: 5.5rem;
+        right: 1rem;
+        left: auto;
+        width: min(45vw, 15rem);
+    }
+
+    .project-details h1 {
+        margin-top: 0.8rem;
+        font-size: clamp(2rem, 8vw, 4.5rem);
+    }
+
+    .project-details-category {
+        margin-top: 1rem !important;
+        font-size: clamp(1rem, 4vw, 2.25rem);
+    }
+
+    .project-details-description {
+        margin-top: 0.65rem !important;
+        font-size: clamp(0.75rem, 2.5vw, 1.3125rem);
+    }
+
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -264,6 +448,10 @@ header nav a:hover {
     .ipod-thumbnail.is-swiping-in-right,
     .ipod-thumbnail.is-swiping-out-right,
     .ipod-thumbnail.is-swiping-in-left {
+        animation: none;
+    }
+
+    .project-demo-arrow {
         animation: none;
     }
 }

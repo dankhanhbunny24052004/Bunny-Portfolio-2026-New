@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Nâu — a smart grocery website by Bunny.">
+    <title>Nâu — Bunny</title>
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/uncleminh.css">
+    <script src="js/page-transition.js" defer></script>
+</head>
+
+<body class="uncle-page">
+    <header class="site-header">
+        <a class="site-logo" href="index.html" aria-label="Go to Home page"><img src="assets/images/logo.png" alt=""></a>
+        <button id="hamburger-menu" type="button" aria-label="Toggle navigation" aria-expanded="false">
+            <img src="assets/images/back.png" alt="">
+        </button>
+        <nav>
+            <ul id="nav-menu">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="works.html">WORKS</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="project-archive">
+        <aside class="archive-sidebar" aria-label="Project notes">
+            <section class="archive-sidebar-section" aria-label="Nâu overview">
+                <p class="archive-sidebar-heading">1. “Nâu” — A smart grocery website</p>
+                <p><em>AI Assisted Web Platform</em>, 2026<br>Individual project</p>
+                <p>A smart grocery website designed to help users plan meals, find the ingredients they need, and make better use of leftover food at home.</p>
+                <p class="archive-sidebar-heading">Overview:</p>
+                <p><strong>“Nâu” — A Smart Grocery Website</strong> is an interactive grocery platform designed to simplify meal planning and ingredient shopping. The website helps users discover recipes from ingredients they already have, generate shopping lists based on selected meals and serving sizes, and revisit previous searches for easier planning.</p>
+            </section>
+        </aside>
+
+        <section class="archive-content" aria-label="Nâu project archive">
+            <header class="archive-heading">AI ASSISTED WEB PLATFORM / “NÂU” — A SMART GROCERY WEBSITE</header>
+
+            <article class="archive-entry">
+                <video class="archive-media" autoplay muted loop playsinline preload="metadata" poster="assets/images/dms4 thumbnail.png">
+                    <source src="assets/media/video/nau clip browser.mp4" type="video/mp4">
+                </video>
+                <div class="archive-entry-meta">
+                    <p class="archive-index archive-entry-heading">CONCEPT:</p>
+                    <div class="archive-entry-copy">
+                        <p>The project was developed around the idea of making grocery shopping more intelligent, efficient, and less wasteful. By connecting recipe discovery, ingredient scanning, automatic quantity calculation, and cart generation in one experience, “Nâu” supports users in making better use of available food, avoiding overbuying, and planning meals with less effort.</p>
+                    </div>
+                </div>
+            </article>
+
+            <section class="nau-highlights" aria-label="Nâu project highlights">
+                <p class="archive-index archive-entry-heading">HIGHLIGHTS:</p>
+                <p>The website combines two online-grocery functions to create a more engaging user experience.</p>
+            </section>
+
+            <article class="archive-entry nau-function-entry">
+                <video class="archive-media nau-function-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="assets/media/video/function 1.mp4" type="video/mp4">
+                </video>
+                <div class="archive-entry-meta archive-entry-meta-breakdown">
+                    <p class="archive-index archive-entry-heading">FUNCTION 1 — MEAL-BASED INGREDIENT PLANNING &amp; AUTOMATIC CART GENERATION</p>
+                    <div class="archive-entry-copy">
+                        <p>Users enter the meal they want to cook, serving size, and dietary needs. The system then calculates the required ingredients and adds the appropriate quantities to the cart automatically.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="archive-entry nau-function-entry">
+                <video class="archive-media nau-function-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="assets/media/video/function 2.mp4" type="video/mp4">
+                </video>
+                <div class="archive-entry-meta archive-entry-meta-breakdown">
+                    <p class="archive-index archive-entry-heading">FUNCTION 2 — SCAN INGREDIENTS FOR MEAL SUGGESTIONS</p>
+                    <div class="archive-entry-copy">
+                        <p>Users can scan the ingredients they already have, and the system suggests suitable recipes based on those ingredients, helping them make better use of available food and reduce waste.</p>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <aside class="archive-sidebar archive-sidebar-right">
+            <section class="archive-sidebar-section">
+                <p class="archive-sidebar-heading">PROJECT INFO</p>
+                <p><span class="archive-sidebar-heading">Role</span><br>Concept and Visual design</p>
+                <p><span class="archive-sidebar-heading">Year</span><br>2026</p>
+            </section>
+            <section class="archive-sidebar-section archive-placeholder" aria-label="Credits">
+                <p class="archive-sidebar-heading">CREDITS</p>
+                <p>Special thanks to ‘Ma Tau Thanh Cong’ team</p>
+                <p>Tran Thi Thuy Dung — Lead Developer</p>
+                <p>Dang Lan Anh — UI UX design</p>
+                <p>Le Ba Khoi — 3D character modeling and animation</p>
+            </section>
+        </aside>
+    </main>
+
+    <a class="uncle-back-arrow" href="coding.html?project=nau" aria-label="Return to Web Development projects">
+        <img src="assets/images/narrow.png" alt="">
+    </a>
+
+    <script>
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+        const hamburgerIcon = hamburgerMenu.querySelector('img');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = navMenu.querySelectorAll('a');
+
+        const closeMenu = () => {
+            navMenu.classList.remove('show');
+            hamburgerMenu.classList.remove('active');
+            hamburgerMenu.setAttribute('aria-expanded', 'false');
+            hamburgerIcon.src = 'assets/images/back.png';
+            document.body.style.overflow = '';
+        };
+
+        hamburgerMenu.addEventListener('click', () => {
+            const isOpen = navMenu.classList.toggle('show');
+            hamburgerMenu.classList.toggle('active', isOpen);
+            hamburgerMenu.setAttribute('aria-expanded', String(isOpen));
+            hamburgerIcon.src = isOpen ? 'assets/images/unlock.png' : 'assets/images/back.png';
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        });
+
+        navLinks.forEach((link) => link.addEventListener('click', closeMenu));
+    </script>
+</body>
+
+</html>

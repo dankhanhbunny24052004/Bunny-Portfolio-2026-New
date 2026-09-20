@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Linh Dị VINA — a visual jockey project by Bunny.">
+    <title>Linh Dị VINA — Bunny</title>
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/uncleminh.css">
+    <script src="js/page-transition.js" defer></script>
+</head>
+
+<body class="uncle-page vj-page">
+    <header class="site-header">
+        <a class="site-logo" href="index.html" aria-label="Go to Home page"><img src="assets/images/logo.png" alt=""></a>
+        <button id="hamburger-menu" type="button" aria-label="Toggle navigation" aria-expanded="false">
+            <img src="assets/images/back.png" alt="">
+        </button>
+        <nav>
+            <ul id="nav-menu">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="works.html">WORKS</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="project-archive">
+        <aside class="archive-sidebar" aria-label="Project notes">
+            <section class="archive-sidebar-section" aria-label="Linh Dị VINA overview">
+                <p class="archive-sidebar-heading">1. Linh Dị VINA</p>
+                <p><em>Visual Jockey</em>, 2026<br>Collaborative project</p>
+                <p>A collaborative VJ project reimagining Vietnamese urban legends through a water-based street world inspired by Cần Thơ.</p>
+                <p class="archive-sidebar-heading">Overview:</p>
+                <p>A collaborative VJ project reimagining Vietnamese urban legends through a water-based street world inspired by Cần Thơ and the Mekong Delta.</p>
+            </section>
+        </aside>
+
+        <section class="archive-content" aria-label="Linh Dị VINA project archive">
+            <header class="archive-heading">VISUAL JOCKEY / LINH DỊ VINA</header>
+
+            <article class="archive-entry">
+                <video class="archive-media" autoplay muted loop playsinline preload="metadata">
+                    <source src="assets/media/video/demo vj.mp4" type="video/mp4">
+                </video>
+                <div class="archive-entry-meta">
+                    <p class="archive-index archive-entry-heading">CONCEPT:</p>
+                    <div class="archive-entry-copy">
+                        <p>Blending uncanny folklore, childhood memory, joss paper imagery, and river landscapes, the project creates a nostalgic yet unfamiliar visual world that feels distinctly “Vina.”</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="archive-entry">
+                <div class="archive-entry-meta archive-entry-meta-breakdown">
+                    <p class="archive-index archive-entry-heading">BREAKDOWN VISUAL JOCKEY</p>
+                </div>
+                <div class="vj-scene-grid" aria-label="Visual Jockey scene breakdown">
+                    <div class="vj-scene-row">
+                        <video class="vj-scene" autoplay muted loop playsinline preload="metadata"><source src="assets/media/video/scene 1.mp4" type="video/mp4"></video>
+                        <video class="vj-scene" autoplay muted loop playsinline preload="metadata"><source src="assets/media/video/scene 2.mp4" type="video/mp4"></video>
+                        <video class="vj-scene" autoplay muted loop playsinline preload="metadata"><source src="assets/media/video/scene 3.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="vj-scene-row">
+                        <video class="vj-scene" autoplay muted loop playsinline preload="metadata"><source src="assets/media/video/scene 4.mp4" type="video/mp4"></video>
+                        <video class="vj-scene" autoplay muted loop playsinline preload="metadata"><source src="assets/media/video/scene 5.mp4" type="video/mp4"></video>
+                        <video class="vj-scene" autoplay muted loop playsinline preload="metadata"><source src="assets/media/video/scene 6.mp4" type="video/mp4"></video>
+                    </div>
+                    <div class="vj-scene-row">
+                        <video class="vj-scene" autoplay muted loop playsinline preload="metadata"><source src="assets/media/video/scene 7.mp4" type="video/mp4"></video>
+                        <video class="vj-scene" autoplay muted loop playsinline preload="metadata"><source src="assets/media/video/scene 8.mp4" type="video/mp4"></video>
+                        <video class="vj-scene" autoplay muted loop playsinline preload="metadata"><source src="assets/media/video/scene 9.mp4" type="video/mp4"></video>
+                    </div>
+                </div>
+            </article>
+        </section>
+
+        <aside class="archive-sidebar archive-sidebar-right">
+            <section class="archive-sidebar-section">
+                <p class="archive-sidebar-heading">PROJECT INFO</p>
+                <p><span class="archive-sidebar-heading">Role</span><br>Blender, Substance Painter, TouchDesigner, Slide, Study Trip</p>
+                <p><span class="archive-sidebar-heading">Year</span><br>2026</p>
+            </section>
+
+            <section class="archive-sidebar-section archive-placeholder" aria-label="Project credits">
+                <p class="archive-sidebar-heading">CREDITS</p>
+                <p>Special thanks to Namo Amitabha Buddha</p>
+                <p>Tran Thi Thuy Dung<br>2D, TouchDesigner, Study Trip</p>
+                <p>Nguyen Nghia Dung<br>Blender, Substance Painter, Typo, TouchDesigner</p>
+                <p>Dang Lan Anh<br>Blender, TouchDesigner, Study Trip</p>
+                <p>Do Minh Anh<br>Blender, Substance Painter</p>
+            </section>
+        </aside>
+    </main>
+
+    <a class="uncle-back-arrow" href="3D.html?project=vj" aria-label="Return to 3D projects">
+        <img src="assets/images/narrow.png" alt="">
+    </a>
+
+    <script>
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+        const hamburgerIcon = hamburgerMenu.querySelector('img');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = navMenu.querySelectorAll('a');
+
+        const closeMenu = () => {
+            navMenu.classList.remove('show');
+            hamburgerMenu.classList.remove('active');
+            hamburgerMenu.setAttribute('aria-expanded', 'false');
+            hamburgerIcon.src = 'assets/images/back.png';
+            document.body.style.overflow = '';
+        };
+
+        hamburgerMenu.addEventListener('click', () => {
+            const isOpen = navMenu.classList.toggle('show');
+            hamburgerMenu.classList.toggle('active', isOpen);
+            hamburgerMenu.setAttribute('aria-expanded', String(isOpen));
+            hamburgerIcon.src = isOpen ? 'assets/images/unlock.png' : 'assets/images/back.png';
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        });
+
+        navLinks.forEach((link) => link.addEventListener('click', closeMenu));
+    </script>
+</body>
+
+</html>

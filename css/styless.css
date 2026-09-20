@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'Bahnschrift Regular';
-    src: url('../assets/source/Bahnschrift Regular.otf') format('opentype');
+    font-family: 'Geist Pixel';
+    src: url('../assets/source/GeistPixel-Regular-VariableFont_ELSH.ttf') format('truetype');
 }
 
 body {
@@ -253,7 +253,7 @@ header nav ul li {
 }
 
 header nav ul li a {
-    font-family: 'Bahnschrift Regular', sans-serif;
+    font-family: 'Geist Pixel', sans-serif;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -359,7 +359,7 @@ header nav ul li a:hover {
 }
 
 .work-text {
-    font-family: 'Bahnschrift Regular', sans-serif;
+    font-family: 'Geist Pixel', sans-serif;
     font-size: 1.5rem;                            
     text-align: center;                              
     align-self: end;                             
@@ -370,7 +370,7 @@ header nav ul li a:hover {
 .work-text {
     opacity: 0;
     transition: opacity 0.3s ease;
-    font-family: 'Bahnschrift Regular', sans-serif;
+    font-family: 'Geist Pixel', sans-serif;
     font-size: 1.5rem;
     color: white;
     text-align: center;
@@ -544,7 +544,7 @@ header nav ul li a:hover {
         }
         .work-text {
             position: relative;
-    font-family: 'Bahnschrift Regular', sans-serif;
+    font-family: 'Geist Pixel', sans-serif;
             font-size: 1.5rem;
             color: white; 
             text-align: center;
@@ -860,7 +860,7 @@ height: auto;
 }
 .work-text {
     position: relative;
-    font-family: 'Bahnschrift Regular', sans-serif;
+    font-family: 'Geist Pixel', sans-serif;
     font-size: 1rem;
     color: white; 
     text-align: center;

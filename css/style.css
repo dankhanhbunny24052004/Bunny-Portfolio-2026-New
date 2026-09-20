@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'Bahnschrift Regular';
-    src: url('../assets/source/Bahnschrift Regular.otf') format('opentype');
+    font-family: 'Geist Pixel';
+    src: url('../assets/source/GeistPixel-Regular-VariableFont_ELSH.ttf') format('truetype');
 }
 
 @font-face {
@@ -1067,7 +1067,7 @@ header nav ul li a:hover {
 .marquee span {
     font-size: 24px;
     color: #fff;
-    font-family: 'Bahnschrift Regular', sans-serif;
+    font-family: 'Geist Pixel', sans-serif;
 }
 .pupil {
     animation: movePupil 2s ease-in-out infinite; 
@@ -1205,7 +1205,7 @@ height: auto;
   .marquee span {
       font-size: 0.8rem; 
       color: white;
-      font-family: 'Bahnschrift Regular', sans-serif;
+      font-family: 'Geist Pixel', sans-serif;
   }
   .pupil {
     animation: movePupil 2s ease-in-out infinite; 

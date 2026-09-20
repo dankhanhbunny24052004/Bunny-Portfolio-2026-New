@@ -29,6 +29,15 @@
 
     <main class="three-d-stage" aria-label="3D projects">
         <div class="ipod-scene">
+            <p class="project-explore-hint">
+                <span class="project-explore-text" data-text="click">click</span>
+                <svg class="project-explore-control" viewBox="817 903 49 25" aria-hidden="true" focusable="false">
+                    <polygon points="837.8 915.5 817.7 903.9 817.7 927.1 837.8 915.5" />
+                    <polygon points="857.9 915.3 837.8 903.6 837.8 926.9 857.9 915.3" />
+                    <rect x="857.9" y="904.1" width="7.9" height="22.8" />
+                </svg>
+                <span class="project-explore-text" data-text="to explore my projects.">to explore my projects.</span>
+            </p>
             <div class="ipod-screen-frame">
                 <img id="ipod-thumbnail" class="ipod-thumbnail" src="assets/images/thumbnail dms 3 a1.png"
                     alt="Thumbnail for Uncle Minh project">
@@ -37,6 +46,45 @@
             <button id="ipod-previous" class="ipod-previous" type="button" aria-label="Show previous project thumbnail"></button>
             <button id="ipod-next" class="ipod-next" type="button" aria-label="Show next project thumbnail"></button>
         </div>
+        <aside id="uncle-minh-details" class="project-details" aria-hidden="true">
+            <a class="project-details-link" href="uncleminh.html" aria-label="Open Undercover vendor project">
+                <video class="project-details-video" muted loop playsinline preload="metadata">
+                    <source src="assets/media/video/uncle minh.mp4" type="video/mp4">
+                </video>
+            </a>
+            <h1>Undercover vendor</h1>
+            <p class="project-details-category">3D Character Design 2025</p>
+            <p class="project-details-description">An antihero character project exploring<br>an undercover police officer disguised<br>as a street fishball vendor.</p>
+        </aside>
+        <aside id="dms-three-details" class="project-details" aria-hidden="true">
+            <a class="project-details-link" href="vj.html" aria-label="Open Linh Dị VINA project">
+                <video class="project-details-video" muted loop playsinline preload="metadata">
+                    <source src="assets/images/demo vj.mp4" type="video/mp4">
+                </video>
+            </a>
+            <h1>Linh Dị Vina</h1>
+            <p class="project-details-category">Visual Jockey · 2026</p>
+            <p class="project-details-description">A collaborative VJ project reimagining Vietnamese urban legends through a water-based street world inspired by Cần Thơ.</p>
+        </aside>
+        <aside id="spec-two-details" class="project-details" aria-hidden="true">
+            <a class="project-details-link" href="spec2.html" aria-label="Open JESTER project">
+                <video class="project-details-video" muted loop playsinline preload="metadata">
+                    <source src="assets/media/video/spec2.mp4" type="video/mp4">
+                </video>
+            </a>
+            <h1>Jester</h1>
+            <p class="project-details-category">Mixed-Media Stop-Motion · 2026</p>
+            <p class="project-details-description">A playful mixed-media stop-motion animation about a toy searching for acceptance and belonging, celebrating the idea of being valued for one’s authentic self.</p>
+        </aside>
+        <a class="project-demo-arrow project-demo-arrow--uncle-minh" href="uncleminh.html" aria-label="Open Undercover vendor project">
+            <img src="assets/images/narrow blue.png" alt="">
+        </a>
+        <a class="project-demo-arrow project-demo-arrow--vj" href="vj.html" aria-label="Open Linh Dị VINA project">
+            <img src="assets/images/narrow blue.png" alt="">
+        </a>
+        <a class="project-demo-arrow project-demo-arrow--spec-two" href="spec2.html" aria-label="Open JESTER project">
+            <img src="assets/images/narrow blue.png" alt="">
+        </a>
     </main>
 
     <script>
@@ -75,16 +123,70 @@
         ];
         const ipodThumbnail = document.getElementById('ipod-thumbnail');
         const ipodScreenFrame = document.querySelector('.ipod-screen-frame');
+        const threeDStage = document.querySelector('.three-d-stage');
         const ipodPrevious = document.getElementById('ipod-previous');
         const ipodNext = document.getElementById('ipod-next');
-        let activeThumbnail = 0;
+        const uncleMinhDetails = document.getElementById('uncle-minh-details');
+        const uncleMinhVideo = uncleMinhDetails.querySelector('video');
+        const dmsThreeDetails = document.getElementById('dms-three-details');
+        const dmsThreeVideo = dmsThreeDetails.querySelector('video');
+        const specTwoDetails = document.getElementById('spec-two-details');
+        const specTwoVideo = specTwoDetails.querySelector('video');
+        const projectIndexByReturnKey = {
+            'uncle-minh': 0,
+            vj: 1,
+            spec2: 2
+        };
+        const requestedReturnProject = new URLSearchParams(window.location.search).get('project');
+        let activeThumbnail = projectIndexByReturnKey[requestedReturnProject] ?? 0;
+        if (requestedReturnProject in projectIndexByReturnKey) {
+            ipodThumbnail.src = projectThumbnails[activeThumbnail];
+        }
         let isChangingThumbnail = false;
 
         const updateThumbnailPosition = () => {
-            ipodThumbnail.classList.toggle('is-spec-two', projectThumbnails[activeThumbnail] === 'assets/images/spec 2.png');
+            const isSpecTwo = projectThumbnails[activeThumbnail] === 'assets/images/spec 2.png';
+            ipodThumbnail.classList.toggle('is-spec-two', isSpecTwo);
             const isDmsThree = projectThumbnails[activeThumbnail] === 'assets/images/dms3.png';
             ipodThumbnail.classList.toggle('is-dms-three', isDmsThree);
             ipodScreenFrame.classList.toggle('is-dms-three', isDmsThree);
+
+            const showUncleMinhDetails = projectThumbnails[activeThumbnail] === 'assets/images/thumbnail dms 3 a1.png';
+            const showDmsThreeDetails = isDmsThree;
+            const showSpecTwoDetails = isSpecTwo;
+            threeDStage.classList.toggle('has-project-details', showUncleMinhDetails || showDmsThreeDetails || showSpecTwoDetails);
+            threeDStage.classList.toggle('has-uncle-minh-details', showUncleMinhDetails);
+            threeDStage.classList.toggle('has-dms-three-details', showDmsThreeDetails);
+            threeDStage.classList.toggle('has-spec-two-details', showSpecTwoDetails);
+            uncleMinhDetails.classList.toggle('is-visible', showUncleMinhDetails);
+            uncleMinhDetails.setAttribute('aria-hidden', String(!showUncleMinhDetails));
+            dmsThreeDetails.classList.toggle('is-visible', showDmsThreeDetails);
+            dmsThreeDetails.setAttribute('aria-hidden', String(!showDmsThreeDetails));
+            specTwoDetails.classList.toggle('is-visible', showSpecTwoDetails);
+            specTwoDetails.setAttribute('aria-hidden', String(!showSpecTwoDetails));
+            if (showUncleMinhDetails) {
+                uncleMinhVideo.play().catch(() => {});
+            } else {
+                uncleMinhVideo.pause();
+            }
+            if (showDmsThreeDetails) {
+                dmsThreeVideo.play().catch(() => {});
+            } else {
+                dmsThreeVideo.pause();
+            }
+            if (showSpecTwoDetails) {
+                const playSpecTwoFromFiveSeconds = () => {
+                    specTwoVideo.currentTime = 5;
+                    specTwoVideo.play().catch(() => {});
+                };
+                if (specTwoVideo.readyState >= HTMLMediaElement.HAVE_METADATA) {
+                    playSpecTwoFromFiveSeconds();
+                } else {
+                    specTwoVideo.addEventListener('loadedmetadata', playSpecTwoFromFiveSeconds, { once: true });
+                }
+            } else {
+                specTwoVideo.pause();
+            }
         };
 
         const changeThumbnail = (direction) => {
@@ -109,6 +211,7 @@
 
         ipodNext.addEventListener('click', () => changeThumbnail(1));
         ipodPrevious.addEventListener('click', () => changeThumbnail(-1));
+        updateThumbnailPosition();
     </script>
 </body>
 

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Let’s be a Sành ăn Saigonese — an interactive coding project by Bunny.">
+    <title>Let’s be a Sành ăn Saigonese — Bunny</title>
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/uncleminh.css">
+    <script src="js/page-transition.js" defer></script>
+</head>
+
+<body class="uncle-page">
+    <header class="site-header">
+        <a class="site-logo" href="index.html" aria-label="Go to Home page"><img src="assets/images/logo.png" alt=""></a>
+        <button id="hamburger-menu" type="button" aria-label="Toggle navigation" aria-expanded="false">
+            <img src="assets/images/back.png" alt="">
+        </button>
+        <nav>
+            <ul id="nav-menu">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="works.html">WORKS</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="project-archive">
+        <aside class="archive-sidebar" aria-label="Project notes">
+            <section class="archive-sidebar-section" aria-label="Saigonese overview">
+                <p class="archive-sidebar-heading">1. Let’s be a “sành ăn” Saigonese</p>
+                <p><em>Interactive Coding Project</em>, 2026<br>Individual project</p>
+                <p>A playful food-discovery website helping users explore Saigon’s cuisine through random recommendations, from popular local dishes to hidden neighborhood spots.</p>
+                <p class="archive-sidebar-heading">Overview:</p>
+                <p><strong>Let’s be a “sành ăn” Saigonese</strong> turns exploring local food into a playful digital experience, guiding users through dishes, neighbourhood finds, and everyday Saigon eating culture.</p>
+            </section>
+        </aside>
+
+        <section class="archive-content" aria-label="Saigonese project archive">
+            <header class="archive-heading">INTERACTIVE CODING / LET’S BE A “SÀNH ĂN” SAIGONESE</header>
+
+            <article class="archive-entry">
+                <video class="archive-media saigonese-main-video" autoplay muted loop playsinline preload="metadata" poster="assets/images/saigonese.png">
+                    <source src="assets/media/video/saigonese.mp4" type="video/mp4">
+                </video>
+                <div class="archive-entry-meta">
+                    <p class="archive-index archive-entry-heading">CONCEPT:</p>
+                    <div class="archive-entry-copy">
+                        <p>Inspired by the joy of sharing a good meal, the website makes food discovery feel spontaneous, colourful, and rooted in the neighbourhoods of Saigon.</p>
+                    </div>
+                </div>
+            </article>
+
+            <section class="saigonese-test-grid" aria-label="Saigonese project test screens">
+                <img src="assets/images/dms 4 test 1.png" alt="Saigonese test screen 1">
+                <img src="assets/images/dms4 test 2.png" alt="Saigonese test screen 2">
+                <img src="assets/images/dms4 test 3.png" alt="Saigonese test screen 3">
+                <img src="assets/images/dms 4 test 4.png" alt="Saigonese test screen 4">
+                <img src="assets/images/dms4 test 5.png" alt="Saigonese test screen 5">
+                <img src="assets/images/dsm4 test 6.png" alt="Saigonese test screen 6">
+            </section>
+
+            <section class="saigonese-highlights" aria-label="Saigonese project highlights">
+                <p class="archive-index archive-entry-heading">HIGHLIGHTS:</p>
+                <ol>
+                    <li><strong>Location-aware food discovery.</strong> With the user’s permission, the website uses their current location to suggest nearby places serving the dish they land on.</li>
+                    <li><strong>Social reviews in one place.</strong> Users can discover other people’s reviews and personal takes on each dish through social-media content.</li>
+                    <li><strong>A playful streak to return for.</strong> The streak system makes daily food discovery feel rewarding and encourages users to keep coming back.</li>
+                </ol>
+            </section>
+        </section>
+
+        <aside class="archive-sidebar archive-sidebar-right">
+            <section class="archive-sidebar-section">
+                <p class="archive-sidebar-heading">PROJECT INFO</p>
+                <p><span class="archive-sidebar-heading">Role</span><br>Illustration<br>Coding<br>3D modeling</p>
+                <p><span class="archive-sidebar-heading">Year</span><br>2026</p>
+            </section>
+            <section class="archive-sidebar-section archive-placeholder" aria-label="Credits placeholder"></section>
+        </aside>
+    </main>
+
+    <a class="uncle-back-arrow" href="coding.html?project=saigonese" aria-label="Return to Web Development projects">
+        <img src="assets/images/narrow.png" alt="">
+    </a>
+
+    <script>
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+        const hamburgerIcon = hamburgerMenu.querySelector('img');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = navMenu.querySelectorAll('a');
+
+        const closeMenu = () => {
+            navMenu.classList.remove('show');
+            hamburgerMenu.classList.remove('active');
+            hamburgerMenu.setAttribute('aria-expanded', 'false');
+            hamburgerIcon.src = 'assets/images/back.png';
+            document.body.style.overflow = '';
+        };
+
+        hamburgerMenu.addEventListener('click', () => {
+            const isOpen = navMenu.classList.toggle('show');
+            hamburgerMenu.classList.toggle('active', isOpen);
+            hamburgerMenu.setAttribute('aria-expanded', String(isOpen));
+            hamburgerIcon.src = isOpen ? 'assets/images/unlock.png' : 'assets/images/back.png';
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        });
+
+        navLinks.forEach((link) => link.addEventListener('click', closeMenu));
+    </script>
+</body>
+
+</html>

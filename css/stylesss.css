@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'Bahnschrift Regular';
-    src: url('../assets/source/Bahnschrift Regular.otf') format('opentype');
+    font-family: 'Geist Pixel';
+    src: url('../assets/source/GeistPixel-Regular-VariableFont_ELSH.ttf') format('truetype');
 }
 
 body {
@@ -67,7 +67,7 @@ header nav ul li {
 }
 
 header nav ul li a {
-    font-family: 'Bahnschrift Regular', sans-serif;
+    font-family: 'Geist Pixel', sans-serif;
     display: inline-flex;
     align-items: center;
     justify-content: center;

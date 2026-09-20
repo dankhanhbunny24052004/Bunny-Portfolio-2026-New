@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="JESTER — a mixed-media stop-motion project by Bunny.">
+    <title>JESTER — Bunny</title>
+    <link rel="stylesheet" href="css/fonts.css">
+    <link rel="stylesheet" href="css/uncleminh.css">
+    <script src="js/page-transition.js" defer></script>
+</head>
+
+<body class="uncle-page spec-page">
+    <header class="site-header">
+        <a class="site-logo" href="index.html" aria-label="Go to Home page"><img src="assets/images/logo.png" alt=""></a>
+        <button id="hamburger-menu" type="button" aria-label="Toggle navigation" aria-expanded="false">
+            <img src="assets/images/back.png" alt="">
+        </button>
+        <nav>
+            <ul id="nav-menu">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="about.html">ABOUT</a></li>
+                <li><a href="works.html">WORKS</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="project-archive">
+        <aside class="archive-sidebar" aria-label="Project notes">
+            <section class="archive-sidebar-section" aria-label="JESTER overview">
+                <p class="archive-sidebar-heading">1. JESTER</p>
+                <p><em>Mixed-Media Stop-Motion</em>, 2026</p>
+                <p>A playful mixed-media stop-motion animation about a toy searching for acceptance and belonging, celebrating the idea of being valued for one’s authentic self.</p>
+                <p class="archive-sidebar-heading">Overview:</p>
+                <p><strong>Jester</strong> is a mixed-media stop-motion animation about a toy who continues performing in hopes of being chosen, only to remain unnoticed as the other toys gradually find new homes. Through an unexpected encounter with someone who appreciates his uniqueness, Jester finally experiences the acceptance and belonging he has been searching for.</p>
+            </section>
+        </aside>
+
+        <section class="archive-content" aria-label="JESTER project archive">
+            <header class="archive-heading">MIXED-MEDIA STOP-MOTION / JESTER</header>
+
+            <article class="archive-entry">
+                <video class="archive-media spec-main-video" controls playsinline preload="metadata">
+                    <source src="assets/media/video/spec2.mp4" type="video/mp4">
+                </video>
+                <div class="archive-entry-meta">
+                    <p class="archive-index archive-entry-heading">CONCEPT:</p>
+                    <div class="archive-entry-copy">
+                        <p>The project explores belonging, individuality, and the desire to be accepted without changing oneself to fit in. By using a playful toy-store setting and handcrafted mixed-media visuals, the story contrasts Jester’s cheerful performances with his growing exhaustion, ultimately framing authenticity and being valued for one’s differences as the emotional core of the film.</p>
+                    </div>
+                </div>
+            </article>
+
+            <article class="archive-entry">
+                <div class="archive-entry-meta archive-entry-meta-breakdown">
+                    <p class="archive-index archive-entry-heading">BREAKDOWN STOP-MOTION</p>
+                </div>
+                <div class="spec-scene-grid" aria-label="JESTER scene breakdown">
+                    <video class="spec-scene" autoplay muted loop playsinline preload="metadata"><source src="assets/media/video/spec 2 scene 1.mp4" type="video/mp4"></video>
+                    <video class="spec-scene" autoplay muted loop playsinline preload="metadata"><source src="assets/media/video/spec 2 scene 2.mp4" type="video/mp4"></video>
+                    <video class="spec-scene" autoplay muted loop playsinline preload="metadata"><source src="assets/media/video/spec 2 scene 4.mp4" type="video/mp4"></video>
+                    <video class="spec-scene" autoplay muted loop playsinline preload="metadata"><source src="assets/media/video/spec 2 scene 4.mp4" type="video/mp4"></video>
+                    <video class="spec-scene" autoplay muted loop playsinline preload="metadata"><source src="assets/media/video/spec 2 scene 5.mp4" type="video/mp4"></video>
+                    <video class="spec-scene" autoplay muted loop playsinline preload="metadata"><source src="assets/media/video/spec 2 scene 6.mp4" type="video/mp4"></video>
+                </div>
+                <video class="archive-media spec-bts-video" controls playsinline preload="metadata">
+                    <source src="assets/media/video/bts spec 2.mp4" type="video/mp4">
+                </video>
+            </article>
+        </section>
+
+        <aside class="archive-sidebar archive-sidebar-right">
+            <section class="archive-sidebar-section">
+                <p class="archive-sidebar-heading">PROJECT INFO</p>
+                <p><span class="archive-sidebar-heading">Role</span><br>3D Material &amp; Post-production Artist (sound editing, compose)</p>
+                <p><span class="archive-sidebar-heading">Year</span><br>2026</p>
+            </section>
+
+            <section class="archive-sidebar-section archive-placeholder" aria-label="Project credits">
+                <p class="archive-sidebar-heading">CREDITS</p>
+                <p>Special thanks to Tromvia team</p>
+                <p>Tran Thi Thuy Dung<br>Production Manager &amp; Lead Puppet Animator</p>
+                <p>Nguyen Phuong Linh<br>3D Environment &amp; Visual Development Artist</p>
+                <p>Nguyen Nghia Dung<br>Stop-motion Director &amp; Cinematographer</p>
+                <p>Dang Lan Anh<br>Technical Director</p>
+            </section>
+        </aside>
+    </main>
+
+    <a class="uncle-back-arrow" href="3D.html?project=spec2" aria-label="Return to 3D projects">
+        <img src="assets/images/narrow.png" alt="">
+    </a>
+
+    <script>
+        const hamburgerMenu = document.getElementById('hamburger-menu');
+        const hamburgerIcon = hamburgerMenu.querySelector('img');
+        const navMenu = document.getElementById('nav-menu');
+        const navLinks = navMenu.querySelectorAll('a');
+
+        const closeMenu = () => {
+            navMenu.classList.remove('show');
+            hamburgerMenu.classList.remove('active');
+            hamburgerMenu.setAttribute('aria-expanded', 'false');
+            hamburgerIcon.src = 'assets/images/back.png';
+            document.body.style.overflow = '';
+        };
+
+        hamburgerMenu.addEventListener('click', () => {
+            const isOpen = navMenu.classList.toggle('show');
+            hamburgerMenu.classList.toggle('active', isOpen);
+            hamburgerMenu.setAttribute('aria-expanded', String(isOpen));
+            hamburgerIcon.src = isOpen ? 'assets/images/unlock.png' : 'assets/images/back.png';
+            document.body.style.overflow = isOpen ? 'hidden' : '';
+        });
+
+        navLinks.forEach((link) => link.addEventListener('click', closeMenu));
+    </script>
+</body>
+
+</html>
