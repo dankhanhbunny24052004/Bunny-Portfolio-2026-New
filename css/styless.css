@@ -3,6 +3,73 @@
     src: url('../assets/source/GeistPixel-Regular-VariableFont_ELSH.ttf') format('truetype');
 }
 
+/* The fixed footer stays behind the Works artwork and navigation. */
+:root {
+    --site-footer-height: 33.2926829vw;
+}
+
+.site-footer {
+    position: absolute;
+    right: 0;
+    top: 100dvh;
+    left: 0;
+    z-index: 50;
+    height: var(--site-footer-height);
+    overflow: hidden;
+    background: #da3693;
+    color: #ffffff;
+    pointer-events: none;
+}
+
+.site-footer-art {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+}
+
+.site-footer-contact {
+    position: absolute;
+    bottom: clamp(0.55rem, 1.2vw, 1.25rem);
+    left: clamp(0.75rem, 2vw, 2.25rem);
+    z-index: 1;
+    display: grid;
+    gap: 0.15rem;
+    margin: 0;
+    color: inherit;
+    font-family: 'Geist Pixel', sans-serif;
+    font-size: clamp(0.85rem, 1.35vw, 1.25rem);
+    font-style: normal;
+    line-height: 1.2;
+}
+
+.site-footer-contact a {
+    color: inherit;
+    text-decoration: none;
+    pointer-events: auto;
+}
+
+.site-footer-contact a:hover,
+.site-footer-contact a:focus-visible {
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+}
+
+/* The footer lives after the one-screen Works overview instead of overlaying it. */
+html,
+body {
+    min-height: calc(100dvh + var(--site-footer-height));
+    height: auto !important;
+    overflow-y: auto !important;
+}
+
+body {
+    position: relative;
+}
+
 body {
     font-family: 'Anonymous Pro', sans-serif;
     background: linear-gradient(to top, #00e0d0 0%, #87ece2 66.5054%, #ffffff 100%);
@@ -971,6 +1038,18 @@ height: auto;
         bottom: calc(10% + 2rem);
         width: 16vw;
     }
+}
+
+/* Keep the initial Works canvas intact and reveal the footer only below it. */
+html,
+body {
+    min-height: calc(100dvh + var(--site-footer-height));
+    height: auto !important;
+    overflow-y: auto !important;
+}
+
+body {
+    position: relative;
 }
 
     
