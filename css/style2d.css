@@ -25,6 +25,11 @@
     max-width: 30rem;
 }
 
+/* Keep the longer ECO-LINK category fully visible instead of clipping its year. */
+.two-d-project-details .project-details-category {
+    white-space: normal;
+}
+
 .ecolink-mockup {
     object-fit: cover;
 }

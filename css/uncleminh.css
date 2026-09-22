@@ -33,6 +33,10 @@ body.uncle-page.spec-page {
     background: linear-gradient(to top, #00e0d0 0%, #87ece2 33.4946%, #ffffff 100%);
 }
 
+body.uncle-page.eco-page {
+    background: linear-gradient(to top, #00e0d0 0%, #87ece2 66.5054%, #ffffff 100%);
+}
+
 .uncle-page,
 .uncle-page * {
     font-family: 'Geist Pixel', sans-serif !important;
@@ -431,6 +435,81 @@ body.uncle-page.spec-page {
     padding-top: 1rem;
 }
 
+.eco-intro-slide {
+    display: block;
+    width: 100%;
+    margin-top: 1rem;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.eco-intro-copy {
+    margin-top: 1rem;
+    font-size: 13px;
+    line-height: 1.25;
+}
+
+.eco-intro-copy p {
+    margin: 0;
+}
+
+.eco-intro-copy p + p {
+    margin-top: 0.65rem;
+}
+
+.eco-intro-lead {
+    color: #da3693;
+}
+
+.eco-research-slides {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.eco-research-slides img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.eco-research-copy {
+    margin-top: 1rem;
+    font-size: 13px;
+    line-height: 1.25;
+}
+
+.eco-research-copy p,
+.eco-research-copy ul {
+    margin: 0;
+}
+
+.eco-research-copy ul {
+    display: grid;
+    gap: 0.65rem;
+    margin-top: 0.65rem;
+    padding-left: 1.25rem;
+    color: #da3693;
+}
+
+.eco-research-slide-block {
+    margin-top: 1rem;
+    font-size: 13px;
+    line-height: 1.25;
+}
+
+.eco-research-slide-block img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.eco-research-slide-block p {
+    margin: 1rem 0 0;
+}
+
 .breakdown-placeholder-row {
     display: grid;
     gap: 1rem;
@@ -469,8 +548,14 @@ body.uncle-page.spec-page {
     margin: 0;
 }
 
-.eco-mockup figcaption {
-    margin-top: 0.45rem;
+.eco-phase-label {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.25;
+}
+
+.eco-mockup-credit {
+    margin: 1rem 0 0;
     font-size: 13px;
     line-height: 1.25;
 }
